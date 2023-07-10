@@ -1,5 +1,5 @@
 const express = require("express")
-const Data = require('../models/dataModel')
+const DexNumber = require('../models/dexNumberModel')
 
 
 const router = express.Router()
@@ -19,8 +19,8 @@ router.post('/', async (req, res) => {
     const {dexNumber} = req.body
 
     try {
-        const data = await Data.create({dexNumber})
-        res.status(200).json(data)
+        const dN = await DexNumber.create({dexNumber})
+        res.status(200).json(dN)
     }
 
     catch (error) {

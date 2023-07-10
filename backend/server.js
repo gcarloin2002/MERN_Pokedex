@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const express = require('express');
-const routeData = require('./routes/routeData')
+const routeData = require('./routes/routeDexNumbers')
 const mongoose = require('mongoose');
 
 const app = express()
