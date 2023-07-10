@@ -1,32 +1,21 @@
 const express = require("express")
-const DexNumber = require('../models/dexNumberModel')
+const {
+    getDexNumbers,
+    getDexNumber,
+    createDexNumber
+} = require('../controllers/dexNumberController')
 
 
 const router = express.Router()
 
 // GET all data entries
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all data'})
-})
+router.get('/', getDexNumbers)
 
 // GET a single data entry
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'GET single data entry'})
-})
+router.get('/:id', getDexNumber)
 
 // POST a data entry
-router.post('/', async (req, res) => {
-    const {dexNumber} = req.body
-
-    try {
-        const dN = await DexNumber.create({dexNumber})
-        res.status(200).json(dN)
-    }
-
-    catch (error) {
-        res.status(400).json({error: error.message})
-    }
-})
+router.post('/', createDexNumber)
 
 // DELETE a data entry
 router.delete('/:id', (req, res) => {
