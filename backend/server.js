@@ -1,9 +1,21 @@
 require('dotenv').config()
 
 const express = require('express');
+const routeData = require('./routes/routeData')
 const mongoose = require('mongoose');
 
 const app = express()
+
+// middleware
+app.use(express.json())
+app.use((req, res, next) => {
+    console.log(req.path, req.method)
+    next()
+})
+
+
+// routes
+app.use('/api/data', routeData)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
