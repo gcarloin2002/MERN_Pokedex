@@ -1,4 +1,5 @@
 const express = require("express")
+const Data = require('../models/dataModel')
 
 
 const router = express.Router()
@@ -14,8 +15,17 @@ router.get('/:id', (req, res) => {
 })
 
 // POST a data entry
-router.post('/', (req, res) => {
-    res.json({mssg: 'POST new data entry'})
+router.post('/', async (req, res) => {
+    const {dexNumber} = req.body
+
+    try {
+        const data = await Data.create({dexNumber})
+        res.status(200).json(data)
+    }
+
+    catch (error) {
+        res.status(400).json({error: error.message})
+    }
 })
 
 // DELETE a data entry
