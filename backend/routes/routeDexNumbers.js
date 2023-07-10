@@ -2,7 +2,9 @@ const express = require("express")
 const {
     getDexNumbers,
     getDexNumber,
-    createDexNumber
+    createDexNumber,
+    deleteDexNumber,
+    updateDexNumber
 } = require('../controllers/dexNumberController')
 
 
@@ -18,14 +20,10 @@ router.get('/:id', getDexNumber)
 router.post('/', createDexNumber)
 
 // DELETE a data entry
-router.delete('/:id', (req, res) => {
-    res.json({mssg: 'DELETE a data entry'})
-})
+router.delete('/:id', deleteDexNumber)
 
 // UPDATE a data entry
-router.patch('/:id', (req, res) => {
-    res.json({mssg: 'UPDATE a data entry'})
-})
+router.patch('/:id', updateDexNumber)
 
 
 

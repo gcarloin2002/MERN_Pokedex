@@ -46,10 +46,44 @@ const createDexNumber = async (req, res) => {
 
 
 // delete a dexNumber
+const deleteDexNumber = async (req, res) => {
+    const {id} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such dexNumber'})
+    }
+
+    const dNum = await DexNumber.findOneAndDelete({_id: id})
+
+    if (!dNum) {
+        return res.status(404).json({error: 'No such dexNumber'})
+    }
+
+    res.status(200).json(dNum)
+}
+
 
 
 
 // update a dexNumber
+const updateDexNumber = async (req, res) => {
+    const {id} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such dexNumber'})
+    }
+
+    const dNum = await DexNumber.findOneAndUpdate({_id: id}, {
+        ...req.body
+    })
+
+    if (!dNum) {
+        return res.status(404).json({error: 'No such dexNumber'})
+    }
+
+    res.status(200).json(dNum)
+}
+
 
 
 
@@ -58,5 +92,7 @@ const createDexNumber = async (req, res) => {
 module.exports = {
     getDexNumbers,
     getDexNumber,
-    createDexNumber
+    createDexNumber,
+    deleteDexNumber,
+    updateDexNumber
 }
