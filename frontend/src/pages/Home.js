@@ -12,12 +12,13 @@ const Home = () => {
         .then((response) => response.json())
         .then((json) => json.results)
         .then((result) => {
-            const n = ['Missingno']
+            const n = []
             for (let i = 0; i < result.length; i++){
                 n.push(result[i].name.charAt(0).toUpperCase() + result[i].name.slice(1))
             }
             setNames(n)
         })
+        .catch(error => console.log(error));
     }, [])
 
 
