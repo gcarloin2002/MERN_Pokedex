@@ -6,11 +6,14 @@ const DexButton = (props) => {
     const dexNumber = "#" + props.dexNumber
     const name = data.name
     const url = data.url 
+    const imageFilepath = props.imgSrc
+    console.log(imageFilepath)
     
     return (
-    <button key={props.key}>
+    <div className="DexButton" key={props.key}>
+        <img src={imageFilepath} alt={"unavailable"}/>
         {name + " " + dexNumber} 
-    </button>
+    </div>
     )
 }
 
