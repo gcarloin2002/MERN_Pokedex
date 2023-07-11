@@ -1,7 +1,7 @@
 import TestComponent from "../components/TestComponent"
 import ButtonCollection from "../components/ButtonCollection"
 import { useEffect, useState } from "react"
-import image from "../images/home/1.png"
+
 
 const Home = () => {
     // Array of every pokemon's data
@@ -26,7 +26,6 @@ const Home = () => {
     return (
         <div>
             <h2>Home</h2>
-            <img src={image}></img>
             <ButtonCollection pkmn={pokemon}/>
         </div>
     )
