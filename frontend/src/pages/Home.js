@@ -3,8 +3,8 @@ import ButtonCollection from "../components/ButtonCollection"
 import { useEffect, useState } from "react"
 
 const Home = () => {
-    // Array of every pokemon's name
-    const [names, setNames] = useState([]);
+    // Array of every pokemon's data
+    const [pokemon, setPokemon] = useState([]);
 
     // Fetches every Pokemon
     useEffect(() => {
@@ -12,11 +12,11 @@ const Home = () => {
         .then((response) => response.json())
         .then((json) => json.results)
         .then((result) => {
-            const n = []
+            const pkmn = []
             for (let i = 0; i < result.length; i++){
-                n.push(result[i].name.charAt(0).toUpperCase() + result[i].name.slice(1))
+                pkmn.push(result[i])
             }
-            setNames(n)
+            setPokemon(pkmn)
         })
         .catch(error => console.log(error));
     }, [])
@@ -25,7 +25,7 @@ const Home = () => {
     return (
         <div>
             <h2>Home</h2>
-            <ButtonCollection names={names}/>
+            <ButtonCollection pkmn={pokemon}/>
         </div>
     )
 }

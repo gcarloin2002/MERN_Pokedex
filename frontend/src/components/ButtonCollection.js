@@ -2,11 +2,12 @@ import DexButton from "./DexButton"
 import "./ButtonCollection.css"
 
 const ButtonCollection = (props) => {
-    const names = props.names
+    const pkmn = props.pkmn
+
     return (
         <div className="DexButtons">
-            {names.map((name, index) => (
-                <DexButton key={index} name={name} />
+            {pkmn.map((p, index) => (
+                <DexButton key={index} data={p}/>
             ))}
         </div>
     )
