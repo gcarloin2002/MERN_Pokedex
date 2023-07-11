@@ -1,14 +1,16 @@
 import DexButton from "./DexButton"
 import "./ButtonCollection.css"
-
+import standardImages from "./imagesArrays"
+  
 const ButtonCollection = (props) => {
     const pkmn = props.pkmn // list of every name and url of pokemon
-    const imageList = require.context('../images/standard', false, /\.(png)$/).keys(); // List of standard image urls
-    console.log(imageList)
-
-
+    console.log(standardImages)
+    
     return (
         <div className="DexButtons">
+            {Object.keys(standardImages).map((imageName, index) => (
+            <img key={index} src={standardImages[imageName]} alt={imageName} className="pokemonImages"/>
+        ))}
             {pkmn.map((p, index) => (
                 <DexButton key={index} data={p} dexNumber={index + 1}/>
             ))}
