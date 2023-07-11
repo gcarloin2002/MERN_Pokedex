@@ -2,8 +2,8 @@ import "./DexButton.css"
 
 const DexButton = (props) => {
     return (
-    <button>
-        {props.number}
+    <button key={props.key}>
+        {props.name}
     </button>
     )
 }
