@@ -4,15 +4,16 @@ import "./DexButton.css"
 const DexButton = (props) => {
     const data = props.data
     const dexNumber = "#" + props.dexNumber
-    const name = data.name
+    const origName = data.name
+    const displayName = origName.charAt(0).toUpperCase() + origName.slice(1)
     const url = data.url 
     const imageFilepath = props.imgSrc
-    console.log(imageFilepath)
+    
     
     return (
     <div className="DexButton" key={props.key}>
-        <img src={imageFilepath} alt={"unavailable"}/>
-        {name + " " + dexNumber} 
+        <img className="DexButtonPicture" src={imageFilepath} alt={"unavailable"}/>
+        {displayName}
     </div>
     )
 }
