@@ -1,11 +1,15 @@
+import { useEffect } from "react"
 import "./DexButton.css"
 
 const DexButton = (props) => {
-    const number = props.pokemon
-    const name = props.data.name
+    const data = props.data
+    const dexNumber = "#" + props.dexNumber
+    const name = data.name
+    const url = data.url 
+    
     return (
     <button key={props.key}>
-        {name} 
+        {name + " " + dexNumber} 
     </button>
     )
 }

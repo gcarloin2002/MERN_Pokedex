@@ -7,7 +7,7 @@ const ButtonCollection = (props) => {
     return (
         <div className="DexButtons">
             {pkmn.map((p, index) => (
-                <DexButton key={index} data={p}/>
+                <DexButton key={index} data={p} dexNumber={index + 1}/>
             ))}
         </div>
     )
