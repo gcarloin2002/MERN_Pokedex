@@ -1,69 +1,84 @@
 import { useEffect } from "react"
 import "./DexButton.css"
 
+const determineDisplayName = (name, dexNumber) => {
+    if (name.includes("-")) {
+        // Fixes capitalization
+        const index = name.indexOf("-")
+        const firstSlice = name.slice(0, index)
+        const lastSlice = name.charAt(index + 1).toUpperCase() + name.slice(index + 2, name.length)
+
+        // Checks for already correct names (Ho-Oh)
+        if (dexNumber === 250) {    
+            return firstSlice  + "-" + lastSlice
+        }
+
+        // Checks for Nidorans
+        else if (dexNumber === 29 || dexNumber === 32){
+            switch(lastSlice){
+                case "F":
+                    return firstSlice + "♀"
+                case "M":
+                    return firstSlice + "♂"
+        }}
+         
+        // Checks for Mr
+        else if (dexNumber === 122 || dexNumber === 866){
+            switch(lastSlice){
+                case "Mime":
+                    return firstSlice + ". " + lastSlice
+                case "Rime":
+                    return firstSlice + ". " + lastSlice
+        }}
+
+        // Checks for Mime. Jr
+        else if (dexNumber === 439) {
+            return firstSlice + " " + lastSlice + "."
+        }
+
+        // Checks for Type Null 
+        else if (dexNumber === 772) {
+            return firstSlice + " " + lastSlice
+        }
+
+        // Checks for Kommo-o line 
+        else if ((782 <= dexNumber) && (dexNumber <= 784)) {
+            return firstSlice + "-o"
+        }
+
+        // Checks for Tapus
+        else if ((785 <= dexNumber) && (dexNumber <= 788)){
+            return firstSlice + " " + lastSlice
+        }
+
+        // Checks for Paradox Pokemon and Ruin Quartet
+        else if ((984 <= dexNumber) && (dexNumber <= 1010)) {
+            return firstSlice + " " + lastSlice
+        }
+
+        // Checks for names where the first slice is the name
+        else {
+            return firstSlice
+        }
+    }
+
+    else {
+        return name
+    }
+}
+
 const DexButton = (props) => {
     const data = props.data
     const url = data.url 
     const imageFilepath = props.imgSrc
-    const dexNumber = "#" + props.dexNumber
+    const dexNumber = props.dexNumber
     const origName = data.name
-    console.log(origName)
-
     const protoDisplayName = origName.charAt(0).toUpperCase() + origName.slice(1)
-    const determineDisplayName = (name) => {
 
-        if (name.includes("-")) {
-            const index = name.indexOf("-")
-            return name.slice(0, index) + "-" + name.charAt(index + 1).toUpperCase() + name.slice(index + 2, name.length)
-           
-        }
-
-        else {
-            return name
-        }
-
-        /*
-        switch (name) {
-            case "Nidoran-f":
-                return "Nidoran♀"
-            case "Nidoran-m":
-                return "Nidoran♂"
-            case "Mr-mime":
-                return "Mr. Mime"
-            case "Ho-oh":
-                return "Ho-Oh"
-            case "Deoxys-normal":
-                return "Deoxys"
-            case "Wormadam-plant":
-                return "Wormadam"
-            case "Mime-jr":
-                return "Mime Jr."
-            case "Porygon-z":
-                return "Porygon-Z"
-            case "Giratina-altered":
-                return "Giratina"
-            case "Shaymin-land":
-                return "Shaymin"
-            case "Basculin-red-striped":
-                return "Basculin"
-            case "Darmanitan-standard":
-                return "Darmanitan"
-            case "Tornadus-incarnate": 
-                return "Tornadus"
-            case "Thundurus-incarnate":
-                return "Thundurus"
-            case "Landorus-incarnate":
-                return "Landorus"
-            default: 
-                return name
-        }*/
-    }
-    
-
-    const displayName = determineDisplayName(protoDisplayName)
+    const displayName = determineDisplayName(protoDisplayName, dexNumber)
     
     return (
-    <div className="DexButton" key={props.key}>
+    <div className="DexButton">
         <img className="DexButtonPicture" src={imageFilepath} alt={"unavailable"}/>
         {displayName}
     </div>
