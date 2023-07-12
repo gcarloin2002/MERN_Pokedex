@@ -3,24 +3,50 @@
     border: none;
     border-radius: 15%;
     cursor: pointer;
-    display: grid;
+    display: flex;
     flex-direction: column;
     font-size: 20px;
     justify-content: center;
     height: 200px;
     margin: 10px 10px 10px 10px;
+    position: relative;
     text-align: center;
     width: 200px; 
 }
 
 
 .DexButtonPicture {
-    height: 140px;
-    width: 140px;
-    margin-top: 15px;
+    height: 160px;
+    width: 160px;
+    position: absolute;
+    z-index: 2;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
     transition: transform .1s; /* Animation */
 }
 
 .DexButton:hover .DexButtonPicture{
     transform: scale(1.15); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.pokeball_Icon {
+    margin: auto;
+    z-index: 1;
+    height: 140px;
+    width: 140px;
+}
+
+.displayName {
+    color:#686868;
+    font-weight: bold;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: auto;
+    z-index: 2;
 }

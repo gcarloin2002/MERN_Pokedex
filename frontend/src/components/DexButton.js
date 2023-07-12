@@ -1,4 +1,5 @@
 import "./styles/DexButton.css"
+import pokeball_Icon from "../assets/gui/pokeball-icon.png"
 
 const determineDisplayName = (name, dexNumber) => {
     if (name.includes("-")) {
@@ -69,7 +70,7 @@ const determineDisplayName = (name, dexNumber) => {
 const DexButton = (props) => {
     const data = props.data
     const url = data.url 
-    const imageFilepath = props.imgSrc
+    const pokemonImageFilepath = props.imgSrc
     const dexNumber = props.dexNumber
     const origName = data.name
     const protoDisplayName = origName.charAt(0).toUpperCase() + origName.slice(1)
@@ -78,8 +79,9 @@ const DexButton = (props) => {
     
     return (
     <div className="DexButton">
-        <img className="DexButtonPicture" src={imageFilepath} alt={"unavailable"}/>
-        {displayName}
+        <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
+        <img className="pokeball_Icon" src={pokeball_Icon}/>
+        <p className="displayName">{displayName}</p>
     </div>
     )
 }
