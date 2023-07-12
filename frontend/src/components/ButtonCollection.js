@@ -1,5 +1,5 @@
 import DexButton from "./DexButton"
-import "./ButtonCollection.css"
+import "./styles/ButtonCollection.css"
 import imagesArray from "./imagesArray"
   
 const ButtonCollection = (props) => {

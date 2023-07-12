@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import "./DexButton.css"
+import "./styles/DexButton.css"
 
 const determineDisplayName = (name, dexNumber) => {
     if (name.includes("-")) {
