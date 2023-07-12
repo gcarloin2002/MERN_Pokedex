@@ -2,7 +2,6 @@ import TopBar from "../components/TopBar"
 import ButtonCollection from "../components/ButtonCollection"
 import { useEffect, useState } from "react"
 
-let pokemonInfo = ""
 const Home = () => {
     // Array of every pokemon's data
     const [pokemon, setPokemon] = useState([]);
@@ -17,12 +16,10 @@ const Home = () => {
             for (let i = 0; i < result.length; i++){
                 pkmn.push(result[i])
             }
-            pokemonInfo = pkmn
             setPokemon(pkmn)
         })
         .catch(error => console.log(error));
     }, [])
-
 
     return (
         <>
@@ -32,4 +29,4 @@ const Home = () => {
     )
 }
 
-export {Home, pokemonInfo}
+export default Home

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { determineDisplayName, determineUrlName } from './components/DexButton';
 
 // pages & components
-import { Home } from './pages/Home'
+import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
 function App() {
@@ -34,14 +34,10 @@ function App() {
     const urlName = determineUrlName(displayName)
 
     const obj = {path: ("/" + urlName), element: <PokedexEntry/>}
-
-    
-
     routes.push(obj)
   }
   
-  const everyRoute = routes.map(({path, element}, key) => <Route exact path={path} element={element} key={key} />);
-
+  const everyRoute = routes.map(({path, element}, key) => <Route path={path} element={element} key={key} />);
 
   return (
   <Router>
