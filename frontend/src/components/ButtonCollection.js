@@ -1,9 +1,16 @@
 import DexButton from "./DexButton"
 import "./styles/ButtonCollection.css"
-import imagesArray from "./imagesArray"
+
+
+const importAll = (r) => {
+    let images = {};
+    r.keys().map((item, index) => {images[item.replace('./', '')] = r(item); });
+    return images;
+}
   
 const ButtonCollection = (props) => {
     const pkmn = props.pkmn // list of every name and url of pokemon
+    const imagesArray = importAll(require.context('../assets/images/official_artwork', false, /\.(png)$/));
     
     return (
         <div className="DexButtons">
