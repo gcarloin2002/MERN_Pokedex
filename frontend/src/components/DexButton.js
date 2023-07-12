@@ -22,6 +22,8 @@ const determineDisplayName = (name, dexNumber) => {
                     return firstSlice + "♀"
                 case "M":
                     return firstSlice + "♂"
+                default:
+                    return ""
         }}
          
         // Checks for Mr
@@ -31,6 +33,8 @@ const determineDisplayName = (name, dexNumber) => {
                     return firstSlice + ". " + lastSlice
                 case "Rime":
                     return firstSlice + ". " + lastSlice
+                default:
+                    return ""
         }}
 
         // Checks for Mime. Jr
@@ -80,7 +84,7 @@ const determineUrlName = (name) => {
 
 const DexButton = (props) => {
     const data = props.data
-    const url = data.url 
+    // const url = data.url 
     const pokemonImageFilepath = props.imgSrc
     const dexNumber = props.dexNumber
     const origName = data.name
@@ -94,7 +98,7 @@ const DexButton = (props) => {
     return (
     <div className="DexButton" onClick={()=>navigate("/" + urlName)}>
         <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
-        <img className="pokeball_Icon" src={pokeball_Icon}/>
+        <img className="pokeball_Icon" src={pokeball_Icon} alt={"unavailable"}/>
         <p className="displayName">{displayName}</p>
     </div>
     )

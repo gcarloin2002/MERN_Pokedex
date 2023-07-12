@@ -1,6 +1,6 @@
 import "./styles/TopBar.css"
 
-const TestComponent = () => {
+const TopBar = () => {
     return (
         <div className="TopBar">
             Search Bar
@@ -11,4 +11,4 @@ const TestComponent = () => {
 
 
 
-export default TestComponent
+export default TopBar
