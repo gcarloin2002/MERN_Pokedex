@@ -1,8 +1,9 @@
+import "./styles/TopBar.css"
 
 const TestComponent = () => {
     return (
-        <div>
-            TopBar
+        <div className="TopBar">
+            Search Bar
         </div>
     )
 }

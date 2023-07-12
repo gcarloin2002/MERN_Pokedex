@@ -1,4 +1,4 @@
-import TestComponent from "../components/TestComponent"
+import TopBar from "../components/TopBar"
 import ButtonCollection from "../components/ButtonCollection"
 import { useEffect, useState } from "react"
 
@@ -24,10 +24,10 @@ const Home = () => {
 
 
     return (
-        <div>
-            <h2>Home</h2>
+        <body>
+            <TopBar/>
             <ButtonCollection pkmn={pokemon}/>
-        </div>
+        </body>
     )
 }
 

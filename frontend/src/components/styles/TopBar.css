@@ -1,0 +1,10 @@
+.TopBar {
+    background-color:#c0c0c0;
+    border-radius: 30px;
+    position: sticky;
+    padding-bottom: 45px;
+    text-align: center;
+    top: 10px;
+    font-weight: 700;
+    z-index: 5;
+}
