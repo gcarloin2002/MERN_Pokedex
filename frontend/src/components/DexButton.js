@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import "./styles/DexButton.css"
 
 const determineDisplayName = (name, dexNumber) => {
