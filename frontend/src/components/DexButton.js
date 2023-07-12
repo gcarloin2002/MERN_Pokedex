@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import "./styles/DexButton.css"
 import pokeball_Icon from "../assets/gui/pokeball-icon.png"
+
 
 const determineDisplayName = (name, dexNumber) => {
     if (name.includes("-")) {
@@ -67,18 +69,30 @@ const determineDisplayName = (name, dexNumber) => {
     }
 }
 
+const determineUrlName = (name) => {
+    if (name.includes(' ')){
+        return name.replace(" ", "_")
+    }
+    else {
+        return name
+    }
+}
+
 const DexButton = (props) => {
     const data = props.data
     const url = data.url 
     const pokemonImageFilepath = props.imgSrc
     const dexNumber = props.dexNumber
     const origName = data.name
-    const protoDisplayName = origName.charAt(0).toUpperCase() + origName.slice(1)
+    const protoName = origName.charAt(0).toUpperCase() + origName.slice(1)
 
-    const displayName = determineDisplayName(protoDisplayName, dexNumber)
+    const displayName = determineDisplayName(protoName, dexNumber)
+    const urlName = determineUrlName(displayName)
+
+    const navigate = useNavigate()
     
     return (
-    <div className="DexButton">
+    <div className="DexButton" onClick={()=>navigate("/" + urlName)}>
         <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
         <img className="pokeball_Icon" src={pokeball_Icon}/>
         <p className="displayName">{displayName}</p>
@@ -87,4 +101,4 @@ const DexButton = (props) => {
 }
 
 
-export default DexButton
+export { DexButton, determineDisplayName, determineUrlName }
