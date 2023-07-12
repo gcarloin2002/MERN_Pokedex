@@ -12,6 +12,8 @@
     position: relative;
     text-align: center;
     width: 200px; 
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 

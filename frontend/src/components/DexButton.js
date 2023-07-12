@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import "./styles/DexButton.css"
 import pokeball_Icon from "../assets/gui/pokeball-icon.png"
 
@@ -83,6 +84,12 @@ const determineUrlName = (name) => {
 }
 
 const DexButton = (props) => {
+    const [opacity, setOpacity] = useState(0);
+
+    useEffect(() => {
+      setOpacity(1);
+    }, []);
+
     const data = props.data
     // const url = data.url 
     const pokemonImageFilepath = props.imgSrc
@@ -96,7 +103,7 @@ const DexButton = (props) => {
     const navigate = useNavigate()
     
     return (
-    <div className="DexButton" onClick={()=>navigate("/" + urlName)}>
+    <div className="DexButton" onClick={()=>navigate("/" + urlName)} style={{ opacity }}>
         <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
         <img className="pokeball_Icon" src={pokeball_Icon} alt={"unavailable"}/>
         <p className="displayName">{displayName}</p>

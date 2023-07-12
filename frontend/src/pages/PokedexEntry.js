@@ -2,7 +2,8 @@
 
 const PokedexEntry = () => {
     const url = window.location.href;
-    return <h1>You are currently accessing <b>{url}</b></h1>
+    const urlName = url.slice(22)
+    return <h1>You are currently accessing the {urlName} page</h1>
 }
 
 
