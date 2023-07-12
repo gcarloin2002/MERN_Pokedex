@@ -4,6 +4,6 @@ function importAll(r) {
     return images;
   }
   
-  const imagesArray = importAll(require.context('../assets/images/standard', false, /\.(png)$/));
+  const imagesArray = importAll(require.context('../assets/images/official_artwork', false, /\.(png)$/));
   
   export default imagesArray

@@ -7,9 +7,22 @@ const DexButton = (props) => {
     const imageFilepath = props.imgSrc
     const dexNumber = "#" + props.dexNumber
     const origName = data.name
+    console.log(origName)
 
     const protoDisplayName = origName.charAt(0).toUpperCase() + origName.slice(1)
     const determineDisplayName = (name) => {
+
+        if (name.includes("-")) {
+            const index = name.indexOf("-")
+            return name.slice(0, index) + "-" + name.charAt(index + 1).toUpperCase() + name.slice(index + 2, name.length)
+           
+        }
+
+        else {
+            return name
+        }
+
+        /*
         switch (name) {
             case "Nidoran-f":
                 return "Nidoran♀"
@@ -41,13 +54,11 @@ const DexButton = (props) => {
                 return "Thundurus"
             case "Landorus-incarnate":
                 return "Landorus"
-
-
-
             default: 
                 return name
-        }
+        }*/
     }
+    
 
     const displayName = determineDisplayName(protoDisplayName)
     
