@@ -1,4 +1,3 @@
-import TopBar from "../components/TopBar"
 import ButtonCollection from "../components/ButtonCollection"
 import { useEffect, useState } from "react"
 
@@ -23,7 +22,6 @@ const Home = () => {
 
     return (
         <>
-            <TopBar/>
             <ButtonCollection pkmn={pokemon}/>
         </>
     )

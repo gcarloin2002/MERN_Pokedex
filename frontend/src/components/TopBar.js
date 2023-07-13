@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
 import "./styles/TopBar.css"
 
-const TopBar = () => {
-
-    const [opacity, setOpacity] = useState(0);
-
-    useEffect(() => {
-      setOpacity(1);
-    }, []);
+const TopBar = (props) => {
 
     return (
-        <div className="TopBar" style={{ opacity }}>
+        <div className="TopBar" style={{ opacity: props.opacity }}>
             Search Bar
         </div>
     )
