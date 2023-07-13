@@ -5,7 +5,7 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    
     justify-content: center;
     height: 200px;
     margin: 10px 10px 10px 10px;
@@ -30,7 +30,7 @@
 }
 
 .DexButton:hover .DexButtonPicture{
-    transform: scale(1.15); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.115); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .pokeball_Icon {
@@ -42,11 +42,13 @@
 
 .displayName {
     color:#686868;
+    font-family: monospace;
+    font-size: 14px;
     font-weight: bold;
     position: absolute;
     left:0;
     right:0;
-    bottom:0;
+    bottom: 2px;
     margin-left:auto;
     margin-right:auto;
     margin-bottom: auto;

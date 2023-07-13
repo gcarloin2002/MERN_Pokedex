@@ -1,8 +1,8 @@
 import { DexButton }from "./DexButton"
 import React from 'react'
 import { useState } from 'react'
-import TopBar from "./TopBar"
 import "./styles/ButtonCollection.css"
+import SearchBar from "./SearchBar"
 
 export const OpaqueContext = React.createContext()
   
@@ -12,7 +12,7 @@ const ButtonCollection = (props) => {
     
     return (
         <OpaqueContext.Provider value={[opacity, setOpacity]}>
-            <TopBar opacity={opacity}/>
+            <SearchBar opacity={opacity}/>
             <div className="DexButtons">
                 {pkmn.map((p, index) => (
                     <DexButton key={index} data={p} dexNumber={index + 1} opacity={opacity}/>
