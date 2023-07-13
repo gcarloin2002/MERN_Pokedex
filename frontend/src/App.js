@@ -46,6 +46,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             {everyRoute}
+            <Route path="*" element={<p>Path not resolved</p>} />
           </Routes>
         </div>
     </div>

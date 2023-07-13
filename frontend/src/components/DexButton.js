@@ -96,13 +96,10 @@ const DexButton = (props) => {
     const pokemonImageFilepath = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + dexNumber + ".png"
     const origName = data.name
     const protoName = origName.charAt(0).toUpperCase() + origName.slice(1)
-
     const displayName = determineDisplayName(protoName, dexNumber)
     const urlName = determineUrlName(displayName)
-
     const navigate = useNavigate()
 
-    
     return (
     <div className="DexButton" onClick={()=>navigate("/" + urlName)} style={{ opacity }}>
         <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
