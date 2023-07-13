@@ -110,6 +110,7 @@ const DexButton = (props) => {
 
     return (
     <div className={"DexButton"} onClick={handleClick} style ={{opacity: props.opacity}}>
+        <p className="displayNumber">{dexNumber}</p>
         <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
         <img className="pokeball_Icon" src={pokeball_Icon} alt={"unavailable"}/>
         <p className="displayName">{displayName}</p>
