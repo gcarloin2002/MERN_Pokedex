@@ -1,11 +1,12 @@
-import DirectoryBar from "../components/DirectoryBar";
+import EntryContent from "../components/EntryContent"
 
 const PokedexEntry = () => {
     const url = window.location.href;
     const urlName = url.slice(22)
+
     return (
         <>
-            <DirectoryBar/>
+            <EntryContent/>
             <h1>You are currently accessing the {urlName} page</h1>
         </>
     )
