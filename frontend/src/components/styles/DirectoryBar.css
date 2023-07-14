@@ -13,9 +13,29 @@
 .centralContainer {
     background-color: #c0c0c0;
     min-width: 250px;
-    width: 90%;
-
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    transition: transform .1s; /* Animation */
 }
+
+.centralContainer:hover{
+    transform: scale(1.01); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.centralContainerText {
+    color: #c0c0c0;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.centralContainer:hover .centralContainerText{
+    color:white;
+}
+
+
 
 .leftContainer {
     position: relative;
@@ -25,6 +45,7 @@
     width: 100px;
     margin-right: 3px;
 }
+
 
 .rightContainer {
     position: relative;
@@ -38,14 +59,14 @@
 .leftArrowPic {
     height: 40px;
     width: 100px;
+    transition: transform .1s; /* Animation */
 }
 
 .rightArrowPic {
     height: 40px;
     width: 100px;
+    transition: transform .1s; /* Animation */
 }
-
-
 
 .leftPokemonPic {
     top: 0;
@@ -69,4 +90,21 @@
     height: 30px;
     width: 30px;
     position: absolute;
+}
+
+
+.rightContainer:hover .rightArrowPic{
+    transform: scale(1.115); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.leftContainer:hover .leftArrowPic{
+    transform: scale(1.115); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.rightContainer:hover .rightPokemonPic{
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.leftContainer:hover .leftPokemonPic{
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
