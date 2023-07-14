@@ -2,13 +2,34 @@ import "./styles/DirectoryBar.css"
 
 const DirectoryBar = (props) => {
     const dexNum = props.dexNum
-    const leftPicURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum - 1) + ".png"
-    const rightPicURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum + 1) +".png"
+    const leftPic = (dexNum) => {
+        if (dexNum !== 1){
+            return (
+            <img 
+                className="leftPic" 
+                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum - 1) + ".png"} 
+                alt={""}
+            />
+            )
+        }
+    }
     
+    const rightPic = (dexNum) => {
+        if (dexNum !== 1010){
+            return (
+            <img 
+                className="rightPic" 
+                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum + 1) +".png"} 
+                alt={""}
+            />
+            )
+        }
+    }
+
     return (
         <div className="DirectoryBar">
-            <img className="leftPic" src={leftPicURL} alt={"leftPicture"}/>
-            <img className="rightPic" src={rightPicURL} alt={"rightPicture"}/>
+            {leftPic(dexNum)}
+            {rightPic(dexNum)}
         </div>
     )
 }
