@@ -16,6 +16,10 @@ const leftPic = (dexNum, handleLeftContainerClick) => {
         </div>
         )
     }
+
+    else {
+        return <div className="soleLeftContainer"></div>
+    }
 }
 
 const rightPic = (dexNum, handleleRightContainerClick) => {
@@ -31,6 +35,10 @@ const rightPic = (dexNum, handleleRightContainerClick) => {
             />
         </div>
         )
+    }
+
+    else {
+        return <div className="soleRightContainer"></div>
     }
 }
 

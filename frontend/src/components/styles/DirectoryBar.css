@@ -8,6 +8,7 @@
     margin-right: auto;
     text-align: center;
     top: 10px;
+    cursor: pointer;
 }
 
 .centralContainer {
@@ -22,7 +23,7 @@
 }
 
 .centralContainer:hover{
-    transform: scale(1.119); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scaleX(110%); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .centralContainerText {
@@ -49,6 +50,24 @@
 
 
 .rightContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    width: 100px;
+    margin-left: 3px;
+}
+
+.soleLeftContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    width: 100px;
+    margin-left: 3px;
+}
+
+.soleRightContainer {
     position: relative;
     display: flex;
     flex-direction: column;
