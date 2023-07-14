@@ -1,9 +1,36 @@
 .DirectoryBar {
     background-color:#c0c0c0;
     border-radius: 30px;
+    display: grid;
     position: sticky;
-    padding-bottom: 15px;
+    height: 40px;
     text-align: center;
     top: 10px;
     font-weight: 700;
+}
+
+
+.leftPic {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    height: 30px;
+    width: 30px;
+}
+
+
+.rightPic {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 30px;
 }
