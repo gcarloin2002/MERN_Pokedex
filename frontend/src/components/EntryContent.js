@@ -4,6 +4,7 @@ import "./styles/EntryContent.css"
 
 const EntryContent = (props) => {
     const name = props.name
+    const pokmeonData = props.pokmeonData
 
     return (
         <>

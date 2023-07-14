@@ -33,7 +33,7 @@ function App() {
     const displayName = determineDisplayName(protoName, i + 1)
     const urlName = determineUrlName(displayName)
 
-    const obj = {path: ("/" + urlName), element: <PokedexEntry/>}
+    const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1}/>}
     routes.push(obj)
   }
   

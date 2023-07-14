@@ -7,6 +7,7 @@ import pokeball_Icon from "../assets/gui/pokeball-icon.png"
 
 const determineDisplayName = (name, dexNumber) => {
     if (name.includes("-")) {
+
         // Fixes capitalization
         const index = name.indexOf("-")
         const firstSlice = name.slice(0, index)
@@ -87,19 +88,17 @@ const determineUrlName = (name) => {
 const DexButton = (props) => {
     const [opacity, setOpacity] = useContext(OpaqueContext);
 
-    useEffect(() => {
-        setOpacity(1);
-        }, []);
-
     const data = props.data
-    // const url = data.url 
     const dexNumber = props.dexNumber
-    const pokemonImageFilepath = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + dexNumber + ".png"
+    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + dexNumber + ".png"
     const origName = data.name
-    const protoName = origName.charAt(0).toUpperCase() + origName.slice(1)
-    const displayName = determineDisplayName(protoName, dexNumber)
+    const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), dexNumber)
     const urlName = determineUrlName(displayName)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        setOpacity(1);
+    }, []);
 
     const handleClick = () => {
         setOpacity(0)
@@ -111,7 +110,7 @@ const DexButton = (props) => {
     return (
     <div className={"DexButton"} onClick={handleClick} style ={{opacity: props.opacity}}>
         <p className="displayNumber">{dexNumber}</p>
-        <img className="DexButtonPicture" src={pokemonImageFilepath} alt={"unavailable"}/>
+        <img className="DexButtonPicture" src={imageURL} alt={"unavailable"}/>
         <img className="pokeball_Icon" src={pokeball_Icon} alt={"unavailable"}/>
         <p className="displayName">{displayName}</p>
     </div>
