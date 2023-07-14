@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 const DirectoryBar = (props) => {
     const dexNum = props.dexNum
+    const neighbors = props.neighbors
     const navigate = useNavigate()
     const leftPic = (dexNum) => {
         if (dexNum !== 1){
@@ -40,7 +41,6 @@ const DirectoryBar = (props) => {
     const handleCentralContainerClick = () => {
         navigate("/")
     }
-
 
     return (
         <div className="DirectoryBar">

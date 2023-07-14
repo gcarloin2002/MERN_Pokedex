@@ -29,11 +29,10 @@ function App() {
   const routes = []
   for (let i = 0; i < pokemon.length; i++) {
     const origName = pokemon[i].name
-    const protoName = origName.charAt(0).toUpperCase() + origName.slice(1)
-    const displayName = determineDisplayName(protoName, i + 1)
+    const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
     const urlName = determineUrlName(displayName)
 
-    const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1}/>}
+    const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemon={pokemon}/>}
     routes.push(obj)
   }
   
