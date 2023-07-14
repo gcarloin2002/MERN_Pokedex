@@ -4,7 +4,7 @@ const DirectoryBar = () => {
 
     return (
         <div className="DirectoryBar">
-            DirectoryBar Bar
+            DirectoryBar
         </div>
     )
 }
