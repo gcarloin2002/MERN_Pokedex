@@ -51,7 +51,7 @@ const EntryContent = (props) => {
             setMainURL(urlList[0])
         })
         .catch(error => console.log(error));
-    }, [])
+    }, [name])
 
     return (
         <>
