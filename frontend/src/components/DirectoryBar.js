@@ -10,7 +10,7 @@ const leftPic = (dexNum, handleLeftContainerClick) => {
             <img className="leftArrowPic" src={leftArrow} alt={""}/>
             <img 
                 className="leftPokemonPic" 
-                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum - 1) + ".png"} 
+                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum - 1)  +".png"} 
                 alt={""}
             />
         </div>
@@ -30,7 +30,7 @@ const rightPic = (dexNum, handleleRightContainerClick) => {
                 className="rightArrowPic" src={rightArrow} alt={""}/>
             <img 
                 className="rightPokemonPic" 
-                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum + 1) +".png"} 
+                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (dexNum + 1) + ".png"} 
                 alt={""}
             />
         </div>
