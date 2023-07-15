@@ -50,14 +50,17 @@ const DirectoryBar = (props) => {
 
     const handleCentralContainerClick = () => {
         navigate("/")
+        navigate(0)
     }
 
     const handleLeftContainerClick = () => {
         navigate("/" + neighbors[0])
+        navigate(0)
     }
 
     const handleleRightContainerClick = () => {
         navigate("/" + neighbors[1])
+        navigate(0)
     }
 
     return (

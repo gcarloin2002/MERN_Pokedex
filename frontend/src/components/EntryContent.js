@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import DirectoryBar from "./DirectoryBar"
 import ArtworkDisplay from "./ArtwortDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
@@ -31,6 +30,21 @@ const generateNeighbors = (allPokemonData, dexNum) => {
     }
 }
 
+const inBetweenInclusive = (a, b, number) => {return ((a <= number) && (number <= b))}
+
+const generateNameID = (name, ID) => {
+    const number = parseInt(ID)
+
+    // Checks if its an Unown form
+    if (number === 201) {
+        console.log("Unown")
+    }
+
+    else {
+        return name
+    }
+}
+
 const EntryContent = (props) => {
     const apiURLs = props.apiURLs
     const formIDs = props.formIDs
@@ -39,15 +53,14 @@ const EntryContent = (props) => {
     const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + randomID + ".png"
     const pokemonData = props.pokemonData
     const name = props.name
+    const nameID = generateNameID(name, randomID)
     const neighbors = generateNeighbors(pokemonData, dexNum)
-    
-    
 
     
     return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <ArtworkDisplay name={name} officialArt={officialArt}/>
+            <ArtworkDisplay nameID={nameID} officialArt={officialArt} formIDs={formIDs}/>
             <h1>You are currently accessing the {name} page</h1>
         </div>
     ))

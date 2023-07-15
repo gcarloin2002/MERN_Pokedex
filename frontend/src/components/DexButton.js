@@ -102,7 +102,8 @@ const DexButton = (props) => {
         setOpacity(0)
         setTimeout(() => {
             navigate("/" + urlName)
-        }, 500)
+            navigate(0)
+        }, 800)
     }
 
     useEffect(() => {

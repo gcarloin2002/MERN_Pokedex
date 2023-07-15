@@ -28,8 +28,8 @@ const PokedexEntry = (props) => {
         .catch(error => console.log(error));
     }, [name])
 
-    return (formIDs && (
-        <>
+    return ((
+        <div>
             <EntryContent 
                 name={name} 
                 dexNum={dexNum} 
@@ -37,7 +37,7 @@ const PokedexEntry = (props) => {
                 apiURLs={apiURLs} 
                 formIDs={formIDs}
             />
-        </>
+        </div>
     ))
 }
 
