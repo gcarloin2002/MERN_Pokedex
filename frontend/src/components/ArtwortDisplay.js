@@ -1,10 +1,12 @@
+import PictureDisplay from "./PictureDisplay"
 import "./styles/ArtworkDisplay.css"
 
-const ArtworkDisplay = () => {
+const ArtworkDisplay = (props) => {
+    const URLs = props.URLs
 
     return (
         <div className="ArtworkDisplay">
-            <p>This is the artwork display div</p>
+            <PictureDisplay URLs={URLs}/>
         </div>
     )
 }

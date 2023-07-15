@@ -57,9 +57,8 @@ const EntryContent = (props) => {
     return (
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <ArtworkDisplay/>
+            <ArtworkDisplay URLs={URLs}/>
             <h1>You are currently accessing the {name} page</h1>
-            <p>{mainURL}</p>
         </div>
     )
 }

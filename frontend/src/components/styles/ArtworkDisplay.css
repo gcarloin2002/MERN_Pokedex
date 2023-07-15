@@ -1,5 +1,7 @@
 .ArtworkDisplay {
     background-color: #c0c0c0;
+    display: flex;
+    justify-content: center;
     left: 0;
     right: 0;
     margin-top: 5px;
