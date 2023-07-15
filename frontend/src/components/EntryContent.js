@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import DirectoryBar from "./DirectoryBar"
+import ArtworkDisplay from "./ArtwortDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
 
@@ -54,11 +55,12 @@ const EntryContent = (props) => {
     }, [name])
 
     return (
-        <>
+        <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
+            <ArtworkDisplay/>
             <h1>You are currently accessing the {name} page</h1>
             <p>{mainURL}</p>
-        </>
+        </div>
     )
 }
 
