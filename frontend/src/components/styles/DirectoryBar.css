@@ -23,7 +23,7 @@
 }
 
 .centralContainer:hover{
-    transform: scaleX(110%); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scaleY(120%); 
 }
 
 .centralContainerText {
@@ -115,18 +115,11 @@
 }
 
 
-.rightContainer:hover .rightArrowPic{
-    transform: scale(1.115); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.rightContainer:hover{
+    transform: scaleY(120%);
 }
 
-.leftContainer:hover .leftArrowPic{
-    transform: scale(1.115); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.leftContainer:hover {
+    transform: scaleY(120%);
 }
 
-.rightContainer:hover .rightPokemonPic{
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-
-.leftContainer:hover .leftPokemonPic{
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
