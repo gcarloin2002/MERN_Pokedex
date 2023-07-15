@@ -38,7 +38,7 @@ const EntryContent = (props) => {
     const [officialArt, setOfficialArt] = useState("")
     const name = props.name
     const dexNum = props.dexNum
-    const neighbors = generateNeighbors(props.allPokemonData, dexNum)
+    const neighbors = generateNeighbors(props.pokemonData, dexNum)
 
     // Fetches the pokemon's data
     useEffect(() => {

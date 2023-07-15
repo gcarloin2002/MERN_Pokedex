@@ -8,7 +8,7 @@ import PokedexEntry from './pages/PokedexEntry';
 
 function App() {
   // Array of every pokemon's data
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemonData, setPokemonData] = useState([]);
 
   // Fetches every Pokemon
   useEffect(() => {
@@ -16,23 +16,23 @@ function App() {
   .then((response) => response.json())
   .then((json) => json.results)
   .then((result) => {
-      const pkmn = []
+      const pkmnData = []
       for (let i = 0; i < result.length; i++){
-          pkmn.push(result[i])
+          pkmnData.push(result[i])
       }
       
-      setPokemon(pkmn)
+      setPokemonData(pkmnData)
   })
   .catch(error => console.log(error));
   }, [])
 
   const routes = []
-  for (let i = 0; i < pokemon.length; i++) {
-    const origName = pokemon[i].name
+  for (let i = 0; i < pokemonData.length; i++) {
+    const origName = pokemonData[i].name
     const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
     const urlName = determineUrlName(displayName)
 
-    const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemon={pokemon}/>}
+    const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemonData={pokemonData}/>}
     routes.push(obj)
   }
   
@@ -43,7 +43,7 @@ function App() {
     <div className="App">
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Home/>}/>
+            <Route path="/" element={<Home pokemonData={pokemonData}/>}/>
             {everyRoute}
             <Route path="*" element={<p>Path not resolved</p>} />
           </Routes>

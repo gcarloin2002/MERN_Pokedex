@@ -88,6 +88,7 @@ const determineUrlName = (name) => {
 
 const DexButton = (props) => {
     const [opacity, setOpacity] = useContext(OpaqueContext);
+    
 
     const data = props.data
     const dexNumber = props.dexNumber
@@ -97,16 +98,16 @@ const DexButton = (props) => {
     const urlName = determineUrlName(displayName)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        setOpacity(1);
-    }, []);
-
     const handleClick = () => {
         setOpacity(0)
         setTimeout(() => {
             navigate("/" + urlName)
         }, 500)
     }
+
+    useEffect(() => {
+        setOpacity(1);
+    }, []);
 
     return (
     <div className={"DexButton"} onClick={handleClick} style ={{opacity: props.opacity}}>
