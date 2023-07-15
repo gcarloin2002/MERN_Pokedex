@@ -33,7 +33,9 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const EntryContent = (props) => {
     const [URLs, setURLs] = useState([])
-    const [mainURL, setMainURL] = useState("")
+    const [activeURL, setMainURL] = useState("")
+    const [pokemonData, setPokemonData] = useState("")
+    const [officialArt, setOfficialArt] = useState("")
     const name = props.name
     const dexNum = props.dexNum
     const neighbors = generateNeighbors(props.allPokemonData, dexNum)
@@ -54,10 +56,24 @@ const EntryContent = (props) => {
         .catch(error => console.log(error));
     }, [name])
 
+    /*
+    useEffect(() => {
+        fetch(activeURL)
+        .then((response) => response.json())
+        .then((result) => {
+            setPokemonData(result)
+            return result.sprites
+        })
+        .then((sprites) => setOfficialArt(sprites["other"]["official-artwork"]["front_default"]))
+        .catch(error => console.log(error));
+    },[activeURL])
+    */
+
+    
     return (
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <ArtworkDisplay URLs={URLs}/>
+            <ArtworkDisplay src={officialArt}/>
             <h1>You are currently accessing the {name} page</h1>
         </div>
     )

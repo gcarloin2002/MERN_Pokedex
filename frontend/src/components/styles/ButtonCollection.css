@@ -1,12 +1,6 @@
-.DexButtons {
+.ButtonCollection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-}
-
-
-.pokemonImages {
-    height: 50px;
-    width: 50px;
 }

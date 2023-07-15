@@ -3,26 +3,27 @@ import { useEffect, useState } from "react"
 
 const Home = () => {
     // Array of every pokemon's data
-    const [pokemon, setPokemon] = useState([]);
+    const [pokemonData, setPokemonData] = useState(false);
 
     // Fetches every Pokemon
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=1010")
+        fetch("https://pokeapi.co/api/v2/pokemon-species/?limit=1010")
         .then((response) => response.json())
         .then((json) => json.results)
         .then((result) => {
-            const pkmn = []
+            const pkmnData = []
             for (let i = 0; i < result.length; i++){
-                pkmn.push(result[i])
+                pkmnData.push(result[i])
             }
-            setPokemon(pkmn)
+            setPokemonData(pkmnData)
         })
         .catch(error => console.log(error));
     }, [])
 
+    
     return (
         <>
-            <ButtonCollection pkmn={pokemon}/>
+           {(pokemonData && <ButtonCollection pokemonData={pokemonData}/>)}
         </>
     )
 }

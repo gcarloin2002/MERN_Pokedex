@@ -2,11 +2,12 @@ import PictureDisplay from "./PictureDisplay"
 import "./styles/ArtworkDisplay.css"
 
 const ArtworkDisplay = (props) => {
-    const URLs = props.URLs
+    const officialArt = props.officialArt
+    
 
     return (
         <div className="ArtworkDisplay">
-            <PictureDisplay URLs={URLs}/>
+            <PictureDisplay officialArt={officialArt}/>
         </div>
     )
 }

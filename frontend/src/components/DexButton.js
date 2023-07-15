@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import { OpaqueContext } from './ButtonCollection';
-import "./styles/DexButton.css"
 import pokeball_Icon from "../assets/gui/pokeball-icon.png"
+import "./styles/DexButton.css"
+
 
 
 const determineDisplayName = (name, dexNumber) => {
