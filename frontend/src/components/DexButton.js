@@ -47,7 +47,7 @@ const determineDisplayName = (name, dexNumber) => {
 
         // Checks for Type Null 
         else if (dexNumber === 772) {
-            return firstSlice + " " + lastSlice
+            return firstSlice + ": " + lastSlice
         }
 
         // Checks for Kommo-o line 

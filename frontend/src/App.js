@@ -12,7 +12,7 @@ function App() {
 
   // Fetches every Pokemon
   useEffect(() => {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=1010")
+  fetch("https://pokeapi.co/api/v2/pokemon-species/?limit=1010")
   .then((response) => response.json())
   .then((json) => json.results)
   .then((result) => {
