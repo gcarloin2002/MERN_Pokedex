@@ -32,35 +32,25 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 }
 
 const EntryContent = (props) => {
-    const [officialArt, setOfficialArt] = useState("")
+    const apiURLs = props.apiURLs
+    const formIDs = props.formIDs
+    const dexNum = props.dexNum
+    const randomID = formIDs[Math.floor(Math.random() * formIDs.length)]
+    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + randomID + ".png"
     const pokemonData = props.pokemonData
     const name = props.name
-    const dexNum = props.dexNum
-    const apiURLs = props.apiURLs
-    const neighbors = generateNeighbors(props.pokemonData, dexNum)
-
-    /*
-    useEffect(() => {
-        fetch(activeURL)
-        .then((response) => response.json())
-        .then((result) => {
-            setPokemonData(result)
-            return result.sprites
-        })
-        .then((sprites) => setOfficialArt(sprites["other"]["official-artwork"]["front_default"]))
-        .catch(error => console.log(error));
-    },[activeURL])
-    */
+    const neighbors = generateNeighbors(pokemonData, dexNum)
+    
+    
 
     
-    return (
+    return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <ArtworkDisplay src={officialArt}/>
+            <ArtworkDisplay name={name} officialArt={officialArt}/>
             <h1>You are currently accessing the {name} page</h1>
-            {apiURLs.map((url) => <p>{url}</p>)}
         </div>
-    )
+    ))
 }
 
 

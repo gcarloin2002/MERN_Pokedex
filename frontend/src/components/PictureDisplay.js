@@ -3,10 +3,12 @@ import "./styles/PictureDisplay.css"
 
 const PictureDisplay = (props) => {
     const officialArt = props.officialArt
+    const name = props.name
     
     return ( 
         <div className="PictureDisplay">
-            <img src={officialArt} alt={"unavailable"}/>
+            <img className="picture" src={officialArt} alt={"unavailable"}/>
+            <h1 className="name">{name}</h1>
         </div>
     )
 }

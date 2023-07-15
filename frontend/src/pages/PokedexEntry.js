@@ -3,6 +3,7 @@ import EntryContent from "../components/EntryContent"
 
 const PokedexEntry = (props) => {
     const [apiURLs, setAPIURLs] = useState(false)
+    const [formIDs, setFormIDs] = useState(false)
     const name = (window.location.href).slice(22)
     const pokemonData = props.pokemonData
     const dexNum = props.dexNum
@@ -14,17 +15,28 @@ const PokedexEntry = (props) => {
         .then((result) => result.varieties)
         .then((varieties) => {
             const urlList = []
+            const formIDList = []
             for (let i = 0; i < varieties.length; i++){
-                urlList.push(varieties[i].pokemon.url)
+                const url = varieties[i].pokemon.url
+                urlList.push(url)
+                formIDList.push(url.slice(34, url.length - 1))
             }
-            setAPIURLs(urlList)
+            setAPIURLs(urlList)  
+            setFormIDs(formIDList)
+
         })
         .catch(error => console.log(error));
     }, [name])
 
-    return (apiURLs && (
+    return (formIDs && (
         <>
-            <EntryContent name={name} dexNum={dexNum} pokemonData={pokemonData} apiURLs={apiURLs}/>
+            <EntryContent 
+                name={name} 
+                dexNum={dexNum} 
+                pokemonData={pokemonData} 
+                apiURLs={apiURLs} 
+                formIDs={formIDs}
+            />
         </>
     ))
 }

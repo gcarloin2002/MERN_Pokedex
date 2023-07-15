@@ -3,11 +3,12 @@ import "./styles/ArtworkDisplay.css"
 
 const ArtworkDisplay = (props) => {
     const officialArt = props.officialArt
+    const name = props.name
     
 
     return (
         <div className="ArtworkDisplay">
-            <PictureDisplay officialArt={officialArt}/>
+            <PictureDisplay name={name} officialArt={officialArt}/>
         </div>
     )
 }
