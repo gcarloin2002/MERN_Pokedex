@@ -1,7 +1,9 @@
+import { useState } from "react"
 import DirectoryBar from "./DirectoryBar"
 import ArtworkDisplay from "./ArtwortDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
+import { useEffect } from "react"
 
 const generateNeighbors = (allPokemonData, dexNum) => {
 
@@ -32,36 +34,28 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const inBetweenInclusive = (a, b, number) => {return ((a <= number) && (number <= b))}
 
-const generateNameID = (name, ID) => {
-    const number = parseInt(ID)
-
-    // Checks if its an Unown form
-    if (number === 201) {
-        console.log("Unown")
-    }
-
-    else {
-        return name
-    }
-}
+// const generateAppearanceIDs
 
 const EntryContent = (props) => {
     const apiURLs = props.apiURLs
-    const formIDs = props.formIDs
+    const formTags = props.formTags
+    const appearanceTags = props.appearanceTags
+    const randomTag = formTags[Math.floor(Math.random()*formTags.length)]
     const dexNum = props.dexNum
-    const randomID = formIDs[Math.floor(Math.random() * formIDs.length)]
-    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + randomID + ".png"
+    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomTag + ".png"
     const pokemonData = props.pokemonData
-    const name = props.name
-    const nameID = generateNameID(name, randomID)
+    const displayName = props.displayName
+    const nameID = displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
+    console.log(formTags)
+    console.log(appearanceTags)
     
     return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <ArtworkDisplay nameID={nameID} officialArt={officialArt} formIDs={formIDs}/>
-            <h1>You are currently accessing the {name} page</h1>
+            <ArtworkDisplay nameID={nameID} officialArt={officialArt} formTags={formTags}/>
+            <h1>You are currently accessing the {displayName} page</h1>
         </div>
     ))
 }

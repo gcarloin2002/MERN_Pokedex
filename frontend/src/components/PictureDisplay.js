@@ -4,8 +4,7 @@ import "./styles/PictureDisplay.css"
 const PictureDisplay = (props) => {
     const officialArt = props.officialArt
     const nameID = props.nameID
-    const formIDs = props.formIDs
-    
+    const formTags = props.formTags
     
     return ( 
         <div className="PictureDisplay">

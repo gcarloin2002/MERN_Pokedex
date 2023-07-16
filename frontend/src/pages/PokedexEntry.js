@@ -3,8 +3,10 @@ import EntryContent from "../components/EntryContent"
 
 const PokedexEntry = (props) => {
     const [apiURLs, setAPIURLs] = useState(false)
-    const [formIDs, setFormIDs] = useState(false)
-    const name = (window.location.href).slice(22)
+    const [formTags, setFormTags] = useState(false)
+    const [apiNameTag, setAPINameTag] = useState(false)
+    const [appearanceTags, setAppearanceTags] = useState(false)
+    const displayName = (window.location.href).slice(22)
     const pokemonData = props.pokemonData
     const dexNum = props.dexNum
     
@@ -12,30 +14,50 @@ const PokedexEntry = (props) => {
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/pokemon-species/" + dexNum)
         .then((response) => response.json())
-        .then((result) => result.varieties)
+        .then((result) => {
+            setAPINameTag(result.name)
+
+            fetch("https://pokeapi.co/api/v2/pokemon-form/?limit=100000&offset=1010")
+            .then((response) => response.json())
+            .then((response) => response.results)
+            .then((forms) => {
+                const appearanceList = []
+                for (let i = 0; i < forms.length; i++) {
+                    if (forms[i].name.includes(result.name)){
+                        const appearanceTag = dexNum + (forms[i].name).replace(result.name, "")
+                        appearanceList.push(appearanceTag)
+                    }
+                }
+                setAppearanceTags(appearanceList)
+            })
+            .catch(error => console.log(error));
+            
+            return result.varieties
+        })
         .then((varieties) => {
             const urlList = []
-            const formIDList = []
+            const formTagList = []
             for (let i = 0; i < varieties.length; i++){
                 const url = varieties[i].pokemon.url
                 urlList.push(url)
-                formIDList.push(url.slice(34, url.length - 1))
+                formTagList.push(url.slice(34, url.length - 1))
             }
             setAPIURLs(urlList)  
-            setFormIDs(formIDList)
-
+            setFormTags(formTagList)
         })
         .catch(error => console.log(error));
-    }, [name])
+    }, [])
 
     return ((
         <div>
             <EntryContent 
-                name={name} 
+                displayName={displayName} 
+                apiNameTag={apiNameTag}
                 dexNum={dexNum} 
                 pokemonData={pokemonData} 
                 apiURLs={apiURLs} 
-                formIDs={formIDs}
+                formTags={formTags}
+                appearanceTags={appearanceTags}
             />
         </div>
     ))

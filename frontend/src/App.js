@@ -45,7 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home pokemonData={pokemonData}/>}/>
             {everyRoute}
-            <Route path="*" element={<p>Path not resolved</p>} />
+            <Route path="*" element={<p></p>} />
           </Routes>
         </div>
     </div>
