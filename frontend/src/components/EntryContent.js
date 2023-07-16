@@ -40,9 +40,10 @@ const EntryContent = (props) => {
     const apiURLs = props.apiURLs
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
-    const randomTag = formTags[Math.floor(Math.random()*formTags.length)]
+    const randomFormTag = formTags[Math.floor(Math.random()*formTags.length)]
+    const randomAppearanceTag = appearanceTags[Math.floor(Math.random()*appearanceTags.length)]
     const dexNum = props.dexNum
-    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomTag + ".png"
+    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomFormTag + ".png"
     const pokemonData = props.pokemonData
     const displayName = props.displayName
     const nameID = displayName
