@@ -1,6 +1,6 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
-import ArtworkDisplay from "./ArtwortDisplay"
+import ArtworkDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
 
@@ -43,6 +43,7 @@ const EntryContent = (props) => {
     const displayName = props.displayName
     const nameID = displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
+    console.log(entryData)
 
     return ((
         <div className="EntryContent">
