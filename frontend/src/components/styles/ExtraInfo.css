@@ -1,0 +1,13 @@
+
+.ExtraInfo {
+    display: flex;
+    left: 0;
+    right: 0;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: linear-gradient(to right, #c0c0c0, #c0c0c0) padding-box,
+              linear-gradient(to right, #808080, #808080) border-box;
+    border: solid transparent;
+    border-width: 10px;
+}

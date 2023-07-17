@@ -1,5 +1,5 @@
 import DirectoryBar from "./DirectoryBar"
-import GameInformation from "./GameInformation"
+import ExtraInfo from "./ExtraInfo"
 import ArtworkDisplay from "./ArtwortDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
@@ -48,7 +48,7 @@ const EntryContent = (props) => {
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
             <ArtworkDisplay nameID={nameID} officialArt={officialArt} formTags={formTags}/>
-            <GameInformation entryData={entryData}/>
+            <ExtraInfo entryData={entryData}/>
             <h1>You are currently accessing the {displayName} page</h1>
         </div>
     ))

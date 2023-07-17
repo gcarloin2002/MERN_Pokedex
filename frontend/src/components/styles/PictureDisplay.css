@@ -20,8 +20,10 @@
 }
 
 .name {
+    color: #808080;
     margin-top: 0;
     margin-bottom: 0;
     font-family: "Flexo-Medium",arial,sans-serif;
     font-size: 40px;
+    font-weight: bold;
 }
