@@ -1,9 +1,7 @@
-import { useState } from "react"
 import DirectoryBar from "./DirectoryBar"
 import ArtworkDisplay from "./ArtwortDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
-import { useEffect } from "react"
 
 const generateNeighbors = (allPokemonData, dexNum) => {
 
@@ -32,18 +30,13 @@ const generateNeighbors = (allPokemonData, dexNum) => {
     }
 }
 
-const inBetweenInclusive = (a, b, number) => {return ((a <= number) && (number <= b))}
-
-// const generateAppearanceIDs
-
 const EntryContent = (props) => {
-    const apiURLs = props.apiURLs
+    // const apiURLs = props.apiURLs
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
-    const randomFormTag = formTags[Math.floor(Math.random()*formTags.length)]
-    const randomAppearanceTag = appearanceTags[Math.floor(Math.random()*appearanceTags.length)]
+    const randomTag = formTags[0]
     const dexNum = props.dexNum
-    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomFormTag + ".png"
+    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomTag + ".png"
     const pokemonData = props.pokemonData
     const displayName = props.displayName
     const nameID = displayName
