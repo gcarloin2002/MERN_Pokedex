@@ -6,8 +6,6 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 30px;
-    background: linear-gradient(to right, #c0c0c0, #c0c0c0) padding-box,
-              linear-gradient(to right, #808080, #808080) border-box;
     border: solid transparent;
     border-width: 10px;
 }
@@ -107,12 +105,4 @@ Lighter - #bfaa9c
 
 Fairy - #ee99ac
 Lighter - #f6ccd5
-
-
-
-
-
-
-
-
 */

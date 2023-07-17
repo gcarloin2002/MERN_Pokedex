@@ -42,12 +42,11 @@ const EntryContent = (props) => {
     const pokemonData = props.pokemonData
     const displayName = props.displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
-    console.log(entryData)
 
     return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <PrimaryDisplay displayName={displayName} officialArt={officialArt} formTags={formTags}/>
+            <PrimaryDisplay entryData={entryData} displayName={displayName} officialArt={officialArt} formTags={formTags}/>
             <ExtraInfo entryData={entryData}/>
             <h1>You are currently accessing the {displayName} page</h1>
         </div>
