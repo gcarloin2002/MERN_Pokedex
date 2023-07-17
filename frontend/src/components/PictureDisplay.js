@@ -29,7 +29,7 @@ const generatePictureDisplayStyling = (types) => {
     if (types.length === 1){
         const solidColor = colorScheme[types[0]][0]
 
-        const borderGradient = ([greyBorder, solidColor, solidColor, solidColor, solidColor, greyBorder]).join(", ")
+        const borderGradient = ([solidColor, solidColor]).join(", ")
 
         return {background:"linear-gradient(45deg, " + contentGradient + ") padding-box, linear-gradient(to right, " + borderGradient +  ") border-box"}
     }
