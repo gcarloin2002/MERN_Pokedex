@@ -56,34 +56,10 @@ const generatePrimaryDivStyling = (types) => {
 
         const borderGradient = ([greyBorder, solidColor1, solidColor1, solidColor2, solidColor2, greyBorder]).join(", ")
         const contentGradient = ([greyContent, lightColor1, lightColor1, lightColor2, lightColor2, greyContent]).join(", ")
-        
+
         return {background:"linear-gradient(to right," + contentGradient + ") padding-box, linear-gradient(to right, " + borderGradient +  ") border-box"}
     }
 }
-
-/*
-background: linear-gradient(to right,#bbe3a7, #bbe3a7, #bbe3a7, #d699d6, #d699d6, #d699d6) padding-box,
-linear-gradient(to right, #78c850, #78c850, #78c850, #a040a0, #a040a0, #a040a0) border-box;
-
-Normal: ["#a8a878", "#d3d3bb"]
-Fighting: ["#c03028", "#e7918c"]
-Flying: ["#a890f0", "#d3c7f7"]
-Poison: ["#a040a0", "#d699d6"]
-Ground: ["#e0c068", "#efdfb3"]
-Rock: ["#b8a038", "#dfd297"]
-Bug: ["#a8b820", "#dee982"]
-Ghost: ["#705898", "#b7a9cd"]
-Steel: ["#b8b8d0", "#dbdbe7"]
-Fire: ["#f08030", "#f7bf97"]
-Water: ["#6890f0", "#b3c7f7"]
-Grass: ["#78c850", "#bbe3a7"]
-Electric: ["#f8d030", "#fbe797"]
-Psychic: ["#f85888", "#fbabc3"]
-Ice: ["#98d8d8", "#cbebeb"]
-Dragon: ["#7038f8", "#b79bfb"]
-Dark: ["#705848", "#bfaa9c"]
-Fairy: ["#ee99ac", "#f6ccd5"]
-*/
 
 const PrimaryDisplay = (props) => {
     const entryData = props.entryData
@@ -96,7 +72,7 @@ const PrimaryDisplay = (props) => {
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
             <div className="secondHandDiv">
-                <PictureDisplay officialArt={officialArt} formTags={formTags}/>
+                <PictureDisplay officialArt={officialArt} formTags={formTags} types={types}/>
                 <div className="nameDiv">{displayName}</div> 
             </div>
             <div className="secondHandDiv">
