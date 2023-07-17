@@ -6,13 +6,49 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     background: linear-gradient(to right, #c0c0c0, #c0c0c0) padding-box,
               linear-gradient(to right, #808080, #808080) border-box;
     border: solid transparent;
     border-width: 10px;
 }
+
+.secondHandDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.nameDiv {
+    font-size: 35px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    width: 410px; 
+    border-radius: 35px;
+    text-align: center;
+    background-color: #f7f7f7;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 background: linear-gradient(to right,#bbe3a7, #bbe3a7, #bbe3a7, #d699d6, #d699d6, #d699d6) padding-box,

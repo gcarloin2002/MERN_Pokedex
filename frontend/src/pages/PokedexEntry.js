@@ -8,7 +8,7 @@ const PokedexEntry = (props) => {
     const [formTags, setFormTags] = useState(false)
     const [apiNameTag, setAPINameTag] = useState(false)
     const [appearanceTags, setAppearanceTags] = useState(false)
-    const displayName = (window.location.href).slice(22)
+    const displayName = (window.location.href).slice(22).replaceAll("_", " ")
     const pokemonData = props.pokemonData
     const dexNum = props.dexNum
     

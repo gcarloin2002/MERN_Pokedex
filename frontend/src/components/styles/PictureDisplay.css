@@ -4,26 +4,17 @@
     width: 400px;
     border-radius: 30px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background: linear-gradient(to right, #f7f7f7, #f7f7f7) padding-box,
               linear-gradient(to right, #808080, #808080) border-box;
     border: solid transparent;
-    border-width: 10px;
+    border-width: 5px;
+    margin-bottom: 10px;
 }
 
 
 .picture {
-    height: 340px;
-    width: 340px;
-}
-
-.name {
-    color: #808080;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-family: "Flexo-Medium",arial,sans-serif;
-    font-size: 40px;
-    font-weight: bold;
+    height: 400px;
+    width: 400px;
 }

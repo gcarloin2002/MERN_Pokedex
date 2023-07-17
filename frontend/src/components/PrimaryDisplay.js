@@ -3,12 +3,20 @@ import "./styles/PrimaryDisplay.css"
 
 const PrimaryDisplay = (props) => {
     const officialArt = props.officialArt
-    const nameID = props.nameID
+    const displayName = props.displayName
     const formTags = props.formTags
 
     return (
         <div className="PrimaryDisplay">
-            <PictureDisplay nameID={nameID} officialArt={officialArt} formTags={formTags}/>
+            <div className="secondHandDiv">
+                <PictureDisplay officialArt={officialArt} formTags={formTags}/>
+                <div className="nameDiv">{displayName}</div> 
+            </div>
+            <div className="secondHandDiv">
+                
+                
+
+            </div>
         </div>
     )
 }

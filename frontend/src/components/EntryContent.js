@@ -1,6 +1,6 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
-import ArtworkDisplay from "./PrimaryDisplay"
+import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
 
@@ -41,14 +41,13 @@ const EntryContent = (props) => {
     const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomTag + ".png"
     const pokemonData = props.pokemonData
     const displayName = props.displayName
-    const nameID = displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
     console.log(entryData)
 
     return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <ArtworkDisplay nameID={nameID} officialArt={officialArt} formTags={formTags}/>
+            <PrimaryDisplay displayName={displayName} officialArt={officialArt} formTags={formTags}/>
             <ExtraInfo entryData={entryData}/>
             <h1>You are currently accessing the {displayName} page</h1>
         </div>
