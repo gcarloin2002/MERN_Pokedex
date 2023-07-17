@@ -1,20 +1,23 @@
 .PictureDisplay {
-    background-color:#EDEDED;
-    height: 300px;
-    width: 300px;
+    background-color:#f7f7f7;
+    height: 400px;
+    width: 400px;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 
 .picture {
-    height: 250px;
-    width: 250px;
+    height: 340px;
+    width: 340px;
 }
 
 .name {
     margin-top: 0;
     margin-bottom: 0;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    font-size: 40px;
 }

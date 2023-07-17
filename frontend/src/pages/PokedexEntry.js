@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
 import EntryContent from "../components/EntryContent"
 
 const PokedexEntry = (props) => {
+    const [entryData, setEntryData] = useState(false)
     const [apiURLs, setAPIURLs] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [apiNameTag, setAPINameTag] = useState(false)
@@ -32,6 +34,9 @@ const PokedexEntry = (props) => {
 
                         // No gender differences
                         else if (appearanceTag.includes("-female") || appearanceTag.includes("-male")){continue}
+
+                        // No Pidgeot 
+                        else if (appearanceTag.includes("18to")) {continue}
 
                         // No pikachus
                         else if (appearanceTag.includes("25-")) {continue}
@@ -142,6 +147,7 @@ const PokedexEntry = (props) => {
                         // No Alolan forms
                         else if (appearanceTag.includes("-alola")){continue}
 
+
                         // No Toxtricity
                         else if (appearanceTag.includes("849-")){continue}
                         
@@ -201,11 +207,15 @@ const PokedexEntry = (props) => {
             }
             setAPIURLs(urlList)  
             setFormTags(formTagList)
+
+            fetch(urlList[0])
+            .then((response) => response.json())
+            .then((result) => setEntryData(result))
         })
         .catch(error => console.log(error));
-    }, [])
+    }, [displayName, dexNum])
 
-    return ((
+    return ((formTags && appearanceTags && apiURLs && entryData) && (
         <div>
             <EntryContent 
                 displayName={displayName} 
@@ -215,6 +225,7 @@ const PokedexEntry = (props) => {
                 apiURLs={apiURLs} 
                 formTags={formTags}
                 appearanceTags={appearanceTags}
+                entryData={entryData}
             />
         </div>
     ))

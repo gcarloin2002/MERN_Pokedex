@@ -1,4 +1,5 @@
 import DirectoryBar from "./DirectoryBar"
+import GameInformation from "./GameInformation"
 import ArtworkDisplay from "./ArtwortDisplay"
 import { determineDisplayName, determineUrlName } from "./DexButton"
 import "./styles/EntryContent.css"
@@ -31,7 +32,8 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 }
 
 const EntryContent = (props) => {
-    // const apiURLs = props.apiURLs
+    const entryData = props.entryData
+    const apiURLs = props.apiURLs
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const randomTag = formTags[0]
@@ -42,13 +44,11 @@ const EntryContent = (props) => {
     const nameID = displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
-    console.log(formTags)
-    console.log(appearanceTags)
-    
     return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
             <ArtworkDisplay nameID={nameID} officialArt={officialArt} formTags={formTags}/>
+            <GameInformation entryData={entryData}/>
             <h1>You are currently accessing the {displayName} page</h1>
         </div>
     ))

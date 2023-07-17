@@ -9,7 +9,7 @@ const PictureDisplay = (props) => {
     return ( 
         <div className="PictureDisplay">
             <img className="picture" src={officialArt} alt={"unavailable"}/>
-            <h1 className="name">{nameID}</h1>
+            <p className="name">{nameID}</p>
         </div>
     )
 }

@@ -2,4 +2,5 @@
 .EntryContent {
     display: flex;
     flex-direction: column;
+    min-width: 900px;
 }
