@@ -1,5 +1,4 @@
 .ArtworkDisplay {
-    background-color: #c0c0c0;
     display: flex;
     justify-content: center;
     left: 0;
@@ -8,4 +7,75 @@
     border-radius: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
+    background: linear-gradient(to right, #c0c0c0, #c0c0c0) padding-box,
+              linear-gradient(to right, #808080, #808080) border-box;
+    border: solid transparent;
+    border-width: 10px;
 }
+
+/*
+background: linear-gradient(to right,#bbe3a7, #bbe3a7, #bbe3a7, #d699d6, #d699d6, #d699d6) padding-box,
+linear-gradient(to right, #78c850, #78c850, #78c850, #a040a0, #a040a0, #a040a0) border-box;
+
+Normal - #a8a878
+Lighter - #d3d3bb
+
+Fighting - #c03028
+Lighter - #e7918c
+
+Flying - #a890f0
+Lighter - #d3c7f7
+
+Poison - #a040a0
+Lighter - #d699d6
+
+Ground - #e0c068
+Lighter - #efdfb3
+
+Rock - #b8a038
+Lighter - #dfd297
+
+Bug - #a8b820
+Lighter - #dee982
+
+Ghost - #705898
+Lighter - #b7a9cd
+
+Steel - #b8b8d0
+Lighter - 
+
+Fire - #f08030
+Lighter - #f7bf97
+
+Water - #6890f0
+Lighter - #b3c7f7
+
+Grass - #78c850
+Lighter - #bbe3a7
+
+Electric - #f8d030
+Lighter - #fbe797
+
+Psychic - #f85888
+Lighter - #fbabc3
+
+Ice - #98d8d8
+Lighter - #cbebeb
+
+Dragon - #7038f8
+Lighter - #b79bfb
+
+Dark - #705848
+Lighter - #bfaa9c
+
+Fairy - #ee99ac
+Lighter - #f6ccd5
+
+
+
+
+
+
+
+
+*/
