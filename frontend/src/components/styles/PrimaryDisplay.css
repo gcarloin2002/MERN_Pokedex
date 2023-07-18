@@ -17,18 +17,21 @@
     justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 410px; 
 }
 
 .nameDiv {
     font-size: 40px;
     font-family: "Flexo-Medium",arial,sans-serif;
-    width: 410px; 
     border-radius: 35px;
     text-align: center;
     background-color: #f7f7f7;
     margin-top: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    width: 410px; 
 }
 
 

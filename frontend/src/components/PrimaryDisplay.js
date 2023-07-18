@@ -61,6 +61,12 @@ const generatePrimaryDivStyling = (types) => {
     }
 }
 
+const generateFontStyling = (types) => {
+
+    return "hi"
+}
+
+
 const PrimaryDisplay = (props) => {
     const entryData = props.entryData
     const officialArt = props.officialArt
@@ -68,6 +74,7 @@ const PrimaryDisplay = (props) => {
     const formTags = props.formTags
     const types = generateTyping(entryData)
     const primaryDivStyling = generatePrimaryDivStyling(types)
+    const fontStyling = generateFontStyling(types)
 
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
@@ -77,7 +84,7 @@ const PrimaryDisplay = (props) => {
             </div>
             <div className="secondHandDiv">
                 
-                
+                <h1>hi</h1>
 
             </div>
         </div>

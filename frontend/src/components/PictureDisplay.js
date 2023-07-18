@@ -22,26 +22,10 @@ const generatePictureDisplayStyling = (types) => {
         fairy: ["#ee99ac", "#f6ccd5"]
     }
 
-    const greyBorder = "#808080"
-    const whiteBackground = ["#f5f5f5", "#d8d8d8"]
-    const contentGradient = ([whiteBackground[0], whiteBackground[0] ,whiteBackground[1], whiteBackground[0], whiteBackground[1], whiteBackground[0], whiteBackground[0]]).join(", ")
+    const solidColor = colorScheme[types[0]][0]
+    const border = ([solidColor, solidColor]).join(", ")
 
-    if (types.length === 1){
-        const solidColor = colorScheme[types[0]][0]
-
-        const borderGradient = ([solidColor, solidColor]).join(", ")
-
-        return {background:"linear-gradient(45deg, " + contentGradient + ") padding-box, linear-gradient(to right, " + borderGradient +  ") border-box"}
-    }
-
-    else {
-        const solidColor1 = colorScheme[types[0]][0]
-        const solidColor2 = colorScheme[types[1]][0]
-
-        const borderGradient = ([solidColor1, solidColor1, solidColor2, solidColor2]).join(", ")
-
-        return {background:"linear-gradient(45deg, " + contentGradient + ") padding-box, linear-gradient(to right, " + borderGradient +  ") border-box"}
-    }
+    return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}
 }
 
 const PictureDisplay = (props) => {
