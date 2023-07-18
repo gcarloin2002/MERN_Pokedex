@@ -61,9 +61,35 @@ const generatePrimaryDivStyling = (types) => {
     }
 }
 
-const generateFontStyling = (types) => {
+const generateFontStyling = (zone, types) => {
+    const colorScheme = {
+        normal: "#585838",
+        fighting: "#601814",
+        flying: "#3b17a9",
+        poison: "#502050",
+        ground: "#886b1c",
+        rock: "#5c501c",
+        bug: "#545c10",
+        ghost: "#382c4c",
+        steel: "#4e4e76",
+        fire: "#863e0a",
+        water: "#10399c",
+        grass: "#3a6b21",
+        electric: "#8f7305",
+        psychic: "#a10735",
+        ice: "#338585",
+        dragon: "#2e0593",
+        dark: "#382c24",
+        fairy: "#a81c3b"
+    }
+    
+    if (zone === "left"){
+        return {color: colorScheme[types[0]]}
+    }
 
-    return "hi"
+    else{
+        return {color: colorScheme[types[1]]}
+    }
 }
 
 
@@ -74,18 +100,18 @@ const PrimaryDisplay = (props) => {
     const formTags = props.formTags
     const types = generateTyping(entryData)
     const primaryDivStyling = generatePrimaryDivStyling(types)
-    const fontStyling = generateFontStyling(types)
+    const fontStyling = generateFontStyling("left", types)
 
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
             <div className="secondHandDiv">
                 <PictureDisplay officialArt={officialArt} formTags={formTags} types={types}/>
-                <div className="nameDiv">{displayName}</div> 
+                <div className="nameDiv" style={fontStyling}>{displayName}</div> 
             </div>
             <div className="secondHandDiv">
-                
-                <h1>hi</h1>
-
+                <div className="typeDiv">typeDiv</div>
+                <div className="abilityDiv">abilityDiv</div>
+                <div className="statsDiv">statsDiv</div>
             </div>
         </div>
     )
