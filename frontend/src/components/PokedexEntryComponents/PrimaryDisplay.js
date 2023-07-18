@@ -109,16 +109,17 @@ const PrimaryDisplay = (props) => {
     const formTags = props.formTags
     const types = generateTyping(entryData)
     const primaryDivStyling = generatePrimaryDivStyling(types)
-    const fontStyling = generateFontStyling("left", types)
+    const leftFontStyling = generateFontStyling("left", types)
+    const rightFontStyling = generateFontStyling("right", types)
 
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
             <div className="secondHandDiv">
                 <PictureDisplay officialArt={officialArt} formTags={formTags} types={types}/>
-                <div className="nameDisplay" style={fontStyling}>{displayName}</div> 
+                <div className="nameDisplay" style={leftFontStyling}>{displayName}</div> 
             </div>
             <div className="secondHandDiv">
-                <TypingDisplay types={types}/>
+                <TypingDisplay style={rightFontStyling} types={types}/>
                 <AbilityDisplay/>
                 <StatsDisplay/>
             </div>

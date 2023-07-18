@@ -48,7 +48,6 @@ const EntryContent = (props) => {
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
             <PrimaryDisplay entryData={entryData} displayName={displayName} officialArt={officialArt} formTags={formTags}/>
             <ExtraInfo entryData={entryData}/>
-            <h1>You are currently accessing the {displayName} page</h1>
         </div>
     ))
 }
