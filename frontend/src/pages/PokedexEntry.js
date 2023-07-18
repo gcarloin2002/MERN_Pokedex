@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import EntryContent from "../components/EntryContent"
+import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 
 const PokedexEntry = (props) => {
     const [entryData, setEntryData] = useState(false)

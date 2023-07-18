@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { determineDisplayName, determineUrlName } from './components/DexButton';
+import { determineDisplayName, determineUrlName } from './components/HomeComponents/DexButton';
 
 // pages & components
 import Home from './pages/Home'

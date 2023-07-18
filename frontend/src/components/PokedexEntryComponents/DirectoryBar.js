@@ -1,6 +1,6 @@
 import "./styles/DirectoryBar.css"
-import leftArrow from "../assets/gui/leftArrow.png"
-import rightArrow from "../assets/gui/rightArrow.png"
+import leftArrow from "./assets/leftArrow.png"
+import rightArrow from "./assets/rightArrow.png"
 import { useNavigate } from "react-router-dom"
 
 const leftPic = (dexNum, handleLeftContainerClick) => {

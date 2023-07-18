@@ -1,7 +1,7 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
 import PrimaryDisplay from "./PrimaryDisplay"
-import { determineDisplayName, determineUrlName } from "./DexButton"
+import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
 
 const generateNeighbors = (allPokemonData, dexNum) => {

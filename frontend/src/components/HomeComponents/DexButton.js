@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import { OpaqueContext } from './ButtonCollection';
-import pokeball_Icon from "../assets/gui/pokeball-icon.png"
+import pokeball_Icon from "./assets/pokeball-icon.png"
 import "./styles/DexButton.css"
 
 
