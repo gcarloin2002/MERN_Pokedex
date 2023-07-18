@@ -1,3 +1,6 @@
+import TypingDisplay from "./TypingDisplay"
+import AbilityDisplay from "./AbilityDisplay"
+import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
 import "./styles/PrimaryDisplay.css"
 
@@ -86,9 +89,15 @@ const generateFontStyling = (zone, types) => {
     if (zone === "left"){
         return {color: colorScheme[types[0]]}
     }
+    
+    else {
+        if (types.length === 1){
+            return {color: colorScheme[types[0]]}
+        }
 
-    else{
-        return {color: colorScheme[types[1]]}
+        else {
+            return {color: colorScheme[types[1]]}
+        }
     }
 }
 
@@ -106,12 +115,12 @@ const PrimaryDisplay = (props) => {
         <div className="PrimaryDisplay" style={primaryDivStyling}>
             <div className="secondHandDiv">
                 <PictureDisplay officialArt={officialArt} formTags={formTags} types={types}/>
-                <div className="nameDiv" style={fontStyling}>{displayName}</div> 
+                <div className="nameDisplay" style={fontStyling}>{displayName}</div> 
             </div>
             <div className="secondHandDiv">
-                <div className="typeDiv">typeDiv</div>
-                <div className="abilityDiv">abilityDiv</div>
-                <div className="statsDiv">statsDiv</div>
+                <TypingDisplay types={types}/>
+                <AbilityDisplay/>
+                <StatsDisplay/>
             </div>
         </div>
     )

@@ -1,13 +1,10 @@
 .PictureDisplay {
-    background-color:#f7f7f7;
     height: 400px;
     width: 400px;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #f7f7f7, #f7f7f7) padding-box,
-              linear-gradient(to right, #808080, #808080) border-box;
     border: solid transparent;
     border-width: 5px;
     margin-bottom: 10px;

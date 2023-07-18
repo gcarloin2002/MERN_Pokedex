@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 10px;
@@ -22,7 +21,7 @@
     width: 410px; 
 }
 
-.nameDiv {
+.nameDisplay {
     font-size: 40px;
     font-family: "Flexo-Medium",arial,sans-serif;
     border-radius: 35px;
