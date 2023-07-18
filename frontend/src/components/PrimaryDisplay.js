@@ -42,7 +42,7 @@ const generatePrimaryDivStyling = (types) => {
         const solidColor = colorScheme[types[0]][0]
         const lightColor = colorScheme[types[0]][1]
 
-        const borderGradient = ([greyBorder, solidColor, solidColor, solidColor, solidColor, greyBorder]).join(", ")
+        const borderGradient = ([greyBorder, solidColor, solidColor, solidColor, solidColor, solidColor, solidColor, greyBorder]).join(", ")
         const contentGradient = ([greyContent, lightColor, lightColor, lightColor, lightColor, greyContent]).join(", ")
 
         return {background:"linear-gradient(to right," + contentGradient + ") padding-box, linear-gradient(to right, " + borderGradient +  ") border-box"}
@@ -54,7 +54,7 @@ const generatePrimaryDivStyling = (types) => {
         const solidColor2 = colorScheme[types[1]][0]
         const lightColor2 = colorScheme[types[1]][1]
 
-        const borderGradient = ([greyBorder, solidColor1, solidColor1, solidColor2, solidColor2, greyBorder]).join(", ")
+        const borderGradient = ([greyBorder, solidColor1, solidColor1, solidColor1, solidColor2, solidColor2, solidColor2, greyBorder]).join(", ")
         const contentGradient = ([greyContent, lightColor1, lightColor1, lightColor2, lightColor2, greyContent]).join(", ")
 
         return {background:"linear-gradient(to right," + contentGradient + ") padding-box, linear-gradient(to right, " + borderGradient +  ") border-box"}
