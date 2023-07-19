@@ -1,0 +1,38 @@
+
+
+.AbilityDisplay {
+    background-color: #f7f7f7;
+    border-radius: 45px;
+    width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 75px;
+}
+
+.abilityLabel {
+    font-size: 20px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.abilityContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 410px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 40px;
+}
+
+
+.abilityDiv {
+    font-size: 17px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    text-align: center;
+}

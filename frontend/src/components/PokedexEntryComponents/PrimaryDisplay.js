@@ -15,6 +15,13 @@ const generateTyping = (entryData) => {
     }
 }
 
+const generateAbilities = (entryData) => {
+    const abilities = entryData.abilities
+    return abilities.map((abilityObj) => {
+        return ((abilityObj.ability.name).split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1))).join(" ")
+    })
+}
+
 const generatePrimaryDivStyling = (types) => {
 
     const colorScheme = {
@@ -111,6 +118,7 @@ const PrimaryDisplay = (props) => {
     const primaryDivStyling = generatePrimaryDivStyling(types)
     const leftFontStyling = generateFontStyling("left", types)
     const rightFontStyling = generateFontStyling("right", types)
+    const abilities = generateAbilities(entryData)
 
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
@@ -120,7 +128,7 @@ const PrimaryDisplay = (props) => {
             </div>
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>
-                <AbilityDisplay/>
+                <AbilityDisplay style={rightFontStyling} abilities={abilities}/>
                 <StatsDisplay/>
             </div>
         </div>
