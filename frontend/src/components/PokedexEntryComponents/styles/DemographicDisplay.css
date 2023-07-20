@@ -1,0 +1,64 @@
+
+.DemographicDisplay {
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 410px; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 87px;
+}
+
+.genderBar {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13px;
+    width: 220px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.genderContainer {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    align-items: center;
+    width: 350px;
+}
+
+.maleNum {
+    margin-left: 5px;
+    color: #3355FF;
+    font-size: 13px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    text-align: center;
+    
+}
+
+.femaleNum {
+    margin-right: 5px;
+    color: #FF77DD;
+    font-size: 13px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    text-align: center;
+}
+
+.certainNum {
+    color: #f7f7f7;
+    font-size: 13px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    text-align: center;
+
+}
+
