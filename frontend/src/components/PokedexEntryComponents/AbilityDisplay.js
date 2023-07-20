@@ -58,7 +58,7 @@ const AbilityDisplay = (props) => {
     const abilities = props.abilities
     return (
         <div className="AbilityDisplay" style={style}>
-            <div className="abilityLabel">Abilities</div>
+            <div className="abilityLabel">{((abilities.length === 1) ? "Ability" : "Abilities")}</div>
             <div className="abilityContainer">
                 {generateAbilityDivs(abilities)}
             </div>
