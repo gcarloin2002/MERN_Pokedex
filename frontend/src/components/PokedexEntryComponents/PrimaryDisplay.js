@@ -1,5 +1,6 @@
 import TypingDisplay from "./TypingDisplay"
 import AbilityDisplay from "./AbilityDisplay"
+import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
 import "./styles/PrimaryDisplay.css"
@@ -20,6 +21,22 @@ const generateAbilities = (entryData) => {
     return abilities.map((abilityObj) => {
         return ((abilityObj.ability.name).split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1))).join(" ")
     })
+}
+
+const generateGenderRates = (speciesData) => {
+    const gender_rate = speciesData.gender_rate
+
+    // if genderless
+    if (gender_rate === -1) {
+        return {male: 0, female: 0}
+    }
+
+    // has genders
+    else {
+        const rateF = (gender_rate * 0.125) * 100
+        const rateM = 100 - rateF
+        return {male: rateM, female: rateF}
+    }
 }
 
 const generatePrimaryDivStyling = (types) => {
@@ -111,14 +128,17 @@ const generateFontStyling = (zone, types) => {
 
 const PrimaryDisplay = (props) => {
     const entryData = props.entryData
+    const speciesData = props.speciesData
     const officialArt = props.officialArt
     const displayName = props.displayName
     const formTags = props.formTags
+
     const types = generateTyping(entryData)
     const primaryDivStyling = generatePrimaryDivStyling(types)
     const leftFontStyling = generateFontStyling("left", types)
     const rightFontStyling = generateFontStyling("right", types)
     const abilities = generateAbilities(entryData)
+    const genderRates = generateGenderRates(speciesData)
 
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
@@ -129,6 +149,7 @@ const PrimaryDisplay = (props) => {
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>
                 <AbilityDisplay style={rightFontStyling} abilities={abilities}/>
+                <GenderDisplay style={rightFontStyling} genderRates={genderRates}/>
                 <StatsDisplay/>
             </div>
         </div>

@@ -33,6 +33,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const EntryContent = (props) => {
     const entryData = props.entryData
+    const speciesData = props.speciesData
     const apiURLs = props.apiURLs
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
@@ -46,7 +47,13 @@ const EntryContent = (props) => {
     return ((
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <PrimaryDisplay entryData={entryData} displayName={displayName} officialArt={officialArt} formTags={formTags}/>
+            <PrimaryDisplay 
+                entryData={entryData} 
+                speciesData={speciesData}
+                displayName={displayName} 
+                officialArt={officialArt} 
+                formTags={formTags}
+            />
             <ExtraInfo entryData={entryData}/>
         </div>
     ))

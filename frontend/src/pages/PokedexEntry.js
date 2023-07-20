@@ -4,6 +4,7 @@ import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 
 const PokedexEntry = (props) => {
     const [entryData, setEntryData] = useState(false)
+    const [speciesData, setSpeciesData] = useState(false)
     const [apiURLs, setAPIURLs] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [apiNameTag, setAPINameTag] = useState(false)
@@ -18,6 +19,7 @@ const PokedexEntry = (props) => {
         .then((response) => response.json())
         .then((result) => {
             setAPINameTag(result.name)
+            setSpeciesData(result)
 
             fetch("https://pokeapi.co/api/v2/pokemon-form/?limit=100000&offset=0")
             .then((response) => response.json())
@@ -226,6 +228,7 @@ const PokedexEntry = (props) => {
                 formTags={formTags}
                 appearanceTags={appearanceTags}
                 entryData={entryData}
+                speciesData={speciesData}
             />
         </div>
     ))
