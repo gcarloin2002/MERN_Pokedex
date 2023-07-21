@@ -57,11 +57,8 @@ const generateGenderBarDiv = (genderRates) => {
         const fRate = genderRates.female
         const contentColors = ["".concat(mCol, " 0%"), "".concat(mCol, " ", mRate, "%"), "".concat(fCol, " ", mRate, "%"), "".concat(fCol, " 100%")]
         
-
         const contentGradient = (contentColors).join(", ")
-        console.log(contentGradient)
         const style = {background:"linear-gradient(to right," + contentGradient + ") padding-box"}
-
 
         return (
             <div className="genderContainer">

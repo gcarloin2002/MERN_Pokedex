@@ -133,7 +133,7 @@ const PrimaryDisplay = (props) => {
                 <TypingDisplay style={rightFontStyling} types={types}/>
                 <AbilityDisplay style={rightFontStyling} abilities={abilities}/>
                 <GenderDisplay speciesData={speciesData}/>
-                <StatsDisplay/>
+                <StatsDisplay types={types}/>
             </div>
         </div>
     )
