@@ -1,6 +1,6 @@
 import TypingDisplay from "./TypingDisplay"
 import AbilityDisplay from "./AbilityDisplay"
-import DemographicDisplay from "./DemographicDisplay"
+import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
 import "./styles/PrimaryDisplay.css"
@@ -132,7 +132,7 @@ const PrimaryDisplay = (props) => {
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>
                 <AbilityDisplay style={rightFontStyling} abilities={abilities}/>
-                <DemographicDisplay style={rightFontStyling} speciesData={speciesData}/>
+                <GenderDisplay speciesData={speciesData}/>
                 <StatsDisplay/>
             </div>
         </div>

@@ -1,5 +1,5 @@
 
-.DemographicDisplay {
+.GenderDisplay {
     align-items: center;
     background-color: #f7f7f7;
     border-radius: 40px;
@@ -10,7 +10,6 @@
     width: 410px; 
     padding-top: 5px;
     padding-bottom: 5px;
-    min-height: 87px;
 }
 
 .genderBar {

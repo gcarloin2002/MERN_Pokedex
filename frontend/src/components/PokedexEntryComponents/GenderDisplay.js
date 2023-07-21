@@ -1,5 +1,5 @@
 
-import "./styles/DemographicDisplay.css"
+import "./styles/GenderDisplay.css"
 
 const generateGenderRates = (speciesData) => {
     const gender_rate = speciesData.gender_rate
@@ -75,20 +75,16 @@ const generateGenderBarDiv = (genderRates) => {
     
 }
 
-const DemographicDisplay = (props) => {
-    const style = props.style
+const GenderDisplay = (props) => {
     const speciesData = props.speciesData
     const genderRates = generateGenderRates(speciesData)
     
     return (
-        <div className="DemographicDisplay">
+        <div className="GenderDisplay">
             {generateGenderBarDiv(genderRates)}
-            <div className="heightWeightContainer">
-
-            </div>
         </div>
     )
 }
 
 
-export default DemographicDisplay
+export default GenderDisplay
