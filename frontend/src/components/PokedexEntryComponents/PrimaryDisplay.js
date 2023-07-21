@@ -19,7 +19,7 @@ const generateTyping = (entryData) => {
 const generateAbilities = (entryData) => {
     const abilities = entryData.abilities
     return abilities.map((abilityObj) => {
-        return ((abilityObj.ability.name).split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1))).join(" ")
+        return ((abilityObj.ability.name).split("-").map((word) => (word.charAt(0).toUpperCase() + word.slice(1)).replace("Rks", "RKS"))).join(" ")
     })
 }
 

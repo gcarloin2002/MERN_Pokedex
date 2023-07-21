@@ -12,16 +12,27 @@ const generateAbilityDivs = (abilities) => {
 
     // Has one regular and one hidden ability
     else if (abilities.length === 2) {
-        return (
-            <>
+
+        if (abilities[0] === abilities[1]){
+            return (
                 <div className="abilityDiv">
                     {abilities[0]}
                 </div>
-                <div className="abilityDiv">
-                    {abilities[1]} <br/>(Hidden)
-                </div>
-            </>
-        )
+            )
+        }
+
+        else {
+            return (
+                <>
+                    <div className="abilityDiv">
+                        {abilities[0]}
+                    </div>
+                    <div className="abilityDiv">
+                        {abilities[1]} <br/>(Hidden)
+                    </div>
+                </>
+            )
+        }
     }
 
     // Has two regular and one hidden ability
@@ -58,7 +69,7 @@ const AbilityDisplay = (props) => {
     const abilities = props.abilities
     return (
         <div className="AbilityDisplay" style={style}>
-            <div className="abilityLabel">{((abilities.length === 1) ? "Ability" : "Abilities")}</div>
+            <div className="abilityLabel">Abilities</div>
             <div className="abilityContainer">
                 {generateAbilityDivs(abilities)}
             </div>
