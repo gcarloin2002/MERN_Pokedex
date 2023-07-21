@@ -54,7 +54,6 @@ const EntryContent = (props) => {
                 officialArt={officialArt} 
                 formTags={formTags}
             />
-            <ExtraInfo entryData={entryData}/>
         </div>
     ))
 }
