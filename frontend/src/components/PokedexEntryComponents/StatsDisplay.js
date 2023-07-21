@@ -55,22 +55,39 @@ const generateStatsBarDiv = (types, statName, statNum) => {
         fairy: ["#ee99ac", "#f6ccd5"]
     }
 
-    if (types.length === 1){
+    if (statName === "Total"){
+        return (
+            <div className="statRowContainer">
+                <div className="leftStatContainer">
+                    <div className="statName">{statName + ":"} </div>
+                    <div className="statNum">{statNum}</div>
+                </div>
+            </div>
+        )
+    }
+
+    else if (types.length === 1){
         const lightColor = colorScheme[types[0]][1]
         return (
-            <div className="rowContainer">
-                <div className="statName">{statName + ":"} </div>
-                <div className="statNum">{statNum}</div>
+            <div className="statRowContainer">
+                <div className="leftStatContainer">
+                    <div className="statName">{statName + ":"} </div>
+                    <div className="statNum">{statNum}</div>
+                </div>
+                <div className="statBar" style={{width: statNum + "px"}}></div>
             </div>
         )
     }
 
     else {
-        const lightColorColor = colorScheme[types[1]][1]
+        const lightColor = colorScheme[types[1]][1]
         return (
-            <div className="rowContainer">
-                <div className="statName">{statName + ":"} </div>
-                <div className="statNum">{statNum}</div>
+            <div className="statRowContainer">
+                <div className="leftStatContainer">
+                    <div className="statName">{statName + ":"} </div>
+                    <div className="statNum">{statNum}</div>
+                </div>
+                <div className="statBar" style={{width: statNum + "px"}}></div>
             </div>
         )
     }
@@ -93,7 +110,6 @@ const StatsDisplay = (props) => {
                 {generateStatsBarDiv(types, "Sp Def", baseStats.Sp_Defense)}
                 {generateStatsBarDiv(types, "Speed", baseStats.Speed)}
                 {generateStatsBarDiv(types, "Total", baseStats.Total)}
-
             </div>
         </div>
     )

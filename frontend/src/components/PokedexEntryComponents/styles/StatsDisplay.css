@@ -5,6 +5,7 @@
     width: 410px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-top: 5px;
     padding-top: 5px;
@@ -21,19 +22,25 @@
 
 
 .statsContainer {
-    height: 230px;
-    width: 350px;
+    width: 370px;
+    height: 180px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 45px;
+}
+
+.statRowContainer {
+    display: flex;
+    align-items: center;
 }
 
 
-.rowContainer {
+.leftStatContainer {
     display: flex;
     justify-content: space-between;
     height: 25px;
-    width: 100px;
+    width: 110px;
     margin-top: 1px;
     margin-bottom: 1px;
     align-items: center;
@@ -41,7 +48,7 @@
 
 .statName{
     color:#f7f7f7;
-    font-size: 15px;
+    font-size: 16px;
     font-family: "Flexo-Medium",arial,sans-serif;
     font-weight: bold;
     margin-left: 3px;
@@ -49,8 +56,15 @@
 
 .statNum {
     color:#f7f7f7;
-    font-size: 15px;
+    font-size: 16px;
     font-family: "Flexo-Medium",arial,sans-serif;
     font-weight: bold;
     margin-right: 3px;
+}
+
+.statBar {
+    margin-left: 5px;
+    background-color: #f7f7f7;
+    height: 20px;
+    border-radius: 0px 5px 5px 0px;
 }
