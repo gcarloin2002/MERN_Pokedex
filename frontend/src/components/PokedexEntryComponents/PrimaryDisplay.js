@@ -23,6 +23,19 @@ const generateAbilities = (entryData) => {
     })
 }
 
+const generateBaseStats = (entryData) => {
+    const stats = entryData.stats
+    return {
+        HP: stats[0].base_stat,
+        Attack: stats[1].base_stat,
+        Defense: stats[2].base_stat,
+        Sp_Attack: stats[3].base_stat,
+        Sp_Defense: stats[4].base_stat,
+        Speed: stats[5].base_stat,
+        Total: stats[0].base_stat + stats[1].base_stat + stats[2].base_stat + stats[3].base_stat + stats[4].base_stat + stats[5].base_stat  
+    }
+}
+
 const generatePrimaryDivStyling = (types) => {
 
     const colorScheme = {
@@ -122,6 +135,7 @@ const PrimaryDisplay = (props) => {
     const leftFontStyling = generateFontStyling("left", types)
     const rightFontStyling = generateFontStyling("right", types)
     const abilities = generateAbilities(entryData)
+    const baseStats = generateBaseStats(entryData)
 
     return (
         <div className="PrimaryDisplay" style={primaryDivStyling}>
@@ -133,7 +147,7 @@ const PrimaryDisplay = (props) => {
                 <TypingDisplay style={rightFontStyling} types={types}/>
                 <AbilityDisplay style={rightFontStyling} abilities={abilities}/>
                 <GenderDisplay speciesData={speciesData}/>
-                <StatsDisplay types={types}/>
+                <StatsDisplay types={types} baseStats={baseStats}/>
             </div>
         </div>
     )
