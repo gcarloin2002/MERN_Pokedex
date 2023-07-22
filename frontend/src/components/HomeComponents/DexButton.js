@@ -92,9 +92,9 @@ const DexButton = (props) => {
 
     const data = props.data
     const dexNumber = props.dexNumber
-    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + dexNumber + ".png"
+    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + dexNumber + ".png"
     const origName = data.name
-    const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), dexNumber)
+    const displayName = props.displayName
     const urlName = determineUrlName(displayName)
     const navigate = useNavigate()
 
