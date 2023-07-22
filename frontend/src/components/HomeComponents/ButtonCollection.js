@@ -13,13 +13,11 @@ const generatePokemonDataArray = (pokemonData) => {
     for (let i = 0; i < pokemonData.length; i++) {
         const dexNumber = i + 1
         const dataName = pokemonData[i].name
-        const url = pokemonData[i].url
         const displayName = determineDisplayName(dataName.charAt(0).toUpperCase() + dataName.slice(1), i + 1)
         
         const pokemonObj = {
             dexNumber: dexNumber, 
             displayName: displayName,
-            data: pokemonData[i]
         }
 
         result.push(pokemonObj)
@@ -49,7 +47,7 @@ const ButtonCollection = (props) => {
                         pokemonDataArray.filter((obj) => {
                             return obj.displayName.toLowerCase().includes(searchInput.toLowerCase())
                         }).map((obj, index) => {
-                            return <DexButton key={index} displayName={obj.displayName} data={obj.data} dexNumber={obj.dexNumber} opacity={opacity}/>
+                            return <DexButton key={index} displayName={obj.displayName} dexNumber={obj.dexNumber} opacity={opacity}/>
                         })
                     }
                 </div>
