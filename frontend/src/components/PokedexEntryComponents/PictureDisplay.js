@@ -1,3 +1,5 @@
+import { useState } from "react"
+import FormDisplay from "./FormDisplay"
 import "./styles/PictureDisplay.css"
 
 const generatePictureDisplayStyling = (types) => {
@@ -32,10 +34,20 @@ const PictureDisplay = (props) => {
     const officialArt = props.officialArt
     const types = props.types
     const pictureDisplayStyling = generatePictureDisplayStyling(types)
+    const [formActive, setFormActive] = useState(false)
+
+    const handleThreeDotClick = () => {
+        setFormActive(!formActive)
+    }
     
     return ( 
         <div className="PictureDisplay" style={pictureDisplayStyling}>
             <img className="picture" src={officialArt} alt={"unavailable"}/>
+            <div className="threeDots" onClick={handleThreeDotClick}>
+                <div className="oneDot"></div>
+                <div className="oneDot"></div>
+                <div className="oneDot"></div>
+            </div>
         </div>
     )
 }

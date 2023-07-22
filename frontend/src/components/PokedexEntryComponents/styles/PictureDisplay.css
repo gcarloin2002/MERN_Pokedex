@@ -8,10 +8,37 @@
     border: solid transparent;
     border-width: 5px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 
 .picture {
     height: 400px;
     width: 400px;
+}
+
+
+
+.threeDots {
+    height: 40px;
+    width: 40px;
+    background-color: #c0c0c0;
+    border-radius: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.oneDot {
+    background-color: #808080;
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    margin-right: 2px;
+    margin-left: 2px;
 }
