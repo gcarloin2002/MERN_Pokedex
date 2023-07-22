@@ -10,7 +10,9 @@ const SearchBar = (props) => {
             <input className="inputTag" 
                 onChange={(e) => setSearchInput(e.target.value)}
                 value={searchInput}
+                placeholder="Search..."
             />
+            <div className="searchIcon">🔍︎</div>
         </div>
     )
 }

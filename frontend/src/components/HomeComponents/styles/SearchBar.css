@@ -1,15 +1,46 @@
 .SearchBar {
-    background-color:#c0c0c0;
-    border-radius: 30px;
+    background-color: #f7f7f7;
+    border: solid #c0c0c0;
+    border-width: 4px;
+    border-radius: 50px;
+    height: 50px;
     position: sticky;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     top: 10px;
-    font-weight: 700;
     z-index: 5;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+}
+
+
+.inputTag {
+    background-color: #f7f7f7;
+    color:#989898;
+    margin-left: 40px;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    font-size: 35px;
+    font-family: Flexo-Demi,arial,sans-serif;
+    
+}
+
+::placeholder {
+    color: #c0c0c0;
+    font-family: Flexo-Demi, arial,sans-serif;
+}
+
+
+.searchIcon {
+    color: #c0c0c0;
+    font-size: 40px;
+    margin-bottom: 8px;
+    margin-right: 10px;
 }
