@@ -48,6 +48,7 @@ const PictureDisplay = (props) => {
                 <div className="oneDot"></div>
                 <div className="oneDot"></div>
             </div>
+            {formActive && <FormDisplay/>}
         </div>
     )
 }

@@ -4,8 +4,8 @@ const FormDisplay = (props) => {
 
 
     return (
-        <div>
-
+        <div className="FormDisplay">
+            <div className="formLabel">Forms</div>
         </div>
     )
 }

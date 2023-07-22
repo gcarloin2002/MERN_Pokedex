@@ -1,0 +1,24 @@
+
+.FormDisplay {
+    background:radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, #808080, #808080) border-box;
+    background-color: #f7f7f7;
+    border: 5px solid #808080;
+    border-radius: 25px;
+    position: absolute;
+    max-width: 400px;
+    width: 400px;
+    min-height: 496px;
+    left: 425px;
+    top: -5px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.formLabel {
+    color: #696969;
+    font-size: 30px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    
+}
