@@ -217,6 +217,10 @@ const PokedexEntry = (props) => {
         .catch(error => console.log(error));
     }, [displayName, dexNum])
 
+    console.log(formTags) 
+    console.log(appearanceTags)
+
+
     return ((formTags && appearanceTags && apiURLs && entryData) && (
         <div>
             <EntryContent 

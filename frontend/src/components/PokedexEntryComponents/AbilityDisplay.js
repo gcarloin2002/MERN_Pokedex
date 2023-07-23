@@ -2,7 +2,20 @@ import "./styles/AbilityDisplay.css"
 
 const generateAbilityDivs = (abilities) => {
     // Has one ability
-    if (abilities.length === 1) {
+    if (abilities[0] === "Aura Break") {
+        return (
+            <>
+                <div className="abilityDiv">
+                    {abilities[0]}
+                </div>
+                <div className="abilityDiv">
+                    Power Construct
+                </div>
+            </>
+        )
+    } 
+    
+    else if (abilities.length === 1) {
         return (
             <div className="abilityDiv">
                 {abilities[0]}
@@ -12,7 +25,6 @@ const generateAbilityDivs = (abilities) => {
 
     // Has one regular and one hidden ability
     else if (abilities.length === 2) {
-
         if (abilities[0] === abilities[1]){
             return (
                 <div className="abilityDiv">
