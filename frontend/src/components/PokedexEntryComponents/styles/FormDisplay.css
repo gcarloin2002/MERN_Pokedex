@@ -22,3 +22,32 @@
     font-family: "Flexo-Medium",arial,sans-serif;
     
 }
+
+.formImg {
+    height: 40px;
+    width: 40px;
+}
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + .formImg {
+    cursor: pointer;
+  }
+  
+/* CHECKED STYLES */
+[type=radio]:checked + .formImg {
+    background-color: #bebebe;
+    border-radius: 10px;
+}
+
+.formLabelBox {
+    margin-left: 2px;
+    margin-right: 2px;
+}
