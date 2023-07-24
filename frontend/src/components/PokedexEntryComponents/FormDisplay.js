@@ -14,7 +14,6 @@ const FormDisplay = (props) => {
         event.preventDefault();
         const formTag = event.target.elements[currentForm]["value"]
         setCurrentFormTag(formTag)
-        console.log(formTag)
     }
 
 
@@ -77,7 +76,25 @@ const FormDisplay = (props) => {
                     }
 
                     // Mega
-                    else if (inBetween(10033, 10090, tag)){type = "Mega"}
+                    else if (inBetween(10033, 10090, tag)){
+                        switch(tag) {
+                            case 10034:
+                                type = "Mega X"
+                                break
+                            case 10035:
+                                type = "Mega Y"
+                                break
+                            case 10043:
+                                type = "Mega X"
+                                break
+                            case 10044:
+                                type = "Mega Y"
+                                break
+                            default:
+                                type = "Mega"
+                        }
+                        
+                    }
 
                     // G-Max
                     else if (inBetween(10195, 10227, tag)){type = "G-Max"}

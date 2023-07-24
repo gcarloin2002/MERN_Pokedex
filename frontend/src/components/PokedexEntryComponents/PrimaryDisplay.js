@@ -3,7 +3,11 @@ import AbilityDisplay from "./AbilityDisplay"
 import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
+import { FormContext } from "./EntryContent"
+import { useContext } from "react"
 import "./styles/PrimaryDisplay.css"
+
+const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
 const generateTyping = (entryData) => {
     const types = entryData.types
@@ -122,8 +126,35 @@ const generateFontStyling = (zone, types) => {
     }
 }
 
+const generateNameDisplay = (displayName, formTag) => {
+    const tag = Number(formTag)
+    
+    // Standard
+    if (inBetween(1, 1010, tag)) {
+        return displayName
+    }
+
+    // Mega
+    else if (inBetween(10033, 10090, tag)){
+        switch(tag) {
+            case 10034:
+                return "Mega " + displayName + " X"
+            case 10035:
+                return "Mega " + displayName + " Y"
+            case 10043:
+                return "Mega " + displayName + " X"
+            case 10044:
+                return "Mega " + displayName + " Y"
+            default:
+                return "Mega " + displayName
+        }
+    }
+    
+}
+
 
 const PrimaryDisplay = (props) => {
+    const [currentFormTag, setCurrentFormTag] = useContext(FormContext)
     const entryData = props.entryData
     const speciesData = props.speciesData
     const officialArt = props.officialArt
@@ -146,7 +177,7 @@ const PrimaryDisplay = (props) => {
                     formTags={formTags} 
                     appearanceTags={appearanceTags}
                     types={types}/>
-                <div className="nameDisplay" style={leftFontStyling}>{displayName}</div> 
+                <div className="nameDisplay" style={leftFontStyling}>{generateNameDisplay(displayName, currentFormTag)}</div> 
             </div>
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>
