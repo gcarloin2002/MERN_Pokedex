@@ -1,5 +1,6 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
+import { useState, useEffect } from "react"
 import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
@@ -32,7 +33,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 }
 
 const EntryContent = (props) => {
-    const entryData = props.entryData
+    const [entryData, setEntryData] = useState(false)
     const speciesData = props.speciesData
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
@@ -43,7 +44,14 @@ const EntryContent = (props) => {
     const displayName = props.displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
-    return ((
+    useEffect(() => {
+        fetch("https://pokeapi.co/api/v2/pokemon/" + formTags[0])
+        .then((response) => response.json())
+        .then((result) => {setEntryData(result)})
+        .catch(error => console.log(error));
+    })
+
+    return (entryData && (
         <div className="EntryContent">
             <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
             <PrimaryDisplay 
