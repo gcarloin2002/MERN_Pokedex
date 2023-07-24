@@ -34,7 +34,6 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 const EntryContent = (props) => {
     const entryData = props.entryData
     const speciesData = props.speciesData
-    const apiURLs = props.apiURLs
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const randomTag = formTags[0]

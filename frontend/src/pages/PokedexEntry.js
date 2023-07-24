@@ -5,7 +5,6 @@ import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 const PokedexEntry = (props) => {
     const [entryData, setEntryData] = useState(false)
     const [speciesData, setSpeciesData] = useState(false)
-    const [apiURLs, setAPIURLs] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [apiNameTag, setAPINameTag] = useState(false)
     const [appearanceTags, setAppearanceTags] = useState(false)
@@ -207,7 +206,6 @@ const PokedexEntry = (props) => {
                 urlList.push(url)
                 formTagList.push(url.slice(34, url.length - 1))
             }
-            setAPIURLs(urlList)  
             setFormTags(formTagList)
 
             fetch(urlList[0])
@@ -217,15 +215,13 @@ const PokedexEntry = (props) => {
         .catch(error => console.log(error));
     }, [displayName, dexNum])
 
-
-    return ((formTags && appearanceTags && apiURLs && entryData) && (
+    return ((formTags && appearanceTags && entryData) && (
         <div>
             <EntryContent 
                 displayName={displayName} 
                 apiNameTag={apiNameTag}
                 dexNum={dexNum} 
                 pokemonData={pokemonData} 
-                apiURLs={apiURLs} 
                 formTags={formTags}
                 appearanceTags={appearanceTags}
                 entryData={entryData}
