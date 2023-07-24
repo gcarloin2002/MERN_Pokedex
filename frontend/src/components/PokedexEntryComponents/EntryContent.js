@@ -53,6 +53,7 @@ const EntryContent = (props) => {
                 displayName={displayName} 
                 officialArt={officialArt} 
                 formTags={formTags}
+                appearanceTags={appearanceTags}
             />
         </div>
     ))

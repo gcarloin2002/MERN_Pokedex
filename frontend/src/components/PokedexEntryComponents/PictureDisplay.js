@@ -33,6 +33,8 @@ const generatePictureDisplayStyling = (types) => {
 const PictureDisplay = (props) => {
     const officialArt = props.officialArt
     const types = props.types
+    const formTags = props.formTags
+    const appearanceTags = props.appearanceTags
     const pictureDisplayStyling = generatePictureDisplayStyling(types)
     const [formActive, setFormActive] = useState(false)
 
@@ -48,7 +50,7 @@ const PictureDisplay = (props) => {
                 <div className="oneDot"></div>
                 <div className="oneDot"></div>
             </div>
-            {formActive && <FormDisplay/>}
+            {formActive && <FormDisplay formTags={formTags} appearanceTags={appearanceTags}/>}
         </div>
     )
 }
