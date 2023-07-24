@@ -16,8 +16,7 @@ const FormDisplay = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(event.target.elements[currentForm])
-
+        console.log(event.target.elements[currentForm]["value"])
     }
 
 
@@ -45,15 +44,14 @@ const FormDisplay = (props) => {
                     }
 
                     return (
-                    
                             <input 
                                 key={index} 
                                 type="radio" 
                                 id={type} 
-                                value={type} 
+                                value={t} 
                                 checked={type === currentForm} 
-                                onChange={(e) => setCurrentForm(e.target.value)}/>
-                        
+                                onChange={(e) => setCurrentForm(e.target.id)}
+                            />
                     )
                 })}
                 <br/>
