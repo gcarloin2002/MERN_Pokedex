@@ -1,22 +1,20 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { FormContext } from "./EntryContent"
 import "./styles/FormDisplay.css"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
-// Standard: 1 -> 1010
-// Deoxys Forms: 10001 -> 10003
-// Mega: 10003 -> 10090
-// G-Max: 10195 -> 10227
-
 const FormDisplay = (props) => {
-    const [currentForm, setCurrentForm] = useState("Standard")
+    const [currentForm, setCurrentForm] = useState("")
+    const [currentFormTag, setCurrentFormTag] = useContext(FormContext)
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        console.log(event.target.elements[currentForm]["value"])
+        const formTag = event.target.elements[currentForm]["value"]
+        setCurrentFormTag(formTag)
+        console.log(formTag)
     }
 
 

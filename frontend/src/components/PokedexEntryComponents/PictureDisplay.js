@@ -1,4 +1,5 @@
-import { useState } from "react"
+import React, { useState, useContext } from "react"
+import { FormContext } from "./EntryContent"
 import FormDisplay from "./FormDisplay"
 import "./styles/PictureDisplay.css"
 
@@ -31,7 +32,7 @@ const generatePictureDisplayStyling = (types) => {
 }
 
 const PictureDisplay = (props) => {
-    const officialArt = props.officialArt
+    const [currentFormTag, setCurrentFormTag] = useContext(FormContext)
     const types = props.types
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
@@ -44,7 +45,7 @@ const PictureDisplay = (props) => {
     
     return ( 
         <div className="PictureDisplay" style={pictureDisplayStyling}>
-            <img className="picture" src={officialArt} alt={"unavailable"}/>
+            <img className="picture" src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentFormTag + ".png"} alt={"unavailable"}/>
             <div className="threeDots" onClick={handleThreeDotClick}>
                 <div className="oneDot"></div>
                 <div className="oneDot"></div>

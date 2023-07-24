@@ -1,9 +1,11 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
+
+export const FormContext = React.createContext()
 
 const generateNeighbors = (allPokemonData, dexNum) => {
 
@@ -34,6 +36,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const EntryContent = (props) => {
     const [entryData, setEntryData] = useState(false)
+    const [currentFormTag, setCurrentFormTag] = useState(props.formTags[0])
     const speciesData = props.speciesData
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
@@ -45,24 +48,26 @@ const EntryContent = (props) => {
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/" + formTags[0])
+        fetch("https://pokeapi.co/api/v2/pokemon/" + currentFormTag)
         .then((response) => response.json())
         .then((result) => {setEntryData(result)})
         .catch(error => console.log(error));
-    })
+    }, [currentFormTag])
 
     return (entryData && (
-        <div className="EntryContent">
-            <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
-            <PrimaryDisplay 
-                entryData={entryData} 
-                speciesData={speciesData}
-                displayName={displayName} 
-                officialArt={officialArt} 
-                formTags={formTags}
-                appearanceTags={appearanceTags}
-            />
-        </div>
+        <FormContext.Provider value={[currentFormTag, setCurrentFormTag]}>
+            <div className="EntryContent">
+                <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
+                <PrimaryDisplay 
+                    entryData={entryData} 
+                    speciesData={speciesData}
+                    displayName={displayName} 
+                    officialArt={officialArt} 
+                    formTags={formTags}
+                    appearanceTags={appearanceTags}
+                />
+            </div>
+         </FormContext.Provider>
     ))
 }
 
