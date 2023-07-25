@@ -128,7 +128,7 @@ const generateFontStyling = (zone, types) => {
 
 const generateNameDisplay = (displayName, formTag) => {
     const tag = Number(formTag)
-    
+
     // Standard
     if (inBetween(1, 1010, tag)) {
         return displayName
@@ -149,6 +149,9 @@ const generateNameDisplay = (displayName, formTag) => {
                 return "Mega " + displayName
         }
     }
+
+    // G-Max
+    else if (inBetween(10195, 10227, tag)){return "G-Max " + displayName}
     
 }
 

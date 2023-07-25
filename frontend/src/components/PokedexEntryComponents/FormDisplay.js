@@ -109,7 +109,12 @@ const FormDisplay = (props) => {
                                     checked={type === currentForm} 
                                     onChange={(e) => setCurrentForm(e.target.id)}
                                 />
-                                <img className="formImg"key={"img"+index} src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + t + ".png"} alt="unavailable"/>
+                                <img 
+                                    className="formImg"
+                                    key={"img"+index} 
+                                    src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + t + ".png"} 
+                                    alt="unavailable"
+                                />
                             </label>
                     )
                 })}
