@@ -162,7 +162,7 @@ const PrimaryDisplay = (props) => {
     const speciesData = props.speciesData
     const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const officialArt = props.officialArt
-    const displayName = props.displayName
+    const displayName = generateNameDisplay(speciesName, currentFormTag)
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
 
@@ -185,7 +185,7 @@ const PrimaryDisplay = (props) => {
                     speciesData={speciesData}
                     speciesName={speciesName}
                 />
-                <div className="nameDisplay" style={leftFontStyling}>{generateNameDisplay(speciesName, currentFormTag)}</div> 
+                <div className="nameDisplay" style={leftFontStyling}>{displayName}</div> 
             </div>
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>

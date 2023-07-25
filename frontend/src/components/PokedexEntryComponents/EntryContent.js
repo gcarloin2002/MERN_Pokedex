@@ -43,7 +43,6 @@ const EntryContent = (props) => {
     const randomTag = formTags[0]
     const dexNum = props.dexNum
     const pokemonData = props.pokemonData
-    const displayName = props.displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
@@ -60,7 +59,6 @@ const EntryContent = (props) => {
                 <PrimaryDisplay 
                     entryData={entryData} 
                     speciesData={speciesData}
-                    displayName={displayName} 
                     formTags={formTags}
                     appearanceTags={appearanceTags}
                 />

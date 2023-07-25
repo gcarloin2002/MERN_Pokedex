@@ -6,7 +6,6 @@ const PokedexEntry = (props) => {
     const [speciesData, setSpeciesData] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [appearanceTags, setAppearanceTags] = useState(false)
-    const displayName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const pokemonData = props.pokemonData
     const dexNum = props.dexNum
     
@@ -210,7 +209,6 @@ const PokedexEntry = (props) => {
     return ((formTags && appearanceTags) && (
         <div>
             <EntryContent 
-                displayName={displayName} 
                 dexNum={dexNum} 
                 pokemonData={pokemonData} 
                 formTags={formTags}
