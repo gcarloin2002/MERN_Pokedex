@@ -42,7 +42,6 @@ const EntryContent = (props) => {
     const appearanceTags = props.appearanceTags
     const randomTag = formTags[0]
     const dexNum = props.dexNum
-    const officialArt = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + randomTag + ".png"
     const pokemonData = props.pokemonData
     const displayName = props.displayName
     const neighbors = generateNeighbors(pokemonData, dexNum)
@@ -62,7 +61,6 @@ const EntryContent = (props) => {
                     entryData={entryData} 
                     speciesData={speciesData}
                     displayName={displayName} 
-                    officialArt={officialArt} 
                     formTags={formTags}
                     appearanceTags={appearanceTags}
                 />

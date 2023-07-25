@@ -1,13 +1,16 @@
 import { useContext, useState } from "react"
 import { FormContext } from "./EntryContent"
+import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
 const FormDisplay = (props) => {
-    const [currentForm, setCurrentForm] = useState("")
+    const displayName = props.displayName
+    const [currentForm, setCurrentForm] = useState(displayName)
     const [currentFormTag, setCurrentFormTag] = useContext(FormContext)
     const formTags = props.formTags
+    const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
 
     const handleSubmit = (event) => {
@@ -23,81 +26,9 @@ const FormDisplay = (props) => {
             <form onSubmit={handleSubmit}>
                 {formTags.map((t, index) => {
                     const tag = Number(t)
-                    let type = "Standard"
 
-                    // Standard
-                    if (inBetween(1, 1010, tag)){
-                        switch (tag){
-                            case 413:
-                                type = "Plant Cloak"
-                                break
-                            case 492:
-                                type = "Land"
-                                break
-                            default:
-                                type = "Standard"
-                                break
-                        }
-                    }
-
-                    // Deoxys
-                    else if (inBetween(10001, 10003, tag)){
-                        switch (tag){
-                            case 10001:
-                                type = "Attack"
-                                break
-                            case 10002:
-                                type = "Defense"
-                                break
-                            case 10003:
-                                type = "Speed"
-                                break
-                        }
-                    }
-
-                    // Wormadam
-                    else if (inBetween(10004, 10005, tag)){
-                        switch (tag){
-                            case 10004:
-                                type = "Sandy Cloak"
-                                break
-                            case 10005:
-                                type = "Trash Cloak"
-                                break
-                        }
-                    }
-
-                    // Origin Forms
-                    else if (inBetween(10245, 10246, tag) || tag === 10007) {type = "Origin"}
-
-                    // Shaymin-Sky
-                    else if (tag === 10006) {
-                        type = "Sky"
-                    }
-
-                    // Mega
-                    else if (inBetween(10033, 10090, tag)){
-                        switch(tag) {
-                            case 10034:
-                                type = "Mega X"
-                                break
-                            case 10035:
-                                type = "Mega Y"
-                                break
-                            case 10043:
-                                type = "Mega X"
-                                break
-                            case 10044:
-                                type = "Mega Y"
-                                break
-                            default:
-                                type = "Mega"
-                        }
-                        
-                    }
-
-                    // G-Max
-                    else if (inBetween(10195, 10227, tag)){type = "G-Max"}
+                    let type = generateNameDisplay(speciesName, tag)
+                    
 
                     return (
                             <label className="formLabelBox" key={"label"+index}>

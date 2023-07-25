@@ -126,32 +126,32 @@ const generateFontStyling = (zone, types) => {
     }
 }
 
-const generateNameDisplay = (displayName, formTag) => {
+export const generateNameDisplay = (speciesName, formTag) => {
     const tag = Number(formTag)
 
     // Standard
     if (inBetween(1, 1010, tag)) {
-        return displayName
+        return speciesName
     }
 
     // Mega
     else if (inBetween(10033, 10090, tag)){
         switch(tag) {
             case 10034:
-                return "Mega " + displayName + " X"
+                return "Mega " + speciesName + " X"
             case 10035:
-                return "Mega " + displayName + " Y"
+                return "Mega " + speciesName + " Y"
             case 10043:
-                return "Mega " + displayName + " X"
+                return "Mega " + speciesName + " X"
             case 10044:
-                return "Mega " + displayName + " Y"
+                return "Mega " + speciesName + " Y"
             default:
-                return "Mega " + displayName
+                return "Mega " + speciesName
         }
     }
 
     // G-Max
-    else if (inBetween(10195, 10227, tag)){return "G-Max " + displayName}
+    else if (inBetween(10195, 10227, tag)){return "G-Max " + speciesName}
     
 }
 
@@ -160,6 +160,7 @@ const PrimaryDisplay = (props) => {
     const [currentFormTag, setCurrentFormTag] = useContext(FormContext)
     const entryData = props.entryData
     const speciesData = props.speciesData
+    const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const officialArt = props.officialArt
     const displayName = props.displayName
     const formTags = props.formTags
@@ -179,8 +180,12 @@ const PrimaryDisplay = (props) => {
                     officialArt={officialArt} 
                     formTags={formTags} 
                     appearanceTags={appearanceTags}
-                    types={types}/>
-                <div className="nameDisplay" style={leftFontStyling}>{generateNameDisplay(displayName, currentFormTag)}</div> 
+                    types={types}
+                    displayName={displayName}
+                    speciesData={speciesData}
+                    speciesName={speciesName}
+                />
+                <div className="nameDisplay" style={leftFontStyling}>{generateNameDisplay(speciesName, currentFormTag)}</div> 
             </div>
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>
