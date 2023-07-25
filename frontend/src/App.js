@@ -6,12 +6,12 @@ import { determineDisplayName, determineUrlName } from './components/HomeCompone
 import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
-export const CurrentTagArray = React.createContext()
+export const CurrentTagObj = React.createContext()
 
 function App() {
   // Array of every pokemon's data
   const [pokemonData, setPokemonData] = useState([]);
-  const [currentTagArray, setCurrentTagArray] = useState([])
+  const [currentTagObj, setCurrentTagObj] = useState({})
 
   // Fetches every Pokemon
   useEffect(() => {
@@ -20,32 +20,35 @@ function App() {
   .then((json) => json.results)
   .then((result) => {
       const pkmnData = []
+      const attributesObj = {}
       for (let i = 0; i < result.length; i++){
           pkmnData.push(result[i])
+          const origName = pkmnData[i].name
+          const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
+          attributesObj[displayName] = i + 1
       }
-      
+      setCurrentTagObj(attributesObj)
       setPokemonData(pkmnData)
   })
   .catch(error => console.log(error));
   }, [])
 
   const routes = []
-  const attributesObj = {}
   for (let i = 0; i < pokemonData.length; i++) {
     const origName = pokemonData[i].name
     const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
     const urlName = determineUrlName(displayName)
-    attributesObj[displayName] = i + 1
 
     const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemonData={pokemonData}/>}
     routes.push(obj)
   }
   
+  
   const everyRoute = routes.map(({path, element}, key) => <Route path={path} element={element} key={key} />);
 
   return (
   <Router>
-    <CurrentTagArray.Provider value={[currentTagArray, setCurrentTagArray]}>
+    <CurrentTagObj.Provider value={[currentTagObj, setCurrentTagObj]}>
       <div className="App">
           <div className="pages">
             <Routes>
@@ -55,7 +58,7 @@ function App() {
             </Routes>
           </div>
       </div>
-    </CurrentTagArray.Provider>
+    </CurrentTagObj.Provider>
   </Router>
   )
 }
