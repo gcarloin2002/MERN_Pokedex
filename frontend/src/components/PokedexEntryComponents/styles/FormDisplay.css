@@ -26,6 +26,8 @@
 .formImg {
     height: 40px;
     width: 40px;
+    border-radius: 10px;
+    border: solid #c0c0c0;
 }
 
 /* HIDE RADIO */
@@ -45,9 +47,11 @@
 [type=radio]:checked + .formImg {
     background-color: #bebebe;
     border-radius: 10px;
+    border: solid #c0c0c0;
 }
 
 .formLabelBox {
     margin-left: 2px;
     margin-right: 2px;
+    
 }
