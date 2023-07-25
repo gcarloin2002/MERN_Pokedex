@@ -35,7 +35,7 @@ function App() {
     const origName = pokemonData[i].name
     const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
     const urlName = determineUrlName(displayName)
-    attributesObj[displayName] = origName
+    attributesObj[displayName] = i + 1
 
     const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemonData={pokemonData}/>}
     routes.push(obj)
