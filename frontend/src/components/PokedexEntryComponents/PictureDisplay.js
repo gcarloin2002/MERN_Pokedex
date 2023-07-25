@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { EntryFormTagContext } from "./EntryContent"
 import { CurrentTagObjContext } from "../../App"
 import FormDisplay from "./FormDisplay"
@@ -47,6 +47,11 @@ const PictureDisplay = (props) => {
     const handleThreeDotClick = () => {
         setFormActive(!formActive)
     }
+
+    useEffect(() => {
+        setFormActive(false)
+    }, [speciesName])
+    
     
     return ( 
         <div className="PictureDisplay" style={pictureDisplayStyling}>

@@ -53,7 +53,7 @@ const EntryContent = (props) => {
         .then((response) => response.json())
         .then((result) => {setEntryData(result)})
         .catch(error => console.log(error));
-    }, [entryFormTag])
+    }, [currentTagObj[speciesName]])
 
     return (entryData && (
         <EntryFormTagContext.Provider value={[entryFormTag, setEntryFormTag]}>

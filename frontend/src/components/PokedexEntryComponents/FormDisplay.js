@@ -24,7 +24,7 @@ const FormDisplay = (props) => {
                                     type="radio" 
                                     id={t} 
                                     value={t} 
-                                    checked={t === entryFormTag} 
+                                    checked={t === currentTagObj[speciesName].toString()} 
                                     onChange={(e) => {
                                         setEntryFormTag(e.target.id)
                                         const tagObj = currentTagObj
@@ -42,7 +42,7 @@ const FormDisplay = (props) => {
                     )
                 })}
                 <br/>
-                {generateNameDisplay(speciesName, entryFormTag)}
+                {generateNameDisplay(speciesName, currentTagObj[speciesName])}
             </form>
         </div>
     )

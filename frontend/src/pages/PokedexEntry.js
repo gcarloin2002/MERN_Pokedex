@@ -206,7 +206,7 @@ const PokedexEntry = (props) => {
             setFormTags(formTagList)
         })
         .catch(error => console.log(error));
-    }, [])
+    }, [speciesName])
 
 
     return ((formTags && appearanceTags) && (
