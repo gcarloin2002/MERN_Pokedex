@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useEffect, useState, useContext } from 'react';
 import { determineDisplayName, determineUrlName } from './components/HomeComponents/DexButton';
-
-// pages & components
 import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
@@ -42,8 +40,6 @@ function App() {
     const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemonData={pokemonData}/>}
     routes.push(obj)
   }
-  
-  
   const everyRoute = routes.map(({path, element}, key) => <Route path={path} element={element} key={key} />);
 
   return (

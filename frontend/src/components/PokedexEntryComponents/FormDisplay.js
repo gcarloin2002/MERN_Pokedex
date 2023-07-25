@@ -26,10 +26,8 @@ const FormDisplay = (props) => {
             <form onSubmit={handleSubmit}>
                 {formTags.map((t, index) => {
                     const tag = Number(t)
-
                     let type = generateNameDisplay(speciesName, tag)
                     
-
                     return (
                             <label className="formLabelBox" key={"label"+index}>
                                 <input 
