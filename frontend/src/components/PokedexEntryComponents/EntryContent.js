@@ -5,7 +5,7 @@ import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
 
-export const FormContext = React.createContext()
+export const EntryFormTagContext = React.createContext()
 
 const generateNeighbors = (allPokemonData, dexNum) => {
 
@@ -36,7 +36,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const EntryContent = (props) => {
     const [entryData, setEntryData] = useState(false)
-    const [currentFormTag, setCurrentFormTag] = useState(props.formTags[0])
+    const [entryFormTag, setEntryFormTag] = useState(props.formTags[0])
     const speciesData = props.speciesData
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
@@ -46,14 +46,14 @@ const EntryContent = (props) => {
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/" + currentFormTag)
+        fetch("https://pokeapi.co/api/v2/pokemon/" + entryFormTag)
         .then((response) => response.json())
         .then((result) => {setEntryData(result)})
         .catch(error => console.log(error));
-    }, [currentFormTag])
+    }, [entryFormTag])
 
     return (entryData && (
-        <FormContext.Provider value={[currentFormTag, setCurrentFormTag]}>
+        <EntryFormTagContext.Provider value={[entryFormTag, setEntryFormTag]}>
             <div className="EntryContent">
                 <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
                 <PrimaryDisplay 
@@ -63,7 +63,7 @@ const EntryContent = (props) => {
                     appearanceTags={appearanceTags}
                 />
             </div>
-         </FormContext.Provider>
+         </EntryFormTagContext.Provider>
     ))
 }
 

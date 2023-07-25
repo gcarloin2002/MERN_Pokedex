@@ -1,14 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { determineDisplayName, determineUrlName } from './components/HomeComponents/DexButton';
 
 // pages & components
 import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
+export const CurrentTagArray = React.createContext()
+
 function App() {
   // Array of every pokemon's data
   const [pokemonData, setPokemonData] = useState([]);
+  const [currentTagArray, setCurrentTagArray] = useState([])
 
   // Fetches every Pokemon
   useEffect(() => {
@@ -27,10 +30,12 @@ function App() {
   }, [])
 
   const routes = []
+  const attributesObj = {}
   for (let i = 0; i < pokemonData.length; i++) {
     const origName = pokemonData[i].name
     const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
     const urlName = determineUrlName(displayName)
+    attributesObj[displayName] = origName
 
     const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemonData={pokemonData}/>}
     routes.push(obj)
@@ -40,15 +45,17 @@ function App() {
 
   return (
   <Router>
-    <div className="App">
-        <div className="pages">
-          <Routes>
-            <Route path="/" element={<Home pokemonData={pokemonData}/>}/>
-            {everyRoute}
-            <Route path="*" element={<p></p>} />
-          </Routes>
-        </div>
-    </div>
+    <CurrentTagArray.Provider value={[currentTagArray, setCurrentTagArray]}>
+      <div className="App">
+          <div className="pages">
+            <Routes>
+              <Route path="/" element={<Home pokemonData={pokemonData}/>}/>
+              {everyRoute}
+              <Route path="*" element={<p></p>} />
+            </Routes>
+          </div>
+      </div>
+    </CurrentTagArray.Provider>
   </Router>
   )
 }

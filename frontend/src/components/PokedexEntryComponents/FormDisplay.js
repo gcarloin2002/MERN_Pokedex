@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { FormContext } from "./EntryContent"
+import { EntryFormTagContext } from "./EntryContent"
 import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
@@ -8,7 +8,7 @@ const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 const FormDisplay = (props) => {
     const displayName = props.displayName
     const [currentForm, setCurrentForm] = useState(displayName)
-    const [currentFormTag, setCurrentFormTag] = useContext(FormContext)
+    const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
     const formTags = props.formTags
     const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
@@ -16,7 +16,7 @@ const FormDisplay = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const formTag = event.target.elements[currentForm]["value"]
-        setCurrentFormTag(formTag)
+        setEntryFormTag(formTag)
     }
 
 
