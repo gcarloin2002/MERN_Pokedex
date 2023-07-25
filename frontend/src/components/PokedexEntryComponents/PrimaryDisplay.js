@@ -135,6 +135,18 @@ export const generateNameDisplay = (speciesName, formTag) => {
         return speciesName
     }
 
+    // Deoxys 
+    else if (inBetween(10001, 10003, tag)){
+        switch(tag) {
+            case 10001:
+                return speciesName + " (Attack Form)"
+            case 10002:
+                return speciesName + " (Defense Form)"
+            case 10003:
+                return speciesName + " (Speed Form)"
+        }
+    }
+
     // Mega
     else if (inBetween(10033, 10090, tag)){
         switch(tag) {

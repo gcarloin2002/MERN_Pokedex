@@ -16,7 +16,7 @@ const determineDisplayName = (name, dexNumber) => {
         const lastSlice = name.charAt(index + 1).toUpperCase() + name.slice(index + 2, name.length)
 
         // Checks for already correct names (Ho-Oh)
-        if (dexNumber === 250) {    
+        if (dexNumber === 250 || dexNumber === 474) {    
             return firstSlice  + "-" + lastSlice
         }
 
