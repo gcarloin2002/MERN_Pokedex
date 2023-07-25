@@ -28,7 +28,8 @@ const generatePictureDisplayStyling = (types) => {
 
     const solidColor = colorScheme[types[0]][0]
     const border = ([solidColor, solidColor]).join(", ")
-
+    //  Gigantamax: radial-gradient(circle, rgba(0,0,0,1) 48%, rgba(255,70,120,1) 87%, rgba(255,0,0,1) 100%)
+    
     return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}
 }
 
