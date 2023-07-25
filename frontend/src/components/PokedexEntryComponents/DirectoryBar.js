@@ -1,7 +1,7 @@
 import "./styles/DirectoryBar.css"
 import leftArrow from "./assets/leftArrow.png"
 import rightArrow from "./assets/rightArrow.png"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const leftPic = (dexNum, handleLeftContainerClick) => {
     if (dexNum !== 1){
@@ -52,16 +52,14 @@ const DirectoryBar = (props) => {
         navigate("/")
     }
 
-    const handleLeftContainerClick = () => {      
-        setTimeout(() => {
-            navigate("/" + neighbors[0])
-        }, 800)
+    const handleLeftContainerClick = () => {    
+        navigate("/")  
+        navigate("/" + neighbors[0])
     }
 
     const handleleRightContainerClick = () => {
-        setTimeout(() => {
-            navigate("/" + neighbors[1])
-        }, 800)
+        navigate("/")  
+        navigate("/" + neighbors[1])
     }
 
     return (

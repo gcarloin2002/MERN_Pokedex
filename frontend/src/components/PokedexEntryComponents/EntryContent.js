@@ -1,6 +1,7 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
 import React, { useState, useEffect, useContext } from "react"
+import { CurrentTagObjContext } from "../../App"
 import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
@@ -37,15 +38,18 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 const EntryContent = (props) => {
     const [entryData, setEntryData] = useState(false)
     const [entryFormTag, setEntryFormTag] = useState(props.formTags[0])
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const speciesData = props.speciesData
+    const speciesName = props.speciesName
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const dexNum = props.dexNum
     const pokemonData = props.pokemonData
+    const currentTag = props.currentTag
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/" + entryFormTag)
+        fetch("https://pokeapi.co/api/v2/pokemon/" + currentTagObj[speciesName])
         .then((response) => response.json())
         .then((result) => {setEntryData(result)})
         .catch(error => console.log(error));
@@ -60,6 +64,7 @@ const EntryContent = (props) => {
                     speciesData={speciesData}
                     formTags={formTags}
                     appearanceTags={appearanceTags}
+                    currentTag={currentTag}
                 />
             </div>
          </EntryFormTagContext.Provider>

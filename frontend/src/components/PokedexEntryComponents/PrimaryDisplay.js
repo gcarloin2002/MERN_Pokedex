@@ -4,6 +4,7 @@ import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
 import { EntryFormTagContext } from "./EntryContent"
+import { CurrentTagObjContext } from "../../App"
 import { useContext } from "react"
 import "./styles/PrimaryDisplay.css"
 
@@ -158,11 +159,12 @@ export const generateNameDisplay = (speciesName, formTag) => {
 
 const PrimaryDisplay = (props) => {
     const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const entryData = props.entryData
     const speciesData = props.speciesData
     const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const officialArt = props.officialArt
-    const displayName = generateNameDisplay(speciesName, entryFormTag)
+    const displayName = generateNameDisplay(speciesName, currentTagObj[speciesName])
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
 
