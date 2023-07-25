@@ -6,37 +6,26 @@ import "./styles/FormDisplay.css"
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
 const FormDisplay = (props) => {
-    const displayName = props.displayName
-    const [currentForm, setCurrentForm] = useState(displayName)
     const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
     const formTags = props.formTags
     const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formTag = event.target.elements[currentForm]["value"]
-        setEntryFormTag(formTag)
-    }
-
 
     return (
         <div className="FormDisplay">
             <div className="formLabel">Forms</div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 {formTags.map((t, index) => {
-                    const tag = Number(t)
-                    let type = generateNameDisplay(speciesName, tag)
-                    
                     return (
                             <label className="formLabelBox" key={"label"+index}>
                                 <input 
                                     key={"input"+index} 
                                     type="radio" 
-                                    id={type} 
+                                    id={t} 
                                     value={t} 
-                                    checked={type === currentForm} 
-                                    onChange={(e) => setCurrentForm(e.target.id)}
+                                    checked={t === entryFormTag} 
+                                    onChange={(e) => setEntryFormTag(e.target.id)}
                                 />
                                 <img 
                                     className="formImg"
@@ -48,9 +37,7 @@ const FormDisplay = (props) => {
                     )
                 })}
                 <br/>
-                {currentForm}
-
-                <button type="submit">Save Changes</button>
+                {generateNameDisplay(speciesName, entryFormTag)}
             </form>
         </div>
     )
