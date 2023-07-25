@@ -93,7 +93,7 @@ const DexButton = (props) => {
     
     const dexNumber = props.dexNumber
     const displayName = props.displayName
-    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + currentTagObj[displayName] + ".png"
+    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentTagObj[displayName] + ".png"
     const urlName = determineUrlName(displayName)
     const navigate = useNavigate()
 
