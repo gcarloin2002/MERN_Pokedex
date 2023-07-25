@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import { OpaqueContext } from './ButtonCollection';
+import { CurrentTagObjContext } from '../../App';
 import pokeball_Icon from "./assets/pokeball-icon.png"
 import "./styles/DexButton.css"
 
@@ -88,10 +89,11 @@ const determineUrlName = (name) => {
 
 const DexButton = (props) => {
     const [opacity, setOpacity] = useContext(OpaqueContext);
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     
     const dexNumber = props.dexNumber
-    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + dexNumber + ".png"
     const displayName = props.displayName
+    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + currentTagObj[displayName] + ".png"
     const urlName = determineUrlName(displayName)
     const navigate = useNavigate()
 
@@ -99,7 +101,6 @@ const DexButton = (props) => {
         setOpacity(0)
         setTimeout(() => {
             navigate("/" + urlName)
-            navigate(0)
         }, 800)
     }
 

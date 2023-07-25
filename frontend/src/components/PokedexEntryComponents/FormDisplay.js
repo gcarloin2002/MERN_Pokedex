@@ -1,12 +1,12 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { EntryFormTagContext } from "./EntryContent"
+import { CurrentTagObjContext } from "../../App"
 import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
-const inBetween = (a, b, c) => ((a <= c) && (c <= b))
-
 const FormDisplay = (props) => {
     const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const formTags = props.formTags
     const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
@@ -25,7 +25,12 @@ const FormDisplay = (props) => {
                                     id={t} 
                                     value={t} 
                                     checked={t === entryFormTag} 
-                                    onChange={(e) => setEntryFormTag(e.target.id)}
+                                    onChange={(e) => {
+                                        setEntryFormTag(e.target.id)
+                                        const tagObj = currentTagObj
+                                        tagObj[speciesName] = e.target.id
+                                        setCurrentTagObj(tagObj)
+                                    }}
                                 />
                                 <img 
                                     className="formImg"

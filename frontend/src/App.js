@@ -4,7 +4,7 @@ import { determineDisplayName, determineUrlName } from './components/HomeCompone
 import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
-export const CurrentTagObj = React.createContext()
+export const CurrentTagObjContext = React.createContext()
 
 function App() {
   // Array of every pokemon's data
@@ -44,7 +44,7 @@ function App() {
 
   return (
   <Router>
-    <CurrentTagObj.Provider value={[currentTagObj, setCurrentTagObj]}>
+    <CurrentTagObjContext.Provider value={[currentTagObj, setCurrentTagObj]}>
       <div className="App">
           <div className="pages">
             <Routes>
@@ -54,7 +54,7 @@ function App() {
             </Routes>
           </div>
       </div>
-    </CurrentTagObj.Provider>
+    </CurrentTagObjContext.Provider>
   </Router>
   )
 }

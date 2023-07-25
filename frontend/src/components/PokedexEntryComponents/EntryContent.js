@@ -40,7 +40,6 @@ const EntryContent = (props) => {
     const speciesData = props.speciesData
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
-    const randomTag = formTags[0]
     const dexNum = props.dexNum
     const pokemonData = props.pokemonData
     const neighbors = generateNeighbors(pokemonData, dexNum)
