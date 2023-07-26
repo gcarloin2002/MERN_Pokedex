@@ -42,7 +42,7 @@ export const generateImgSrc = (tagObj) => {
         shiny = "shiny/"
     }
 
-    if (tagObj.appearance !== tagObj.form) {
+    if (tagObj.appearance.includes(tagObj.form) && (Number(tagObj.form) >= 10000)) {
         appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
     }
 

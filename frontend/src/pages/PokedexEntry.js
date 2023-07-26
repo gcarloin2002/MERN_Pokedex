@@ -111,12 +111,15 @@ const PokedexEntry = (props) => {
                         // No Alolan forms
                         else if (appearanceTag.includes("-alola")){continue}
 
-
                         // No Toxtricity
                         else if (appearanceTag.includes("849-")){continue}
                         
                         // No Eiscue
                         else if (appearanceTag.includes("875-")){continue}
+
+                        // No full belly morpeko
+                        else if (appearanceTag.includes("877-full-belly")){continue}
+
 
                         // No zacian or zamazenta
                         else if (appearanceTag.includes("-crowned")){continue}
@@ -140,8 +143,10 @@ const PokedexEntry = (props) => {
                         else {
                             // if alcremie
                             if (appearanceTag.includes("869-")) {
+                                console.log(appearanceTag)
                                 appearanceList.push(appearanceTag + "-berry-sweet")
-                                appearanceList.push(appearanceTag + "-clove-sweet")
+                                if (appearanceTag === "869-matcha-cream") { appearanceList.push(appearanceTag + "-clover-sweet")}
+                                else {appearanceList.push(appearanceTag + "-clove-sweet")}
                                 appearanceList.push(appearanceTag + "-flower-sweet")
                                 appearanceList.push(appearanceTag + "-love-sweet")
                                 appearanceList.push(appearanceTag + "-ribbon-sweet")
@@ -165,7 +170,12 @@ const PokedexEntry = (props) => {
             const formTagList = []
             for (let i = 0; i < varieties.length; i++){
                 const url = varieties[i].pokemon.url
-                formTagList.push(url.slice(34, url.length - 1))
+                const tag = Number(url.slice(34, url.length - 1))
+
+                // Morpeko hangry
+                if (tag === 10187) {continue}
+
+                else {formTagList.push(tag.toString())}
             }
             setFormTags(formTagList)
         })

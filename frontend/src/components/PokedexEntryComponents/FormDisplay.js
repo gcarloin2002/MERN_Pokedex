@@ -26,11 +26,10 @@ const FormDisplay = (props) => {
                                     value={t} 
                                     checked={t === (currentTagObj[speciesName]["form"]).toString()} 
                                     onChange={(e) => {
-                                        setRenderEntryForm(e.target.id)
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["form"] = e.target.id
-                                        tagObj[speciesName]["appearance"] = e.target.id
                                         setCurrentTagObj(tagObj)
+                                        setRenderEntryForm(e.target.id)
                                     }}
                                 />
                                 <img 
@@ -45,7 +44,8 @@ const FormDisplay = (props) => {
                 <br/>
                 {generateNameDisplay(speciesName, currentTagObj[speciesName]["form"])}
             </form>)}
-            {(<form>
+            
+            {/*(<form>
                 {appearanceTags.map((t, index) => {
                     return (
                             <label className="appearanceLabelBox" key={"appearance"+index}>
@@ -72,7 +72,7 @@ const FormDisplay = (props) => {
                     )
                 })}
 
-            </form>)}
+            </form>)*/}
         </div>
     )
 }
