@@ -5,8 +5,8 @@ import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
 const FormDisplay = (props) => {
-    const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
+    const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
     const formTags = props.formTags
     const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
@@ -15,12 +15,12 @@ const FormDisplay = (props) => {
     return (
         <div className="FormDisplay">
             <div className="formLabel">Forms</div>
-            <form>
+            {(<form>
                 {formTags.map((t, index) => {
                     return (
                             <label className="formLabelBox" key={"label"+index}>
                                 <input 
-                                    key={"input"+index} 
+                                    key={"finput"+index} 
                                     type="radio" 
                                     id={t} 
                                     value={t} 
@@ -35,7 +35,7 @@ const FormDisplay = (props) => {
                                 />
                                 <img 
                                     className="formImg"
-                                    key={"img"+index} 
+                                    key={"fimg"+index} 
                                     src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + t + ".png"} 
                                     alt="unavailable"
                                 />
@@ -44,7 +44,36 @@ const FormDisplay = (props) => {
                 })}
                 <br/>
                 {generateNameDisplay(speciesName, currentTagObj[speciesName])}
-            </form>
+            </form>)}
+            {(<form>
+                {appearanceTags.map((t, index) => {
+                    return (
+                            <label className="appearanceLabelBox" key={"appearance"+index}>
+                                <input 
+                                    key={"ainput"+index} 
+                                    type="radio" 
+                                    id={t} 
+                                    value={t} 
+                                    checked={t === (currentTagObj[speciesName]).toString()} 
+                                    onChange={(e) => {
+                                        setEntryFormTag(e.target.id)
+                                          
+                                        const tagObj = currentTagObj
+                                        tagObj[speciesName] = e.target.id
+                                        setCurrentTagObj(tagObj)
+                                    }}
+                                />
+                                <img 
+                                    className="formImg"
+                                    key={"aimg"+index} 
+                                    src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + t + ".png"} 
+                                    alt="unavailable"
+                                />
+                            </label>
+                    )
+                })}
+
+            </form>)}
         </div>
     )
 }

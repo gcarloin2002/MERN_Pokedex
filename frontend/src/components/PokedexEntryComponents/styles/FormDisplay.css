@@ -53,5 +53,42 @@
 .formLabelBox {
     margin-left: 2px;
     margin-right: 2px;
-    
+}
+
+
+
+
+
+
+
+.appearanceImg {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    border: solid #c0c0c0;
+}
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + .appearanceImg {
+    cursor: pointer;
+  }
+  
+/* CHECKED STYLES */
+[type=radio]:checked + .appearanceImg {
+    background-color: #bebebe;
+    border-radius: 10px;
+    border: solid #c0c0c0;
+}
+
+.appearanceLabelBox {
+    margin-left: 2px;
+    margin-right: 2px;
 }
