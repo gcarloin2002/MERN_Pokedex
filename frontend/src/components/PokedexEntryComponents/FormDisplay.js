@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { EntryFormTagContext } from "./EntryContent"
+import { RenderEntryFormContext } from "./EntryContent"
 import { CurrentTagObjContext } from "../../App"
 import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
 const FormDisplay = (props) => {
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
-    const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
+    const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
     const formTags = props.formTags
     const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
@@ -26,7 +26,7 @@ const FormDisplay = (props) => {
                                     value={t} 
                                     checked={t === (currentTagObj[speciesName]).toString()} 
                                     onChange={(e) => {
-                                        setEntryFormTag(e.target.id)
+                                        setRenderEntryForm(e.target.id)
                                           
                                         const tagObj = currentTagObj
                                         tagObj[speciesName] = e.target.id
@@ -56,7 +56,7 @@ const FormDisplay = (props) => {
                                     value={t} 
                                     checked={t === (currentTagObj[speciesName]).toString()} 
                                     onChange={(e) => {
-                                        setEntryFormTag(e.target.id)
+                                        setRenderEntryForm(e.target.id)
                                           
                                         const tagObj = currentTagObj
                                         tagObj[speciesName] = e.target.id

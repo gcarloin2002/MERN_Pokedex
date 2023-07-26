@@ -6,7 +6,7 @@ import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
 
-export const EntryFormTagContext = React.createContext()
+export const RenderEntryFormContext = React.createContext()
 
 const generateNeighbors = (allPokemonData, dexNum) => {
 
@@ -37,7 +37,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const EntryContent = (props) => {
     const [entryData, setEntryData] = useState(false)
-    const [entryFormTag, setEntryFormTag] = useState(props.formTags[0])
+    const [renderEntryForm, setRenderEntryForm] = useState("")
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const speciesData = props.speciesData
     const speciesName = props.speciesName
@@ -55,7 +55,7 @@ const EntryContent = (props) => {
     }, [currentTagObj[speciesName]])
 
     return (entryData && (
-        <EntryFormTagContext.Provider value={[entryFormTag, setEntryFormTag]}>
+        <RenderEntryFormContext.Provider value={[renderEntryForm, setRenderEntryForm]}>
             <div className="EntryContent">
                 <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
                 <PrimaryDisplay 
@@ -65,7 +65,7 @@ const EntryContent = (props) => {
                     appearanceTags={appearanceTags}
                 />
             </div>
-        </EntryFormTagContext.Provider>
+        </RenderEntryFormContext.Provider>
     ))
 }
 
