@@ -143,7 +143,6 @@ const PokedexEntry = (props) => {
                         else {
                             // if alcremie
                             if (appearanceTag.includes("869-")) {
-                                console.log(appearanceTag)
                                 appearanceList.push(appearanceTag + "-berry-sweet")
                                 if (appearanceTag === "869-matcha-cream") { appearanceList.push(appearanceTag + "-clover-sweet")}
                                 else {appearanceList.push(appearanceTag + "-clove-sweet")}

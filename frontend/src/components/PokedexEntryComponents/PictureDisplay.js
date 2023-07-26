@@ -42,9 +42,21 @@ export const generateImgSrc = (tagObj) => {
         shiny = "shiny/"
     }
 
-    if (tagObj.appearance.includes(tagObj.form) && (Number(tagObj.form) >= 10000)) {
+    // Choosing another form
+    if (Number(tagObj.form) >= 10000) {
+        appearance = ""
+    }
+
+    else if ((tagObj.appearance.includes(tagObj.form)) && (tagObj.appearance !== tagObj.form)) {
         appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
     }
+
+
+
+    // appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
+
+
+    // Choosing another appearance
 
     const tag = shiny + tagObj.form + appearance
 
@@ -71,7 +83,6 @@ const PictureDisplay = (props) => {
         setFormActive(false)
     }, [speciesName])
 
-    // console.log(currentTagObj[speciesName]["appearance"])
     
     
     return ( 
