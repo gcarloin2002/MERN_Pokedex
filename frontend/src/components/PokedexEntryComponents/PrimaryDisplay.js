@@ -3,7 +3,7 @@ import AbilityDisplay from "./AbilityDisplay"
 import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
-import { CurrentTagObjContext } from "../../App"
+import { CurrentTagObjContext } from "../../App" 
 import { useContext } from "react"
 import "./styles/PrimaryDisplay.css"
 
@@ -186,7 +186,7 @@ const PrimaryDisplay = (props) => {
     const speciesData = props.speciesData
     const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const officialArt = props.officialArt
-    const displayName = generateNameDisplay(speciesName, currentTagObj[speciesName])
+    const displayName = generateNameDisplay(speciesName, currentTagObj[speciesName]["form"])
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
 

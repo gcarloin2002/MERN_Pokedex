@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react"
-import { CurrentTagObjContext } from "../../App"
+import { CurrentTagObjContext } from "../../App" 
 import FormDisplay from "./FormDisplay"
 import "./styles/PictureDisplay.css"
 
@@ -55,7 +55,7 @@ const PictureDisplay = (props) => {
     
     return ( 
         <div className="PictureDisplay" style={pictureDisplayStyling}>
-            <img className="picture" src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentTagObj[speciesName] + ".png"} alt={"unavailable"}/>
+            <img className="picture" src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentTagObj[speciesName]["form"] + ".png"} alt={"unavailable"}/>
             <div className="threeDots" onClick={handleThreeDotClick}>
                 <div className="oneDot"></div>
                 <div className="oneDot"></div>

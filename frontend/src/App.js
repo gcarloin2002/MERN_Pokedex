@@ -4,7 +4,7 @@ import { determineDisplayName, determineUrlName } from './components/HomeCompone
 import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
-export const CurrentTagObjContext = React.createContext()
+export const CurrentTagObjContext = React.createContext() 
 
 function App() {
   // Array of every pokemon's data
@@ -23,7 +23,14 @@ function App() {
           pkmnData.push(result[i])
           const origName = pkmnData[i].name
           const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
-          attributesObj[displayName] = (i + 1) + ""
+
+          // Dexnumber, species, form, appearance, shiny
+          attributesObj[displayName] = {
+            dexNumber: ((i + 1) + ""),
+            speciesName: displayName,
+            form: ((i + 1) + ""),
+            shiny: false
+          }
       }
       setCurrentTagObj(attributesObj)
       setPokemonData(pkmnData)

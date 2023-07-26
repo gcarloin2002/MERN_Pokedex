@@ -1,7 +1,7 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
 import React, { useState, useEffect, useContext } from "react"
-import { CurrentTagObjContext } from "../../App"
+import { CurrentTagObjContext } from "../../App" 
 import PrimaryDisplay from "./PrimaryDisplay"
 import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
 import "./styles/EntryContent.css"
@@ -48,11 +48,11 @@ const EntryContent = (props) => {
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/" + currentTagObj[speciesName])
+        fetch("https://pokeapi.co/api/v2/pokemon/" + currentTagObj[speciesName]["form"])
         .then((response) => response.json())
         .then((result) => {setEntryData(result)})
         .catch(error => console.log(error));
-    }, [currentTagObj[speciesName]])
+    }, [currentTagObj[speciesName]["form"]])
 
     return (entryData && (
         <RenderEntryFormContext.Provider value={[renderEntryForm, setRenderEntryForm]}>

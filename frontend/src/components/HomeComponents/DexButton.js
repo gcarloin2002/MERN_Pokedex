@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import { OpaqueContext } from './ButtonCollection';
-import { CurrentTagObjContext } from '../../App';
+import { CurrentTagObjContext } from '../../App'; 
 import pokeball_Icon from "./assets/pokeball-icon.png"
 import "./styles/DexButton.css"
 
@@ -93,7 +93,7 @@ const DexButton = (props) => {
     
     const dexNumber = props.dexNumber
     const displayName = props.displayName
-    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentTagObj[displayName] + ".png"
+    const imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentTagObj[displayName]["form"] + ".png"
     const urlName = determineUrlName(displayName)
     const navigate = useNavigate()
 
