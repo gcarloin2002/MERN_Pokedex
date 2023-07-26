@@ -29,6 +29,8 @@ function App() {
             dexNumber: ((i + 1) + ""),
             speciesName: displayName,
             form: ((i + 1) + ""),
+            appearance: ((i + 1) + ""),
+            gender: "n/a",
             shiny: false
           }
       }

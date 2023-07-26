@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from "react";
-import { CurrentTagObjContext } from "../App";
+import { useEffect, useState } from "react";
 
 import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 
@@ -7,7 +6,6 @@ const PokedexEntry = (props) => {
     const [speciesData, setSpeciesData] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [appearanceTags, setAppearanceTags] = useState(false)
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const pokemonData = props.pokemonData
     const dexNum = props.dexNum

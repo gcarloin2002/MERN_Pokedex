@@ -33,6 +33,15 @@ const generatePictureDisplayStyling = (types) => {
     return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}
 }
 
+export const generateImgSrc = (tagObj) => {
+    let shiny = ""
+    if (tagObj.shiny) {
+        shiny = "shiny/"
+    }
+
+    return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + shiny + tagObj.form + ".png"
+}
+
 const PictureDisplay = (props) => {
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const types = props.types
@@ -55,7 +64,11 @@ const PictureDisplay = (props) => {
     
     return ( 
         <div className="PictureDisplay" style={pictureDisplayStyling}>
-            <img className="picture" src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + currentTagObj[speciesName]["form"] + ".png"} alt={"unavailable"}/>
+            <img 
+                className="picture" 
+                src={generateImgSrc(currentTagObj[speciesName])} 
+                alt={"unavailable"}
+            />
             <div className="threeDots" onClick={handleThreeDotClick}>
                 <div className="oneDot"></div>
                 <div className="oneDot"></div>
