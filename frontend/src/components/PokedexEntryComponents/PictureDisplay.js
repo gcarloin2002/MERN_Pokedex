@@ -35,11 +35,17 @@ const generatePictureDisplayStyling = (types) => {
 
 export const generateImgSrc = (tagObj) => {
     let shiny = ""
+    let appearance = ""
     if (tagObj.shiny) {
         shiny = "shiny/"
     }
 
-    return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + shiny + tagObj.form + ".png"
+    if (tagObj.appearance !== tagObj.form) {
+        appearance = tagObj.appearance.slice(tagObj.dexNumber.length + 1)
+    }
+
+    const result = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + shiny + tagObj.form + ".png"
+    return result
 }
 
 const PictureDisplay = (props) => {

@@ -27,7 +27,6 @@ const FormDisplay = (props) => {
                                     checked={t === (currentTagObj[speciesName]["form"]).toString()} 
                                     onChange={(e) => {
                                         setRenderEntryForm(e.target.id)
-                                          
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["form"] = e.target.id
                                         setCurrentTagObj(tagObj)
@@ -54,11 +53,12 @@ const FormDisplay = (props) => {
                                     type="radio" 
                                     id={t} 
                                     value={t} 
-                                    checked={t === (currentTagObj[speciesName]).toString()} 
+                                    checked={t === (currentTagObj[speciesName]["appearance"]).toString()} 
                                     onChange={(e) => {
                                         setRenderEntryForm(e.target.id)
-                                          
                                         const tagObj = currentTagObj
+                                        tagObj[speciesName]["appearance"] = e.target.id
+                                        setCurrentTagObj(tagObj)
                                     }}
                                 />
                                 <img 
