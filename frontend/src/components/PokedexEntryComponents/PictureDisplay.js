@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react"
-import { EntryFormTagContext } from "./EntryContent"
 import { CurrentTagObjContext } from "../../App"
 import FormDisplay from "./FormDisplay"
 import "./styles/PictureDisplay.css"
@@ -29,18 +28,18 @@ const generatePictureDisplayStyling = (types) => {
     const solidColor = colorScheme[types[0]][0]
     const border = ([solidColor, solidColor]).join(", ")
     //  Gigantamax: radial-gradient(circle, rgba(0,0,0,1) 48%, rgba(255,70,120,1) 87%, rgba(255,0,0,1) 100%)
+    //  Mega: linear-gradient(0deg, rgba(254,255,220,1) 14%, rgba(216,246,219,1) 37%, rgba(191,224,247,1) 53%, rgba(222,212,255,1) 77%, rgba(252,191,255,1) 98%)
     
     return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}
 }
 
 const PictureDisplay = (props) => {
-    const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const types = props.types
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const displayName = props.displayName
-    const speciesData = props.speciesData
+    const speciesData = props.speciesData 
     const speciesName = props.speciesName
     const pictureDisplayStyling = generatePictureDisplayStyling(types)
     const [formActive, setFormActive] = useState(false)

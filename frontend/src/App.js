@@ -23,7 +23,7 @@ function App() {
           pkmnData.push(result[i])
           const origName = pkmnData[i].name
           const displayName = determineDisplayName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
-          attributesObj[displayName] = i + 1
+          attributesObj[displayName] = (i + 1) + ""
       }
       setCurrentTagObj(attributesObj)
       setPokemonData(pkmnData)

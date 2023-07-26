@@ -45,7 +45,6 @@ const EntryContent = (props) => {
     const appearanceTags = props.appearanceTags
     const dexNum = props.dexNum
     const pokemonData = props.pokemonData
-    const currentTag = props.currentTag
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
@@ -64,10 +63,9 @@ const EntryContent = (props) => {
                     speciesData={speciesData}
                     formTags={formTags}
                     appearanceTags={appearanceTags}
-                    currentTag={currentTag}
                 />
             </div>
-         </EntryFormTagContext.Provider>
+        </EntryFormTagContext.Provider>
     ))
 }
 

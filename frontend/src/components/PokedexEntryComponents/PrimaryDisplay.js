@@ -3,7 +3,6 @@ import AbilityDisplay from "./AbilityDisplay"
 import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
-import { EntryFormTagContext } from "./EntryContent"
 import { CurrentTagObjContext } from "../../App"
 import { useContext } from "react"
 import "./styles/PrimaryDisplay.css"
@@ -132,7 +131,16 @@ export const generateNameDisplay = (speciesName, formTag) => {
 
     // Standard
     if (inBetween(1, 1010, tag)) {
-        return speciesName
+        switch(tag) {
+            case 201: 
+                return "Unown-A" 
+            case 412:
+                return "Burmy (Plant Cloak)"
+            case 413:
+                return "Wormadam (Plant Cloak)"
+            default:
+                return speciesName
+        }
     }
 
     // Deoxys 
@@ -163,6 +171,9 @@ export const generateNameDisplay = (speciesName, formTag) => {
         }
     }
 
+    // Alolan
+    else if (inBetween(10091, 10115, tag)){return "Alolan " + speciesName}
+
     // G-Max
     else if (inBetween(10195, 10227, tag)){return "G-Max " + speciesName}
     
@@ -170,7 +181,6 @@ export const generateNameDisplay = (speciesName, formTag) => {
 
 
 const PrimaryDisplay = (props) => {
-    const [entryFormTag, setEntryFormTag] = useContext(EntryFormTagContext)
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const entryData = props.entryData
     const speciesData = props.speciesData

@@ -24,9 +24,10 @@ const FormDisplay = (props) => {
                                     type="radio" 
                                     id={t} 
                                     value={t} 
-                                    checked={t === currentTagObj[speciesName].toString()} 
+                                    checked={t === (currentTagObj[speciesName]).toString()} 
                                     onChange={(e) => {
                                         setEntryFormTag(e.target.id)
+                                          
                                         const tagObj = currentTagObj
                                         tagObj[speciesName] = e.target.id
                                         setCurrentTagObj(tagObj)
