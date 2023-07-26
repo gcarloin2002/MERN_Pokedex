@@ -1,7 +1,9 @@
 import "./styles/DirectoryBar.css"
+import { RenderEntryFormContext } from "./EntryContent"
 import leftArrow from "./assets/leftArrow.png"
 import rightArrow from "./assets/rightArrow.png"
 import { useNavigate, Link } from "react-router-dom"
+import { useContext } from "react"
 
 const leftPic = (dexNum, handleLeftContainerClick) => {
     if (dexNum !== 1){
@@ -44,6 +46,7 @@ const rightPic = (dexNum, handleleRightContainerClick) => {
 
 // Component
 const DirectoryBar = (props) => {
+    const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
     const dexNum = props.dexNum
     const neighbors = props.neighbors
     const navigate = useNavigate()
@@ -53,12 +56,12 @@ const DirectoryBar = (props) => {
     }
 
     const handleLeftContainerClick = () => {    
-        navigate("/")  
+        setRenderEntryForm(dexNum - 1)
         navigate("/" + neighbors[0])
     }
 
     const handleleRightContainerClick = () => {
-        navigate("/")  
+        setRenderEntryForm(dexNum + 1)
         navigate("/" + neighbors[1])
     }
 

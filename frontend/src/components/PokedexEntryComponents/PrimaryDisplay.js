@@ -126,12 +126,13 @@ const generateFontStyling = (zone, types) => {
     }
 }
 
-export const generateNameDisplay = (speciesName, formTag) => {
-    const tag = Number(formTag)
+export const generateNameDisplay = (speciesName, tagObj) => {
+    const form = Number(tagObj["form"])
+    const appearance = tagObj["appearance"]
 
     // Standard
-    if (inBetween(1, 1010, tag)) {
-        switch(tag) {
+    if (inBetween(1, 1010, form)) {
+        switch(form) {
             case 201: 
                 return "Unown-A" 
             case 412:
@@ -144,8 +145,8 @@ export const generateNameDisplay = (speciesName, formTag) => {
     }
 
     // Deoxys 
-    else if (inBetween(10001, 10003, tag)){
-        switch(tag) {
+    else if (inBetween(10001, 10003, form)){
+        switch(form) {
             case 10001:
                 return speciesName + " (Attack Form)"
             case 10002:
@@ -156,8 +157,8 @@ export const generateNameDisplay = (speciesName, formTag) => {
     }
 
     // Mega
-    else if (inBetween(10033, 10090, tag)){
-        switch(tag) {
+    else if (inBetween(10033, 10090, form)){
+        switch(form) {
             case 10034:
                 return "Mega " + speciesName + " X"
             case 10035:
@@ -172,10 +173,10 @@ export const generateNameDisplay = (speciesName, formTag) => {
     }
 
     // Alolan
-    else if (inBetween(10091, 10115, tag)){return "Alolan " + speciesName}
+    else if (inBetween(10091, 10115, form)){return "Alolan " + speciesName}
 
     // G-Max
-    else if (inBetween(10195, 10227, tag)){return "G-Max " + speciesName}
+    else if (inBetween(10195, 10227, form)){return "G-Max " + speciesName}
     
 }
 
@@ -186,7 +187,7 @@ const PrimaryDisplay = (props) => {
     const speciesData = props.speciesData
     const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
     const officialArt = props.officialArt
-    const displayName = generateNameDisplay(speciesName, currentTagObj[speciesName]["form"])
+    const displayName = generateNameDisplay(speciesName, currentTagObj[speciesName])
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
 

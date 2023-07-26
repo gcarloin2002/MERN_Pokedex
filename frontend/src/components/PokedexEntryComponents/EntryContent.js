@@ -48,12 +48,11 @@ const EntryContent = (props) => {
     const neighbors = generateNeighbors(pokemonData, dexNum)
 
     useEffect(() => {
-        console.log("changed")
         fetch("https://pokeapi.co/api/v2/pokemon/" + currentTagObj[speciesName]["form"])
         .then((response) => response.json())
         .then((result) => {setEntryData(result)})
         .catch(error => console.log(error));
-    }, [currentTagObj[speciesName["appearance"]]])
+    }, [renderEntryForm])
 
     return (entryData && (
         <RenderEntryFormContext.Provider value={[renderEntryForm, setRenderEntryForm]}>

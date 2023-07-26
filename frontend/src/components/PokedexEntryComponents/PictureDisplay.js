@@ -36,15 +36,19 @@ const generatePictureDisplayStyling = (types) => {
 export const generateImgSrc = (tagObj) => {
     let shiny = ""
     let appearance = ""
+
+    // Makes shiny
     if (tagObj.shiny) {
         shiny = "shiny/"
     }
 
     if (tagObj.appearance !== tagObj.form) {
-        appearance = tagObj.appearance.slice(tagObj.dexNumber.length + 1)
+        appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
     }
 
-    const result = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + shiny + tagObj.form + ".png"
+    const tag = shiny + tagObj.form + appearance
+
+    const result = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + tag + ".png"
     return result
 }
 
@@ -66,6 +70,8 @@ const PictureDisplay = (props) => {
     useEffect(() => {
         setFormActive(false)
     }, [speciesName])
+
+    // console.log(currentTagObj[speciesName]["appearance"])
     
     
     return ( 

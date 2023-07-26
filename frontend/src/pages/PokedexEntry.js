@@ -38,9 +38,6 @@ const PokedexEntry = (props) => {
 
                         // No pikachus
                         else if (appearanceTag.includes("25-")) {continue}
-
-                        // No unown-a
-                        else if (appearanceTag.includes("201-a")) {continue}
                 
                         // No castfroms
                         else if (appearanceTag.includes("351-")){continue}
@@ -48,18 +45,8 @@ const PokedexEntry = (props) => {
                         // No deoxys forms
                         else if (appearanceTag.includes("386-")) {continue}
 
-                        // No Burmy 
-                        else if (appearanceTag.includes("412-plant")) {continue}
-
                         // No wormadam forms
                         else if (appearanceTag.includes("413-")){continue}
-
-                        // No cherrim overcast
-                        else if (appearanceTag.includes("421-overcast")){continue}
-
-
-                        // No west-sea 
-                        else if (appearanceTag.includes("-west")){continue}
 
 
                         // No rotoms
@@ -68,17 +55,11 @@ const PokedexEntry = (props) => {
                         // No shaymin-sky
                         else if (appearanceTag.includes("492-")){continue}
 
-                        // No Normaltype Arceus
-                        else if (appearanceTag.includes("-normal")){continue}
-
                         // No dialga, palkia, or giratina forms
                         else if (appearanceTag.includes("-origin") || appearanceTag.includes("-altered")){continue}
 
                         // No darmanitans
                         else if (appearanceTag.includes("555-")) {continue}
-
-                        // No spring form deerling / sawsbuck
-                        else if (appearanceTag.includes("-spring")) {continue}
 
 
                         // No kyurems
@@ -96,23 +77,11 @@ const PokedexEntry = (props) => {
                         // No Spewpas
                         else if (appearanceTag.includes("665-")) {continue}
 
-                        // No meadow vivillon
-                        else if (appearanceTag.includes("-meadow")) {continue}
-
-                        // Flabebe line red
-                        else if (appearanceTag.includes("-red")) {continue}
-
-                        // No natrual furfrou
-                        else if (appearanceTag.includes("-natural")) {continue}
-
                         // No aegislash
                         else if (appearanceTag.includes("681-")){continue}
 
                         // No pumpkaboos / gourgeists
                         else if (appearanceTag.includes("710-") || appearanceTag.includes("711-")){continue}
-
-                        // No neutral xerneas
-                        else if (appearanceTag.includes("-neutral")){continue}
 
                         // No zygarde
                         else if (appearanceTag.includes("718-")){continue}
@@ -132,9 +101,6 @@ const PokedexEntry = (props) => {
 
                         // No Wishiwash
                         else if (appearanceTag.includes("746-")){continue}
-
-                        // No normal silvally
-                        else if (appearanceTag.includes("-normal")){continue}
 
                         // No Miniors ()
                         else if (appearanceTag.includes("774-")){continue}

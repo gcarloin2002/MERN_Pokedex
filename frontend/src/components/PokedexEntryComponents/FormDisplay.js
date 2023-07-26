@@ -29,6 +29,7 @@ const FormDisplay = (props) => {
                                         setRenderEntryForm(e.target.id)
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["form"] = e.target.id
+                                        tagObj[speciesName]["appearance"] = e.target.id
                                         setCurrentTagObj(tagObj)
                                     }}
                                 />
