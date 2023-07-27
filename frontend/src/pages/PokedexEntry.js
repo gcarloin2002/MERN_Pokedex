@@ -187,6 +187,12 @@ const PokedexEntry = (props) => {
                                 appearanceList.push(appearanceTag)
                             }
 
+                            // if zarude
+                            else if (appearanceTag === "893-dada") {
+                                appearanceList.push("893")
+                                appearanceList.push(appearanceTag)
+                            }
+
                             else {
                                 appearanceList.push(appearanceTag)
                             }

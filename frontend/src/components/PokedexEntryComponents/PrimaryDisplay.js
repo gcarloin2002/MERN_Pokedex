@@ -257,9 +257,11 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 if (form === Number(appearance)) {return "Cramorant"}
                 else {
                     const cramForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
-                    return "Florges (" + cramForm + " Form)"
+                    return "Cramorant (" + cramForm + " Form)"
                 }
-
+            case 893: // Zarude
+                if (form === Number(appearance)) {return "Zarude"}
+                else {return "Dada Zarude"}
             case 892: // Urshifu
                 return "Single Strike Style Urshifu"
             
