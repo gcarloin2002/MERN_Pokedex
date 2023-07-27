@@ -47,13 +47,10 @@ export const generateImgSrc = (tagObj) => {
         appearance = ""
     }
 
+    // Choosing another appearance
     else if ((tagObj.appearance.includes(tagObj.form)) && (tagObj.appearance !== tagObj.form)) {
         appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
     }
-
-
-
-    // appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
 
 
     // Choosing another appearance

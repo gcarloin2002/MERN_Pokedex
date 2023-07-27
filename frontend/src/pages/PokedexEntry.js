@@ -28,6 +28,7 @@ const PokedexEntry = (props) => {
                     if (forms[i].name.includes(result.name)){
                         const appearanceTag = dexNum + (forms[i].name).replace(result.name, "")
                         /* No..
+                        
                         */
                         // No self dex entries
                         if (appearanceTag === dexNum.toString()) {continue}
@@ -40,6 +41,12 @@ const PokedexEntry = (props) => {
 
                         // No pikachus
                         else if (appearanceTag.includes("25-")) {continue}
+
+                        // No parasect 
+                        else if (appearanceTag.includes("46ect")) {continue}
+
+                        // No eevees
+                        else if (appearanceTag.includes("133-")) {continue}
                 
                         // No castfroms
                         else if (appearanceTag.includes("351-")){continue}
@@ -184,6 +191,9 @@ const PokedexEntry = (props) => {
                 // No pikachus 
                 if (inBetween(10080, 10085, tag)) {continue}
                 else if (tag === 10158) {continue}
+
+                // No Eeevee
+                else if (tag === 10159) {continue} 
 
 
                 // No Morpeko hangry
