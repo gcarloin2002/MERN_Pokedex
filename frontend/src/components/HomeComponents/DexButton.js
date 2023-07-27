@@ -3,7 +3,7 @@ import { useEffect, useContext } from 'react';
 import { OpaqueContext } from './ButtonCollection';
 import { CurrentTagObjContext } from '../../App'; 
 import { generateImgSrc } from '../PokedexEntryComponents/PictureDisplay';
-import pokeball_Icon from "./assets/pokeball-icon.png"
+import pokeballIcon from "./assets/pokeball-icon.png"
 import "./styles/DexButton.css"
 
 
@@ -94,7 +94,7 @@ export const DexButton = (props) => {
     
     const dexNumber = props.dexNumber
     const speciesName = props.speciesName
-    const imageURL = generateImgSrc(currentTagObj[speciesName])
+    const imgSrc = generateImgSrc(currentTagObj[speciesName])
     const urlName = determineUrlName(speciesName)
     const navigate = useNavigate()
 
@@ -111,9 +111,9 @@ export const DexButton = (props) => {
 
     return (
     <div className="DexButton" onClick={handleClick} style ={{opacity: props.opacity}}>
-        <p className="dexButtonNumber">{dexNumber}</p>
-        <img className="DexButtonPicture" src={imageURL} alt={"unavailable"}/>
-        <img className="pokeball_Icon" src={pokeball_Icon} alt={"unavailable"}/>
+        <p className="dexNumber">{dexNumber}</p>
+        <img className="DexButtonPicture" src={imgSrc} alt={"DexButtonPicture"}/>
+        <img className="pokeballIcon" src={pokeballIcon} alt={"pokeballIcon"}/>
         <p className="speciesName">{speciesName}</p>
     </div>
     )

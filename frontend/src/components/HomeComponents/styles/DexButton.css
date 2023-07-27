@@ -32,7 +32,7 @@
     transform: scale(1.115); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-.pokeball_Icon {
+.pokeballIcon {
     margin: auto;
     z-index: 1;
     height: 160px;
@@ -54,7 +54,7 @@
     z-index: 2;
 }
 
-.dexButtonNumber {
+.dexNumber {
     color:#686868;
     font-family: monospace;
     font-size: 14px;
