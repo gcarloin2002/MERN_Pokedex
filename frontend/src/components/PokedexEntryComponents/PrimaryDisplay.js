@@ -281,6 +281,8 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 }
             case 774:
                 return "Minior (Meteor Form)"
+            case 778:
+                return "Mimikyu (Disguised Form)"
             case 845: // Cramorant
                 if (form === Number(appearance)) {return "Cramorant"}
                 else {
@@ -414,7 +416,8 @@ export const generateNameDisplay = (speciesName, tagObj) => {
 
     else if (form === 10127) {return "Wishiwashi (School Form)"}
 
-
+    else if (form === 10143){return "Mimikyu (Busted Form)"}
+    else if (form === 10147){return "Original Color Magearna"}
     else if (form === 10148){return "Partner Cap Pikachu"}
 
     // Miniors
@@ -438,6 +441,11 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     }
 
     else if (form === 10152){return "Lycanroc (Dusk Form)"}
+
+    else if (form === 10155){return "Dusk Mane Necrozma"}
+    else if (form === 10156){return "Dawn Wings Necrozma"}
+    else if (form === 10157){return "Ultra Necrozma"}
+
     else if (form === 10160){return "World Cap Pikachu"}
 
     // Galarian forms
