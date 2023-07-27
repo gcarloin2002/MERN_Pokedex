@@ -175,8 +175,15 @@ const PokedexEntry = (props) => {
                                 appearanceList.push(appearanceTag + "-strawberry-sweet")
                             }
 
+                            // if genesect
                             else if (appearanceTag === ("649-douse")){
                                 appearanceList.push("649")
+                                appearanceList.push(appearanceTag)
+                            }
+
+                            // if cramorant
+                            else if (appearanceTag === "845-gulping") {
+                                appearanceList.push("845")
                                 appearanceList.push(appearanceTag)
                             }
 
@@ -224,6 +231,10 @@ const PokedexEntry = (props) => {
                 else if (tag === 10144) {continue} // Mimikyu-disguised
                 else if (tag === 10145) {continue} // Mimikyu-busted
                 else if (tag === 10146) {continue} // Kommo-o
+
+                // No cramorants
+                else if (tag === 10182) {continue} 
+                else if (tag === 10183) {continue} 
 
                 // No dada zarude 
                 else if (tag === 10192) {continue} // Kommo-o

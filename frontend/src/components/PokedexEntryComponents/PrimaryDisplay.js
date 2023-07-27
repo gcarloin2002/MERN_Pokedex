@@ -11,14 +11,16 @@ const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
 const generateTyping = (entryData, tagObj) => {
     const types = entryData.types
+
  
-    // Checks for Arceus
-    if (tagObj.speciesName === "Arceus"){
+    // Checks for Arceus or Silvally
+    if (tagObj.speciesName === "Arceus" || tagObj.speciesName === "Silvally"){
         if (tagObj.appearance === "493" || tagObj.appearance === "493-normal") {return ["normal"]}
+        else if (tagObj.appearance === "773" || tagObj.appearance === "773-normal") {return ["normal"]}
         
         else {
-            const arceusForm = tagObj.appearance.slice(4)
-            return [arceusForm]
+            const formType = tagObj.appearance.slice(4)
+            return [formType]
         }
     }
 
@@ -143,7 +145,6 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     const form = Number(tagObj["form"])
     const appearance = tagObj["appearance"]
 
-
     // Standard
     if (inBetween(1, 1010, form)) {
         switch(form) {
@@ -246,7 +247,18 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const xerneasForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Xerneas (" + xerneasForm + " Mode)"
                 }
-
+            case 773: // Silvally
+                if (form === Number(appearance) || appearance === "773-normal") {return "Silvally"}
+                else {
+                    const silvallyForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Sivally (" + silvallyForm + " Memory)"
+                }
+            case 845: // Cramorant
+                if (form === Number(appearance)) {return "Cramorant"}
+                else {
+                    const cramForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Florges (" + cramForm + " Form)"
+                }
 
             case 892: // Urshifu
                 return "Single Strike Style Urshifu"

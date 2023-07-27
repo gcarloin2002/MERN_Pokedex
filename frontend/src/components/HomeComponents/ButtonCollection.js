@@ -31,7 +31,6 @@ const ButtonCollection = (props) => {
     const [searchInput, setSearchInput] = useState("")
 
     const pokemonDataArray = generatePokemonDataArray(props.pokemonData)
-    console.log(pokemonDataArray)
     
     // Lets component render once
     useEffect(() => {
