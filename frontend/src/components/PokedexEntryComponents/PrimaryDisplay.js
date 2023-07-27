@@ -14,8 +14,6 @@ const generateTyping = (entryData, tagObj) => {
  
     // Checks for Arceus
     if (tagObj.speciesName === "Arceus"){
-        console.log(tagObj.form)
-        console.log(tagObj.appearance)
         if (tagObj.appearance === "493" || tagObj.appearance === "493-normal") {return ["normal"]}
         
         else {
@@ -144,8 +142,6 @@ const generateFontStyling = (zone, types) => {
 export const generateNameDisplay = (speciesName, tagObj) => {
     const form = Number(tagObj["form"])
     const appearance = tagObj["appearance"]
-    console.log(form)
-    console.log(appearance)
 
 
     // Standard
@@ -169,7 +165,7 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const burmyForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Burmy (" + burmyForm + " Cloak)"
                 }
-            case 413:
+            case 413: // Wormadam
                 return "Wormadam (Plant Cloak)"
             case 421: // Cherrims
                 if (form === Number(appearance)) {return "Cherrim (Overcast)"}
@@ -200,17 +196,23 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 else {
                     const deerlingForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Deerling (" + deerlingForm + " Form)"
-                }
-            
+                }   
             case 586: // Sawsbuck
                 if (form === Number(appearance)) {return "Sawsbuck (Spring Form)"}
                 else {
                     const sawsbuckForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Sawsbuck (" + sawsbuckForm + " Form)"
+                } 
+
+            case 649: // Genesect
+                if (form === Number(appearance)) {return "Genesect"}
+                else {
+                    const genesectForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Genesect (" + genesectForm + " Drive)"
                 }
 
 
-            case 892:
+            case 892: // Urshifu
                 return "Single Strike Style Urshifu"
             default:
                 return speciesName
@@ -284,7 +286,6 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 return "G-Max Single Strike Style Urshifu"
             case 10227:
                 return "G-Max Rapid Strike Style Urshifu"
-
             default: 
                 return "G-Max " + speciesName
         }

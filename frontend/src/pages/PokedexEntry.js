@@ -172,6 +172,11 @@ const PokedexEntry = (props) => {
                                 appearanceList.push(appearanceTag + "-strawberry-sweet")
                             }
 
+                            else if (appearanceTag === ("649-douse")){
+                                appearanceList.push("649")
+                                appearanceList.push(appearanceTag)
+                            }
+
                             else {
                                 appearanceList.push(appearanceTag)
                             }
