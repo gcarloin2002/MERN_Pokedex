@@ -12,6 +12,7 @@ const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 const generateTyping = (entryData, tagObj) => {
     const types = entryData.types
  
+    // Checks for Arceus
     if (tagObj.speciesName === "Arceus"){
         console.log(tagObj.form)
         console.log(tagObj.appearance)
@@ -194,6 +195,19 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 const arceusForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                 return "Arceus (" + arceusForm + ")"
             }
+            case 585: // Deerling
+                if (form === Number(appearance)) {return "Deerling (Spring Form)"}
+                else {
+                    const deerlingForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Deerling (" + deerlingForm + " Form)"
+                }
+            
+            case 586: // Sawsbuck
+                if (form === Number(appearance)) {return "Sawsbuck (Spring Form)"}
+                else {
+                    const sawsbuckForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Sawsbuck (" + sawsbuckForm + " Form)"
+                }
 
 
             case 892:
