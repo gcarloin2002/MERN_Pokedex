@@ -13,11 +13,11 @@ const generatePokemonDataArray = (pokemonData) => {
     for (let i = 0; i < pokemonData.length; i++) {
         const dexNumber = i + 1
         const dataName = pokemonData[i].name
-        const displayName = determineDisplayName(dataName.charAt(0).toUpperCase() + dataName.slice(1), i + 1)
+        const speciesName = determineDisplayName(dataName.charAt(0).toUpperCase() + dataName.slice(1), i + 1)
         
         const pokemonObj = {
             dexNumber: dexNumber, 
-            displayName: displayName,
+            speciesName: speciesName,
         }
 
         result.push(pokemonObj)
@@ -32,6 +32,7 @@ const ButtonCollection = (props) => {
     const [searchInput, setSearchInput] = useState("")
 
     const pokemonDataArray = generatePokemonDataArray(props.pokemonData)
+    console.log(pokemonDataArray)
     
     // Lets component render once
     useEffect(() => {
@@ -45,9 +46,14 @@ const ButtonCollection = (props) => {
                 <div className="ButtonCollection">
                     {
                         pokemonDataArray.filter((obj) => {
-                            return obj.displayName.toLowerCase().includes(searchInput.toLowerCase())
+                            return obj.speciesName.toLowerCase().includes(searchInput.toLowerCase())
                         }).map((obj, index) => {
-                            return <DexButton key={index} displayName={obj.displayName} dexNumber={obj.dexNumber} opacity={opacity}/>
+                            return <DexButton 
+                                        key={index} 
+                                        speciesName={obj.speciesName} 
+                                        dexNumber={obj.dexNumber} 
+                                        opacity={opacity}
+                                    />
                         })
                     }
                 </div>

@@ -8,7 +8,7 @@ import "./styles/DexButton.css"
 
 
 
-const determineDisplayName = (name, dexNumber) => {
+export const determineDisplayName = (name, dexNumber) => {
     if (name.includes("-")) {
 
         // Fixes capitalization
@@ -79,7 +79,7 @@ const determineDisplayName = (name, dexNumber) => {
     }
 }
 
-const determineUrlName = (name) => {
+export const determineUrlName = (name) => {
     if (name.includes(' ')){
         return name.replace(" ", "_")
     }
@@ -88,15 +88,14 @@ const determineUrlName = (name) => {
     }
 }
 
-const DexButton = (props) => {
+export const DexButton = (props) => {
     const [opacity, setOpacity] = useContext(OpaqueContext);
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     
     const dexNumber = props.dexNumber
-    const displayName = props.displayName
-    const speciesName = props.displayName
+    const speciesName = props.speciesName
     const imageURL = generateImgSrc(currentTagObj[speciesName])
-    const urlName = determineUrlName(displayName)
+    const urlName = determineUrlName(speciesName)
     const navigate = useNavigate()
 
     const handleClick = () => {
@@ -111,14 +110,14 @@ const DexButton = (props) => {
     }, []);
 
     return (
-    <div className={"DexButton"} onClick={handleClick} style ={{opacity: props.opacity}}>
-        <p className="displayNumber">{dexNumber}</p>
+    <div className="DexButton" onClick={handleClick} style ={{opacity: props.opacity}}>
+        <p className="dexButtonNumber">{dexNumber}</p>
         <img className="DexButtonPicture" src={imageURL} alt={"unavailable"}/>
         <img className="pokeball_Icon" src={pokeball_Icon} alt={"unavailable"}/>
-        <p className="displayName">{displayName}</p>
+        <p className="speciesName">{speciesName}</p>
     </div>
     )
 }
 
 
-export { DexButton, determineDisplayName, determineUrlName }
+export default DexButton

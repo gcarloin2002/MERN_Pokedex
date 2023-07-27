@@ -39,7 +39,7 @@
     width: 160px;
 }
 
-.displayName {
+.speciesName {
     color:#686868;
     font-family: Flexo-Demi,arial,sans-serif;
     font-size: 14px;
@@ -54,7 +54,7 @@
     z-index: 2;
 }
 
-.displayNumber {
+.dexButtonNumber {
     color:#686868;
     font-family: monospace;
     font-size: 14px;
