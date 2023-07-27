@@ -188,8 +188,8 @@ export const generateNameDisplay = (speciesName, tagObj) => {
             case 493: // Arceus
                 if (form === Number(appearance) || appearance === "493-normal") {return "Arceus"}
                 else {
-                const arceusForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
-                return "Arceus (" + arceusForm + ")"
+                    const arceusForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Arceus (" + arceusForm + ")"
                 }
             case 585: // Deerling
                 if (form === Number(appearance)) {return "Deerling (Spring Form)"}
@@ -234,8 +234,23 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const flowerForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Florges (" + flowerForm + " Flower)"
                 }
+            case 676: // Furfrou
+                if (form === Number(appearance) || appearance === "676-natural") {return "Furfrou"}
+                else {
+                    const cutForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5).replace("-", " ").replace("reine", "Reine")
+                    return "Furfrou (" + cutForm + " Trim)"
+                }
+            case 716: // Xerneas
+                if (form === Number(appearance) || appearance === "716-neutral") {return "Xerneas (Neutral Mode)"}
+                else {
+                    const xerneasForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Xerneas (" + xerneasForm + " Mode)"
+                }
+
+
             case 892: // Urshifu
                 return "Single Strike Style Urshifu"
+            
             default:
                 return speciesName
         }
