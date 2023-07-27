@@ -129,20 +129,52 @@ const generateFontStyling = (zone, types) => {
 export const generateNameDisplay = (speciesName, tagObj) => {
     const form = Number(tagObj["form"])
     const appearance = tagObj["appearance"]
+    // console.log(appearance)
+
 
     // Standard
     if (inBetween(1, 1010, form)) {
         switch(form) {
             case 201: // Unowns
-                if (form === Number(appearance)) {return "Unown A"}
-
+                if (form === Number(appearance)) {return 'Unown (A)'}
                 else {
-                    return "Unown (" + appearance.slice(4).toUpperCase() + ")"
+                    switch (appearance){
+                        case "201-exclamation":
+                            return "Unown (!)"
+                        case "201-question":
+                            return "Unown (?)"
+                        default:
+                            return "Unown (" + appearance.slice(4).toUpperCase() + ")"
+                    }
                 }
-            case 412:
-                return "Burmy (Plant Cloak)"
+            case 412: // Burmys
+                if (form === Number(appearance)) {return "Burmy (Plant Cloak)"}
+                else {
+                    const burmyForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Burmy (" + burmyForm + " Cloak)"
+                }
             case 413:
                 return "Wormadam (Plant Cloak)"
+            case 421: // Cherrims
+                if (form === Number(appearance)) {return "Cherrim (Overcast)"}
+                else {
+                    const cherrimForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Cherrim (" + cherrimForm + ")"
+                }
+            case 422: // Shellos
+                if (form === Number(appearance)) {return "Shellos (West Sea)"}
+                else {
+                    const shellosForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Shellos (" + shellosForm + " Sea)"
+                }
+            case 423: // Gastrodon
+                if (form === Number(appearance)) {return "Gastrodon (West Sea)"}
+                else {
+                    const gastrodonForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Gastrodon (" + gastrodonForm + " Sea)"
+                }
+
+
             case 892:
                 return "Single Strike Style Urshifu"
             default:
@@ -198,6 +230,9 @@ export const generateNameDisplay = (speciesName, tagObj) => {
         }
     }
 
+    
+    else if (form === 10004){return "Wormadam (Sandy Cloak)"}
+    else if (form === 10005){return "Wormadam (Trash Cloak)"}
     else if (form === 10148){return "Partner Cap Pikachu"}
     else if (form === 10160){return "World Cap Pikachu"}
 
