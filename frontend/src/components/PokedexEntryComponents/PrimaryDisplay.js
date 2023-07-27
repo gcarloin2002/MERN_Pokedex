@@ -9,14 +9,28 @@ import "./styles/PrimaryDisplay.css"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
-const generateTyping = (entryData) => {
+const generateTyping = (entryData, tagObj) => {
     const types = entryData.types
-    if (types.length === 1){
-        return [types[0].type.name]
+ 
+    if (tagObj.speciesName === "Arceus"){
+        console.log(tagObj.form)
+        console.log(tagObj.appearance)
+        if (tagObj.appearance === "493" || tagObj.appearance === "493-normal") {return ["normal"]}
+        
+        else {
+            const arceusForm = tagObj.appearance.slice(4)
+            return [arceusForm]
+        }
     }
 
     else {
-        return [types[0].type.name, types[1].type.name]
+        if (types.length === 1){
+            return [types[0].type.name]
+        }
+
+        else {
+            return [types[0].type.name, types[1].type.name]
+        }
     }
 }
 
@@ -129,7 +143,8 @@ const generateFontStyling = (zone, types) => {
 export const generateNameDisplay = (speciesName, tagObj) => {
     const form = Number(tagObj["form"])
     const appearance = tagObj["appearance"]
-    // console.log(appearance)
+    console.log(form)
+    console.log(appearance)
 
 
     // Standard
@@ -173,6 +188,12 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const gastrodonForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Gastrodon (" + gastrodonForm + " Sea)"
                 }
+            case 493: // Arceus
+            if (form === Number(appearance) || appearance === "493-normal") {return "Arceus"}
+            else {
+                const arceusForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                return "Arceus (" + arceusForm + ")"
+            }
 
 
             case 892:
@@ -271,7 +292,7 @@ const PrimaryDisplay = (props) => {
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
 
-    const types = generateTyping(entryData)
+    const types = generateTyping(entryData, currentTagObj[speciesName])
     const primaryDivStyling = generatePrimaryDivStyling(types)
     const leftFontStyling = generateFontStyling("left", types)
     const rightFontStyling = generateFontStyling("right", types)
