@@ -8,7 +8,7 @@ import "./styles/DexButton.css"
 
 
 
-export const determineDisplayName = (name, dexNumber) => {
+export const generateSpeciesName = (name, dexNumber) => {
     if (name.includes("-")) {
 
         // Fixes capitalization

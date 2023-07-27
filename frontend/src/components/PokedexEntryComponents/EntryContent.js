@@ -3,7 +3,7 @@ import ExtraInfo from "./ExtraInfo"
 import React, { useState, useEffect, useContext } from "react"
 import { CurrentTagObjContext } from "../../App" 
 import PrimaryDisplay from "./PrimaryDisplay"
-import { determineDisplayName, determineUrlName } from "../HomeComponents/DexButton"
+import { determineUrlName, generateSpeciesName } from "../HomeComponents/DexButton" 
 import "./styles/EntryContent.css"
 
 export const RenderEntryFormContext = React.createContext()
@@ -16,7 +16,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
     else if (dexNum === allPokemonData.length) {
         const lorigName = allPokemonData[dexNum - 2].name
-        const ldisplayName = determineDisplayName(lorigName.charAt(0).toUpperCase() + lorigName.slice(1), dexNum - 1)
+        const ldisplayName = generateSpeciesName(lorigName.charAt(0).toUpperCase() + lorigName.slice(1), dexNum - 1)
         const lurlName = determineUrlName(ldisplayName)
 
         return [lurlName, ""]
@@ -24,11 +24,11 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
     else {
         const lorigName = allPokemonData[dexNum - 2].name
-        const ldisplayName = determineDisplayName(lorigName.charAt(0).toUpperCase() + lorigName.slice(1), dexNum - 1)
+        const ldisplayName = generateSpeciesName(lorigName.charAt(0).toUpperCase() + lorigName.slice(1), dexNum - 1)
         const lurlName = determineUrlName(ldisplayName)
 
         const rorigName = allPokemonData[dexNum].name
-        const rdisplayName = determineDisplayName(rorigName.charAt(0).toUpperCase() + rorigName.slice(1), dexNum + 1)
+        const rdisplayName = generateSpeciesName(rorigName.charAt(0).toUpperCase() + rorigName.slice(1), dexNum + 1)
         const rurlName = determineUrlName(rdisplayName)
 
         return [lurlName, rurlName]

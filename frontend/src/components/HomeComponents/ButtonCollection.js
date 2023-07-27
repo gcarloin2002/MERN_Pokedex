@@ -1,7 +1,6 @@
-import { DexButton }from "./DexButton"
+import { DexButton, generateSpeciesName }from "./DexButton"
 import SearchBar from "./SearchBar"
 import React, { useEffect, useState } from 'react'
-import { determineDisplayName } from "./DexButton"
 import "./styles/ButtonCollection.css"
 
 
@@ -13,7 +12,7 @@ const generatePokemonDataArray = (pokemonData) => {
     for (let i = 0; i < pokemonData.length; i++) {
         const dexNumber = i + 1
         const dataName = pokemonData[i].name
-        const speciesName = determineDisplayName(dataName.charAt(0).toUpperCase() + dataName.slice(1), i + 1)
+        const speciesName = generateSpeciesName(dataName.charAt(0).toUpperCase() + dataName.slice(1), i + 1)
         
         const pokemonObj = {
             dexNumber: dexNumber, 
