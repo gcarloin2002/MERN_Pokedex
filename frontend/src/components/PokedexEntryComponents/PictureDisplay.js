@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { CurrentTagObjContext } from "../../App" 
-import FormDisplay from "./FormDisplay" 
+import { generateMappedImage, FormDisplay } from "./FormDisplay"
 import "./styles/PictureDisplay.css"
 
 const generatePictureDisplayStyling = (types) => {
@@ -56,9 +56,8 @@ export const generateImgSrc = (tagObj) => {
     // Choosing another appearance
 
     const tag = shiny + tagObj.form + appearance
-
-    const result = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + tag + ".png"
-    return result
+    return generateMappedImage(tag)
+    
 }
 
 const PictureDisplay = (props) => {

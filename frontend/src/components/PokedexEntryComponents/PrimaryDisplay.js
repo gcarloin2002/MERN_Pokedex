@@ -133,8 +133,12 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     // Standard
     if (inBetween(1, 1010, form)) {
         switch(form) {
-            case 201: 
-                return "Unown-A" 
+            case 201: // Unowns
+                if (form === Number(appearance)) {return "Unown A"}
+
+                else {
+                    return "Unown (" + appearance.slice(4).toUpperCase() + ")"
+                }
             case 412:
                 return "Burmy (Plant Cloak)"
             case 413:

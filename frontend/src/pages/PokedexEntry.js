@@ -64,6 +64,9 @@ const PokedexEntry = (props) => {
                         // No shaymin-sky
                         else if (appearanceTag.includes("492-")){continue}
 
+                        // No unknown arceus
+                        else if (appearanceTag.includes("493-unknown")){continue}
+
                         // No dialga, palkia, or giratina forms
                         else if (appearanceTag.includes("-origin") || appearanceTag.includes("-altered")){continue}
 
@@ -175,7 +178,6 @@ const PokedexEntry = (props) => {
                         }
                     }
                 }
-                console.log(appearanceList)
                 setAppearanceTags(appearanceList)
             })
             .catch(error => console.log(error));
@@ -212,10 +214,12 @@ const PokedexEntry = (props) => {
                 else if (tag === 10145) {continue} // Mimikyu-busted
                 else if (tag === 10146) {continue} // Kommo-o
 
+                // No dada zarude 
+                else if (tag === 10192) {continue} // Kommo-o
+
 
                 else {formTagList.push(tag.toString())}
             }
-            console.log(formTagList)
             setFormTags(formTagList)
         })
         .catch(error => console.log(error));

@@ -4,12 +4,24 @@ import { CurrentTagObjContext } from "../../App"
 import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
+const generateMappedImage = (tag) => {
+    const url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + tag + ".png"
+    switch (tag) {
+        case "493-normal": // Arceus
+            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/493.png"
+        default:
+            return url
+    }
+
+}
+
 const FormDisplay = (props) => {
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
     const formTags = props.formTags
     const speciesName = props.speciesName
     const appearanceTags = props.appearanceTags
+    // console.log(currentTagObj[speciesName])
 
 
     return (
@@ -35,7 +47,7 @@ const FormDisplay = (props) => {
                                 <img 
                                     className="formImg"
                                     key={"fimg"+index} 
-                                    src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + t + ".png"} 
+                                    src={generateMappedImage(t)} 
                                     alt="unavailable"
                                 />
                             </label>
@@ -65,7 +77,7 @@ const FormDisplay = (props) => {
                                 <img 
                                     className="appearanceImg"
                                     key={"aimg"+index} 
-                                    src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + t + ".png"} 
+                                    src={generateMappedImage(t)} 
                                     alt="unavailable"
                                 />
                             </label>
@@ -77,4 +89,4 @@ const FormDisplay = (props) => {
     )
 }
 
-export default FormDisplay
+export {FormDisplay, generateMappedImage}
