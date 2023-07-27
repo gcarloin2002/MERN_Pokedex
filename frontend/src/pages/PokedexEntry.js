@@ -95,6 +95,9 @@ const PokedexEntry = (props) => {
                         // No pumpkaboos / gourgeists
                         else if (appearanceTag.includes("710-") || appearanceTag.includes("711-")){continue}
 
+                        // No eternal floette 
+                        else if (appearanceTag.includes("-eternal")){continue}
+
                         // No zygarde
                         else if (appearanceTag.includes("718-")){continue}
 
@@ -195,8 +198,11 @@ const PokedexEntry = (props) => {
                 const url = varieties[i].pokemon.url
                 const tag = Number(url.slice(34, url.length - 1))
 
+                // eternal floette
+                if (tag === 10061) {continue} 
+
                 // No pikachus 
-                if (inBetween(10080, 10085, tag)) {continue}
+                else if (inBetween(10080, 10085, tag)) {continue}
                 else if (tag === 10158) {continue}
 
                 // No Eeevee

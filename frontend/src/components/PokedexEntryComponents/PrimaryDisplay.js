@@ -186,11 +186,11 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     return "Gastrodon (" + gastrodonForm + " Sea)"
                 }
             case 493: // Arceus
-            if (form === Number(appearance) || appearance === "493-normal") {return "Arceus"}
-            else {
+                if (form === Number(appearance) || appearance === "493-normal") {return "Arceus"}
+                else {
                 const arceusForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                 return "Arceus (" + arceusForm + ")"
-            }
+                }
             case 585: // Deerling
                 if (form === Number(appearance)) {return "Deerling (Spring Form)"}
                 else {
@@ -203,15 +203,37 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const sawsbuckForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Sawsbuck (" + sawsbuckForm + " Form)"
                 } 
-
             case 649: // Genesect
                 if (form === Number(appearance)) {return "Genesect"}
                 else {
                     const genesectForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Genesect (" + genesectForm + " Drive)"
                 }
-
-
+            case 666: // Vivillon
+                if (form === Number(appearance)) {return "Vivillon (Meadow Pattern)"}
+                else {
+                    const vivForm = (appearance.slice(4)[0].toUpperCase() + appearance.slice(5))
+                    .replace("-", " ").replace("snow", "Snow").replace("plains", "Plains").replace("Poke ball", "Pokeball")
+                    return "Vivillon (" + vivForm + " Pattern)"
+                } 
+            case 669: // Flabebe
+                if (form === Number(appearance)) {return "Flabebe (Red Flower)"}
+                else {
+                    const flowerForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Flabebe (" + flowerForm + " Flower)"
+                }
+            case 670: // Floette
+                if (form === Number(appearance)) {return "Floette (Red Flower)"}
+                else {
+                    const flowerForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Floette (" + flowerForm + " Flower)"
+                }
+            case 671: // Florges
+                if (form === Number(appearance)) {return "Florges (Red Flower)"}
+                else {
+                    const flowerForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
+                    return "Florges (" + flowerForm + " Flower)"
+                }
             case 892: // Urshifu
                 return "Single Strike Style Urshifu"
             default:
