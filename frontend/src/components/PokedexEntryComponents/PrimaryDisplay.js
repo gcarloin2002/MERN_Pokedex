@@ -267,12 +267,20 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 }
             case 718:
                 return "Zygarde (50% Form)"
+            case 741:
+                return "Oricorio (Baile Style)"
+            case 745:
+                return "Lycanroc (Midday Form)"
+            case 746:
+                return "Wishiwashi (Solo Form)"
             case 773: // Silvally
                 if (form === Number(appearance) || appearance === "773-normal") {return "Silvally"}
                 else {
                     const silvallyForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Sivally (" + silvallyForm + " Memory)"
                 }
+            case 774:
+                return "Minior (Meteor Form)"
             case 845: // Cramorant
                 if (form === Number(appearance)) {return "Cramorant"}
                 else {
@@ -399,7 +407,37 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     else if (form === 10117) {return "Ash Greninja"}
     else if (form === 10118) {return "Zygarde (10% Form)"}
     else if (form === 10120) {return "Zygarde (Complete Form)"}
+    else if (form === 10123) {return "Oricorio (Pom-Pom Style)"}
+    else if (form === 10124) {return "Oricorio (Pa'u Style)"}
+    else if (form === 10125) {return "Oricorio (Sensu Style)"}
+    else if (form === 10126) {return "Lycanroc (Midnight Form)"}
+
+    else if (form === 10127) {return "Wishiwashi (School Form)"}
+
+
     else if (form === 10148){return "Partner Cap Pikachu"}
+
+    // Miniors
+    else if (inBetween(10136, 10142, form)){
+        switch (form){
+        case 10136:
+            return "Minior (Red Core)"
+        case 10137:
+            return "Minior (Orange Core)"
+        case 10138:
+            return "Minior (Yellow Core)"
+        case 10139:
+            return "Minior (Green Core)"
+        case 10140:
+            return "Minior (Blue Core)"
+        case 10141:
+            return "Minior (Indigo Core)"
+        case 10142:
+            return "Minior (Violet Core)"
+        }
+    }
+
+    else if (form === 10152){return "Lycanroc (Dusk Form)"}
     else if (form === 10160){return "World Cap Pikachu"}
 
     // Galarian forms

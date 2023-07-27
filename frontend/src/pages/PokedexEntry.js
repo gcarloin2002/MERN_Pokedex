@@ -229,6 +229,11 @@ const PokedexEntry = (props) => {
 
                 // No pikachus 
                 else if (inBetween(10080, 10085, tag)) {continue}
+
+                // No miniors
+                else if (inBetween(10130, 10135, tag)) {continue}
+
+                // No pikachu
                 else if (tag === 10158) {continue}
 
                 // No Eeevee
