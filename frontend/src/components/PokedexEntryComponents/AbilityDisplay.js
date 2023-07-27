@@ -1,8 +1,10 @@
 import "./styles/AbilityDisplay.css"
+import { useContext } from "react"
+import { CurrentTagObjContext } from "../../App"
 
-const generateAbilityDivs = (abilities) => {
+const generateAbilityDivs = (abilities, tagObj) => {
     // Has one ability
-    if (abilities[0] === "Aura Break") {
+    if (tagObj.form === "718" || tagObj.form === "10118") {
         return (
             <>
                 <div className="abilityDiv">
@@ -14,8 +16,9 @@ const generateAbilityDivs = (abilities) => {
             </>
         )
     } 
-    
-    else if (abilities.length === 1) {
+
+
+    else if (abilities.length === 1 || tagObj.form === "10120") {
         return (
             <div className="abilityDiv">
                 {abilities[0]}
@@ -77,13 +80,15 @@ const generateAbilityDivs = (abilities) => {
 }
 
 const AbilityDisplay = (props) => {
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const style = props.style
     const abilities = props.abilities
+    const speciesName = props.speciesName
     return (
         <div className="AbilityDisplay" style={style}>
             <div className="abilityLabel">Abilities</div>
             <div className="abilityContainer">
-                {generateAbilityDivs(abilities)}
+                {generateAbilityDivs(abilities, currentTagObj[speciesName])}
             </div>
         </div>
     )

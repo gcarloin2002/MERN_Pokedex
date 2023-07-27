@@ -144,6 +144,8 @@ const generateFontStyling = (zone, types) => {
 export const generateNameDisplay = (speciesName, tagObj) => {
     const form = Number(tagObj["form"])
     const appearance = tagObj["appearance"]
+    console.log(form)
+    //console.log(appearance)
 
     // Standard
     if (inBetween(1, 1010, form)) {
@@ -192,6 +194,8 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const arceusForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Arceus (" + arceusForm + ")"
                 }
+            case 550: // Basculin
+                return "Basculin (Red Striped Form)"
             case 585: // Deerling
                 if (form === Number(appearance)) {return "Deerling (Spring Form)"}
                 else {
@@ -204,6 +208,14 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const sawsbuckForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Sawsbuck (" + sawsbuckForm + " Form)"
                 } 
+            case 641:
+                return "Tornadus (Incarnate Form)"
+            case 642:
+                return "Thundurus (Incarnate Form)"
+            case 645:
+                return "Tornadus (Incarnate Form)"
+            case 648: // Meloetta
+                return "Meloetta (Aria Form)"
             case 649: // Genesect
                 if (form === Number(appearance)) {return "Genesect"}
                 else {
@@ -241,12 +253,20 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const cutForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5).replace("-", " ").replace("reine", "Reine")
                     return "Furfrou (" + cutForm + " Trim)"
                 }
+            case 681: // Aegislash
+                return "Aegislash (Shield Form)"
+            case 710: // Pumpkaboo
+                return "Pumpkaboo (Average Size)"
+            case 711: // Gourgeist
+                return "Gourgeist (Average Size)"
             case 716: // Xerneas
                 if (form === Number(appearance) || appearance === "716-neutral") {return "Xerneas (Neutral Mode)"}
                 else {
                     const xerneasForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Xerneas (" + xerneasForm + " Mode)"
                 }
+            case 718:
+                return "Zygarde (50% Form)"
             case 773: // Silvally
                 if (form === Number(appearance) || appearance === "773-normal") {return "Silvally"}
                 else {
@@ -264,7 +284,8 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 else {return "Dada Zarude"}
             case 892: // Urshifu
                 return "Single Strike Style Urshifu"
-            
+            case 905: // Enamorus
+                return "Enamorus (Incarnate Form)"
             default:
                 return speciesName
         }
@@ -282,6 +303,56 @@ export const generateNameDisplay = (speciesName, tagObj) => {
         }
     }
 
+    else if (form === 10004){return "Wormadam (Sandy Cloak)"}
+    else if (form === 10005){return "Wormadam (Trash Cloak)"}
+    else if (form === 10006){return "Shaymin (Sky Form)"}
+    else if (form === 10007){return "Giratina (Origin Form)"}
+
+    // Rotoms
+    else if (inBetween(10008, 10012, form)){
+        switch(form) {
+            case 10008:
+                return "Rotom (Heat Form)"
+            case 10009:
+                return "Rotom (Wash Form)"
+            case 10010:
+                return "Rotom (Frost Form)"
+            case 10011:
+                return "Rotom (Fan Form)"
+            case 10012:
+                return "Rotom (Mow Form)"
+        }
+    }
+
+    // Castforms
+    else if (inBetween(10013, 10015, form)){
+        switch(form) {
+            case 10013:
+                return "Castform (Sunny Form)"
+            case 10014:
+                return "Castform (Rainy Form)"
+            case 10015:
+                return "Castform (Snowy Form)"
+        }
+    }
+
+
+    else if (form === 10016) {return "Basculin (Blue Striped Form)"}
+    else if (form === 10017) {return "Zen Mode Darmanitan"}
+    else if (form === 10018) {return "Meloetta (Piroutte form)"}
+    else if (inBetween(10019, 10021, form)){return speciesName + " (Therian Form)"} // Weather trio
+    else if (form === 10022){return "Black Kyurem"}
+    else if (form === 10023){return "White Kyurem"}
+    else if (form === 10024){return "Keldeo (Resolute Form)"}
+    else if (form === 10026){return "Aegislash (Blade Form)"}
+    else if (form === 10027){return "Pumpkaboo (Small Size)"}
+    else if (form === 10028){return "Pumpkaboo (Large Size)"}
+    else if (form === 10029){return "Pumpkaboo (Super Size)"}
+
+    else if (form === 10030){return "Gourgeist (Small Size)"}
+    else if (form === 10031){return "Gourgeist (Large Size)"}
+    else if (form === 10032){return "Gourgeist (Super Size)"}
+
     // Mega
     else if (inBetween(10033, 10090, form)){
         switch(form) {
@@ -293,6 +364,12 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 return "Mega " + speciesName + " X"
             case 10044:
                 return "Mega " + speciesName + " Y"
+            case 10077:
+                return "Primal " + speciesName
+            case 10078:
+                return "Primal " + speciesName
+            case 10086:
+                return "Hoopa Unbound"
             default:
                 return "Mega " + speciesName
         }
@@ -318,14 +395,25 @@ export const generateNameDisplay = (speciesName, tagObj) => {
         }
     }
 
-    
-    else if (form === 10004){return "Wormadam (Sandy Cloak)"}
-    else if (form === 10005){return "Wormadam (Trash Cloak)"}
+
+    else if (form === 10117) {return "Ash Greninja"}
+    else if (form === 10118) {return "Zygarde (10% Form)"}
+    else if (form === 10120) {return "Zygarde (Complete Form)"}
     else if (form === 10148){return "Partner Cap Pikachu"}
     else if (form === 10160){return "World Cap Pikachu"}
 
     // Galarian forms
-    else if (inBetween(10161, 10180, form)){return "Galarian " + speciesName}
+    else if (inBetween(10161, 10180, form)){
+        switch (form){
+            case 10178:
+                return "Galarian Zen Mode Darmanitan"
+
+            default:
+                return "Galarian " + speciesName
+        }
+    }
+        
+        
 
     else if (form === 10190){return "Eternamax Eternatus"}
     else if (form === 10191){return "Rapid Strike Style Urshifu"}
@@ -344,6 +432,9 @@ export const generateNameDisplay = (speciesName, tagObj) => {
 
     // Hisuian
     else if (inBetween(10229, 10244, form)){return "Hisuian " + speciesName}
+    else if (inBetween(10245, 10246, form)){return speciesName + " (Origin Form)"}
+    else if (form === 10247) {return "Basculin (White Striped Form)"}
+    else if (form === 10249) {return speciesName + " (Therian Form)"}
     
 }
 
@@ -381,7 +472,7 @@ const PrimaryDisplay = (props) => {
             </div>
             <div className="secondHandDiv">
                 <TypingDisplay style={rightFontStyling} types={types}/>
-                <AbilityDisplay style={rightFontStyling} abilities={abilities}/>
+                <AbilityDisplay style={rightFontStyling} abilities={abilities} speciesName={speciesName}/>
                 <GenderDisplay speciesData={speciesData}/>
                 <StatsDisplay types={types} baseStats={baseStats}/>
             </div>

@@ -70,6 +70,9 @@ const PokedexEntry = (props) => {
                         // No dialga, palkia, or giratina forms
                         else if (appearanceTag.includes("-origin") || appearanceTag.includes("-altered")){continue}
 
+                        // No basculins
+                        else if (appearanceTag.includes("550-")) {continue}
+
                         // No darmanitans
                         else if (appearanceTag.includes("555-")) {continue}
 
@@ -88,6 +91,10 @@ const PokedexEntry = (props) => {
 
                         // No Spewpas
                         else if (appearanceTag.includes("665-")) {continue}
+
+                        // No battlebonds
+                        else if (appearanceTag.includes("658-ash")) {continue}
+                        else if (appearanceTag.includes("658-battle-bond")) {continue}
 
                         // No aegislash
                         else if (appearanceTag.includes("681-")){continue}
@@ -214,6 +221,12 @@ const PokedexEntry = (props) => {
                 // eternal floette
                 if (tag === 10061) {continue} 
 
+                // No battlebond
+                else if (tag === 10116) {continue} 
+
+                // no zygarde
+                else if (tag === 10119) {continue} 
+
                 // No pikachus 
                 else if (inBetween(10080, 10085, tag)) {continue}
                 else if (tag === 10158) {continue}
@@ -237,6 +250,9 @@ const PokedexEntry = (props) => {
                 else if (tag === 10144) {continue} // Mimikyu-disguised
                 else if (tag === 10145) {continue} // Mimikyu-busted
                 else if (tag === 10146) {continue} // Kommo-o
+
+                // No zygarde
+                else if (tag === 10181) {continue} 
 
                 // No cramorants
                 else if (tag === 10182) {continue} 
