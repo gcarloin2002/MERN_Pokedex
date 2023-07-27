@@ -3,7 +3,7 @@ import AbilityDisplay from "./AbilityDisplay"
 import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
 import PictureDisplay from "./PictureDisplay"
-import { CurrentTagObjContext } from "../../App" 
+import { CurrentTagObjContext } from "../../App"  
 import { useContext } from "react"
 import "./styles/PrimaryDisplay.css"
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { CurrentTagObjContext } from "../../App" 
-import FormDisplay from "./FormDisplay"
+import FormDisplay from "./FormDisplay" 
 import "./styles/PictureDisplay.css"
 
 const generatePictureDisplayStyling = (types) => {

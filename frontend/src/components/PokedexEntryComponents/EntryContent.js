@@ -3,7 +3,7 @@ import ExtraInfo from "./ExtraInfo"
 import React, { useState, useEffect, useContext } from "react"
 import { CurrentTagObjContext } from "../../App" 
 import PrimaryDisplay from "./PrimaryDisplay"
-import { generateUrlName, generateSpeciesName } from "../HomeComponents/DexButton"  
+import { generateUrlName, generateSpeciesName } from "../HomeComponents/DexButton" 
 import "./styles/EntryContent.css"
 
 export const RenderEntryFormContext = React.createContext()

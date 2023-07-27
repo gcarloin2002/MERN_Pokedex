@@ -105,7 +105,7 @@ export const DexButton = (props) => {
         }, 800)
     }
 
-    useEffect(() => setOpacity(1));
+    useEffect(() => setOpacity(1), []);
 
     return (
     <div className="DexButton" onClick={handleClick} style ={{opacity: props.opacity}}>
