@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useEffect, useState, useContext } from 'react';
-import { generateSpeciesName, determineUrlName } from './components/HomeComponents/DexButton';
+import { generateSpeciesName, generateUrlName } from './components/HomeComponents/DexButton';
 import Home from './pages/Home'
 import PokedexEntry from './pages/PokedexEntry';
 
@@ -22,12 +22,12 @@ function App() {
       for (let i = 0; i < result.length; i++){
           pkmnData.push(result[i])
           const origName = pkmnData[i].name
-          const displayName = generateSpeciesName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
+          const speciesName = generateSpeciesName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
 
           // Dexnumber, species, form, appearance, shiny
-          attributesObj[displayName] = {
+          attributesObj[speciesName] = {
             dexNumber: ((i + 1) + ""),
-            speciesName: displayName,
+            speciesName: speciesName,
             form: ((i + 1) + ""),
             appearance: ((i + 1) + ""),
             gender: "n/a",
@@ -43,8 +43,8 @@ function App() {
   const routes = []
   for (let i = 0; i < pokemonData.length; i++) {
     const origName = pokemonData[i].name
-    const displayName = generateSpeciesName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
-    const urlName = determineUrlName(displayName)
+    const speciesName = generateSpeciesName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
+    const urlName = generateUrlName(speciesName)
 
     const obj = {path: ("/" + urlName), element: <PokedexEntry dexNum={i + 1} pokemonData={pokemonData}/>}
     routes.push(obj)

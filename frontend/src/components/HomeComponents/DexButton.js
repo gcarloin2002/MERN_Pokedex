@@ -79,12 +79,12 @@ export const generateSpeciesName = (name, dexNumber) => {
     }
 }
 
-export const determineUrlName = (name) => {
-    if (name.includes(' ')){
-        return name.replace(" ", "_")
+export const generateUrlName = (speciesName) => {
+    if (speciesName.includes(' ')){
+        return speciesName.replace(" ", "_")
     }
     else {
-        return name
+        return speciesName
     }
 }
 
@@ -95,7 +95,7 @@ export const DexButton = (props) => {
     const dexNumber = props.dexNumber
     const speciesName = props.speciesName
     const imgSrc = generateImgSrc(currentTagObj[speciesName])
-    const urlName = determineUrlName(speciesName)
+    const urlName = generateUrlName(speciesName) 
     const navigate = useNavigate()
 
     const handleClick = () => {
@@ -105,9 +105,7 @@ export const DexButton = (props) => {
         }, 800)
     }
 
-    useEffect(() => {
-        setOpacity(1);
-    }, []);
+    useEffect(() => setOpacity(1));
 
     return (
     <div className="DexButton" onClick={handleClick} style ={{opacity: props.opacity}}>
