@@ -13,10 +13,12 @@
     display: flex;
     flex-direction: column;
     padding-left: 20px;
+    padding-right: 20px;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.formLabel {
+.wordLabel {
     color: #696969;
     font-size: 30px;
     font-family: "Flexo-Medium",arial,sans-serif;
@@ -24,10 +26,12 @@
 }
 
 .formImg {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 10px;
     border: solid #c0c0c0;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 /* HIDE RADIO */
@@ -50,22 +54,14 @@
     border: solid #c0c0c0;
 }
 
-.formLabelBox {
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-
-
-
-
-
 
 .appearanceImg {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 10px;
     border: solid #c0c0c0;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 /* HIDE RADIO */
@@ -88,7 +84,9 @@
     border: solid #c0c0c0;
 }
 
-.appearanceLabelBox {
-    margin-left: 2px;
-    margin-right: 2px;
+
+
+.labelBox {
+    height: 0;
+    width: 0;
 }

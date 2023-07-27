@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 
+const inBetween = (a, b, c) => ((a <= c) && (c <= b))
+
 const PokedexEntry = (props) => {
     const [speciesData, setSpeciesData] = useState(false)
     const [formTags, setFormTags] = useState(false)
@@ -105,6 +107,13 @@ const PokedexEntry = (props) => {
                         // No Miniors ()
                         else if (appearanceTag.includes("774-")){continue}
 
+                        // No Mimikyu
+                        else if (appearanceTag.includes("778-")){continue}
+                        
+
+                        // No totems
+                        else if (appearanceTag.includes("-totem")){continue}
+
                         // No Necrozma
                         else if (appearanceTag.includes("800-")){continue}
 
@@ -159,6 +168,7 @@ const PokedexEntry = (props) => {
                         }
                     }
                 }
+                console.log(appearanceList)
                 setAppearanceTags(appearanceList)
             })
             .catch(error => console.log(error));
@@ -171,11 +181,31 @@ const PokedexEntry = (props) => {
                 const url = varieties[i].pokemon.url
                 const tag = Number(url.slice(34, url.length - 1))
 
-                // Morpeko hangry
-                if (tag === 10187) {continue}
+                // No pikachus 
+                if (inBetween(10080, 10085, tag)) {continue}
+                else if (tag === 10158) {continue}
+
+
+                // No Morpeko hangry
+                else if (tag === 10187) {continue}
+
+                // No totem forms 
+                else if (tag === 10121) {continue} // Gumshoos
+                else if (tag === 10093) {continue} // Raticate
+                else if (tag === 10153) {continue} // Araquanid
+                else if (tag === 10129) {continue} // Salazzle
+                else if (tag === 10149) {continue} // Marowak
+                else if (tag === 10128) {continue} // Lurantis
+                else if (tag === 10122) {continue} // Vikavolt
+                else if (tag === 10154) {continue} // Togedemaru
+                else if (tag === 10144) {continue} // Mimikyu-disguised
+                else if (tag === 10145) {continue} // Mimikyu-busted
+                else if (tag === 10146) {continue} // Kommo-o
+
 
                 else {formTagList.push(tag.toString())}
             }
+            console.log(formTagList)
             setFormTags(formTagList)
         })
         .catch(error => console.log(error));

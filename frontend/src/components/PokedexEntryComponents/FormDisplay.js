@@ -14,11 +14,11 @@ const FormDisplay = (props) => {
 
     return (
         <div className="FormDisplay">
-            <div className="formLabel">Forms</div>
+            <div className="wordLabel">Forms</div>
             {(<form>
                 {formTags.map((t, index) => {
                     return (
-                            <label className="formLabelBox" key={"label"+index}>
+                            <label className="labelBox" key={"label"+index}>
                                 <input 
                                     key={"finput"+index} 
                                     type="radio" 
@@ -44,11 +44,11 @@ const FormDisplay = (props) => {
                 <br/>
                 {generateNameDisplay(speciesName, currentTagObj[speciesName]["form"])}
             </form>)}
-            
+            <hr/>
             {(<form>
                 {appearanceTags.map((t, index) => {
                     return (
-                            <label className="appearanceLabelBox" key={"appearance"+index}>
+                            <label className="labelBox" key={"appearance"+index}>
                                 <input 
                                     key={"ainput"+index} 
                                     type="radio" 

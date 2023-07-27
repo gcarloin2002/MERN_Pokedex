@@ -139,6 +139,8 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                 return "Burmy (Plant Cloak)"
             case 413:
                 return "Wormadam (Plant Cloak)"
+            case 892:
+                return "Single Strike Style Urshifu"
             default:
                 return speciesName
         }
@@ -173,10 +175,49 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     }
 
     // Alolan
-    else if (inBetween(10091, 10115, form)){return "Alolan " + speciesName}
+    else if (inBetween(10091, 10115, form)){
+        switch(form) {
+            case 10094:
+                return "Original Cap Pikachu"
+            case 10095:
+                return "Hoenn Cap Pikachu"
+            case 10096:
+                return "Sinnoh Cap Pikachu"
+            case 10097:
+                return "Unova Cap Pikachu"
+            case 10098:
+                return "Kalos Cap Pikachu"
+            case 10099:
+                return "Alola Cap Pikachu"
+            default:
+                return "Alolan " + speciesName
+        }
+    }
+
+    else if (form === 10148){return "Partner Cap Pikachu"}
+    else if (form === 10160){return "World Cap Pikachu"}
+
+    // Galarian forms
+    else if (inBetween(10161, 10180, form)){return "Galarian " + speciesName}
+
+    else if (form === 10190){return "Eternamax Eternatus"}
+    else if (form === 10191){return "Rapid Strike Style Urshifu"}
 
     // G-Max
-    else if (inBetween(10195, 10227, form)){return "G-Max " + speciesName}
+    else if (inBetween(10195, 10227, form)){
+        switch(form){
+            case 10226:
+                return "G-Max Single Strike Style Urshifu"
+            case 10227:
+                return "G-Max Rapid Strike Style Urshifu"
+
+            default: 
+                return "G-Max " + speciesName
+        }
+    }
+
+    // Hisuian
+    else if (inBetween(10229, 10244, form)){return "Hisuian " + speciesName}
     
 }
 
