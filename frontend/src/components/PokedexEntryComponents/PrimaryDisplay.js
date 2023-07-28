@@ -38,7 +38,7 @@ const generateTyping = (entryData, tagObj) => {
 const generateAbilities = (entryData) => {
     const abilities = entryData.abilities
     return abilities.map((abilityObj) => {
-        return ((abilityObj.ability.name).split("-").map((word) => (word.charAt(0).toUpperCase() + word.slice(1)).replace("Rks", "RKS"))).join(" ")
+        return ((abilityObj.ability.name).split("-").map((word) => (word.charAt(0).toUpperCase() + word.slice(1)).replace("Rks", "RKS").replace("Spectrier", "").replace("Glastrier", ""))).join(" ")
     })
 }
 
@@ -289,6 +289,14 @@ export const generateNameDisplay = (speciesName, tagObj) => {
                     const cramForm = appearance.slice(4)[0].toUpperCase() + appearance.slice(5)
                     return "Cramorant (" + cramForm + " Form)"
                 }
+            case 849: // Toxtricity
+                return "Toxtricity (Amped Form)"
+            case 875: // Eiscue
+                return "Eiscue (Ice Face)"
+            case 888: // Zacian
+                return "Zacian (Hero of Many Battles)"
+            case 889: // Zamazenta
+                return "Zamazenta (Hero of Many Battles)"
             case 893: // Zarude
                 if (form === Number(appearance)) {return "Zarude"}
                 else {return "Dada Zarude"}
@@ -459,10 +467,19 @@ export const generateNameDisplay = (speciesName, tagObj) => {
         }
     }
         
-        
+    else if (form === 10184){return "Toxtricity (Low Key Form)"}
+    else if (form === 10185){return "Eiscue (Noice Face)"}
+
+    else if (form === 10188){return "Zacian (Crowned Sword)"}
+    else if (form === 10189){return "Zamazenta (Crowned Shield)"}
+
 
     else if (form === 10190){return "Eternamax Eternatus"}
     else if (form === 10191){return "Rapid Strike Style Urshifu"}
+
+    else if (form === 10193){return "Ice Rider Calyrex"}
+    else if (form === 10194){return "Shadow Rider Calyrex"}
+
 
     // G-Max
     else if (inBetween(10195, 10227, form)){

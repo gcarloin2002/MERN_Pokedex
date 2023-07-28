@@ -264,7 +264,10 @@ const PokedexEntry = (props) => {
                 else if (tag === 10183) {continue} 
 
                 // No dada zarude 
-                else if (tag === 10192) {continue} // Kommo-o
+                else if (tag === 10192) {continue}
+                
+                // No gmax toxtricity
+                else if (tag === 10228) {continue}
 
 
                 else {formTagList.push(tag.toString())}
