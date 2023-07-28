@@ -26,38 +26,42 @@ const FormDisplay = (props) => {
 
     return (
         <div className="FormDisplay">
+            {(formTags.length > 1) && 
+            (<>
             <div className="wordLabel">Forms</div>
-            {(<form>
-                {formTags.map((t, index) => {
-                    return (
-                            <label className="labelBox" key={"label"+index}>
-                                <input 
-                                    key={"finput"+index} 
-                                    type="radio" 
-                                    id={t} 
-                                    value={t} 
-                                    checked={t === (currentTagObj[speciesName]["form"]).toString()} 
-                                    onChange={(e) => {
-                                        const tagObj = currentTagObj
-                                        tagObj[speciesName]["form"] = e.target.id
-                                        setCurrentTagObj(tagObj)
-                                        setRenderEntryForm(e.target.id)
-                                    }}
-                                />
-                                <img 
-                                    className="formImg"
-                                    key={"fimg"+index} 
-                                    src={generateMappedImage(t)} 
-                                    alt="unavailable"
-                                />
-                            </label>
-                    )
-                })}
+                <form>
+                    {formTags.map((t, index) => {
+                        return (
+                                <label className="labelBox" key={"label"+index}>
+                                    <input 
+                                        key={"finput"+index} 
+                                        type="radio" 
+                                        id={t} 
+                                        value={t} 
+                                        checked={t === (currentTagObj[speciesName]["form"]).toString()} 
+                                        onChange={(e) => {
+                                            const tagObj = currentTagObj
+                                            tagObj[speciesName]["form"] = e.target.id
+                                            setCurrentTagObj(tagObj)
+                                            setRenderEntryForm(e.target.id)
+                                        }}
+                                    />
+                                    <img 
+                                        className="formImg"
+                                        key={"fimg"+index} 
+                                        src={generateMappedImage(t)} 
+                                        alt="unavailable"
+                                    />
+                                </label>
+                        )
+                    })}
+                </form>
                 <br/>
-                {generateNameDisplay(speciesName, currentTagObj[speciesName]["form"])}
-            </form>)}
-            <hr/>
-            {(<form>
+            </>)}
+            
+            {(appearanceTags.length > 0) && (<>
+            <div className="wordLabel">Appearances</div>
+            <form>
                 {appearanceTags.map((t, index) => {
                     return (
                             <label className="labelBox" key={"appearance"+index}>
@@ -83,8 +87,8 @@ const FormDisplay = (props) => {
                             </label>
                     )
                 })}
-
-            </form>)}
+            </form> 
+            </>)}
         </div>
     )
 }
