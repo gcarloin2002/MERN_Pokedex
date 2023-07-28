@@ -98,6 +98,7 @@ const PictureDisplay = (props) => {
                                 appearanceTags={appearanceTags}
                                 displayName={displayName}
                                 speciesName={speciesName}
+                                speciesData={speciesData}
                             />}
         </div>
     )

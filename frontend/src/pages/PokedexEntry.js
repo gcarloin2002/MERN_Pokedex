@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CurrentTagObjContext } from "../App";
 
 import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
 const PokedexEntry = (props) => {
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const [speciesData, setSpeciesData] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [appearanceTags, setAppearanceTags] = useState(false)
@@ -265,7 +267,7 @@ const PokedexEntry = (props) => {
 
                 // No dada zarude 
                 else if (tag === 10192) {continue}
-                
+
                 // No gmax toxtricity
                 else if (tag === 10228) {continue}
 
