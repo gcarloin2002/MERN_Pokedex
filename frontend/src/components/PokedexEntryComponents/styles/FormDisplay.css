@@ -77,6 +77,21 @@
     border: solid #c0c0c0;
     margin-left: 2px;
     margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.genderIcon {
+    font-size: 30px;
+    color: #f7f7f7;
+    background-color: aquamarine;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 8px;
+    
 }
 
 

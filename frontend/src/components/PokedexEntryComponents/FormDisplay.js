@@ -16,21 +16,8 @@ const generateMappedImage = (tag) => {
 }
 
 const generateGenderChoice = (t) => {
-    if (t === "m") {
-        return (
-            <div className="formImg">
-                ♂
-            </div>
-        )
-    }
-
-    else {
-        return (
-            <div className="formImg">
-                ♀
-            </div>
-        )
-    }
+    if (t === "m") {return (<div className="genderSelect"><div className="genderIcon" style={{backgroundColor: "#3355ff"}}>♂</div></div>)}
+    else {return (<div className="genderSelect"><div className="genderIcon" style={{backgroundColor: "#ff77dd"}}>♀</div></div>)}
 }
 
 const FormDisplay = (props) => {
