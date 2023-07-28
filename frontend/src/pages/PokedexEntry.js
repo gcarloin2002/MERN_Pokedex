@@ -20,12 +20,6 @@ const PokedexEntry = (props) => {
         .then((response) => response.json())
         .then((result) => {
             setSpeciesData(result)
-            
-            if (result["has_gender_differences"] || speciesName === "Meowstic" || speciesName === "Indeedee" || speciesName === "Basculegion" || speciesName === "Oinkologne"){
-                const tagObj = currentTagObj
-                tagObj[speciesName]["gender"] = "m"
-                setCurrentTagObj(tagObj)
-            }
 
             fetch("https://pokeapi.co/api/v2/pokemon-form/?limit=100000&offset=0")
             .then((response) => response.json())
