@@ -37,7 +37,7 @@ const FormDisplay = (props) => {
             {(formTags.length > 1) && 
             (<>
             <div className="wordLabel">Forms</div>
-            <form className="formContainer">
+            <form>
                 {formTags.map((t, index) => {
                     return (
                             <label key={"flabel"+index}>
@@ -66,7 +66,7 @@ const FormDisplay = (props) => {
             {(appearanceTags.length > 0) && 
             (<>
             <div className="wordLabel">Forms</div>
-            <form className="formContainer">
+            <form>
                 {appearanceTags.map((t, index) => {
                     return (
                             <label key={"alabel"+index}>
