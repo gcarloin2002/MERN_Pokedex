@@ -15,9 +15,22 @@ const generateMappedImage = (tag) => {
 
 }
 
-const generateGenderAttribute = (hasGenderDiff) => {
+const generateGenderChoice = (t) => {
+    if (t === "m") {
+        return (
+            <div className="formImg">
+                ♂
+            </div>
+        )
+    }
 
-    return ""
+    else {
+        return (
+            <div className="formImg">
+                ♀
+            </div>
+        )
+    }
 }
 
 const FormDisplay = (props) => {
@@ -27,8 +40,9 @@ const FormDisplay = (props) => {
     const appearanceTags = props.appearanceTags
     const speciesName = props.speciesName
     const speciesData = props.speciesData
-    const hasGenderDiff = speciesData["has_gender_differences"]
-    
+    const form = Number(currentTagObj[speciesName]["form"])
+    const hasGenderDiff = (currentTagObj[speciesName]["gender"] !== "n/a") && ((form <= 1010) || ([10235, 10025, 10186, 10248, 10254]).includes(form))
+
 
 
     return (
@@ -36,10 +50,10 @@ const FormDisplay = (props) => {
             {(formTags.length > 1) && 
             (<>
             <div className="wordLabel">Forms</div>
-            <form>
+            <form className="formContainer">
                 {formTags.map((t, index) => {
                     return (
-                            <label className="labelBox" key={"label"+index}>
+                            <label key={"flabel"+index}>
                                 <input 
                                     key={"finput"+index} type="radio" id={t} value={t} 
                                     checked={t === (currentTagObj[speciesName]["form"]).toString()} 
@@ -51,7 +65,8 @@ const FormDisplay = (props) => {
                                     }}
                                 />
                                 <img 
-                                    className="formImg" key={"fimg"+index} 
+                                    className="formImg"
+                                    key={"fimg"+index} 
                                     src={generateMappedImage(t)} alt="unavailable"
                                 />
                             </label>
@@ -64,10 +79,10 @@ const FormDisplay = (props) => {
             {(appearanceTags.length > 0) && 
             (<>
             <div className="wordLabel">Forms</div>
-            <form>
+            <form className="formContainer">
                 {appearanceTags.map((t, index) => {
                     return (
-                            <label className="labelBox" key={"appearance"+index}>
+                            <label key={"alabel"+index}>
                                 <input 
                                     key={"ainput"+index} type="radio" id={t} value={t} 
                                     checked={t === (currentTagObj[speciesName]["appearance"]).toString()} 
@@ -79,7 +94,8 @@ const FormDisplay = (props) => {
                                     }}
                                 />
                                 <img 
-                                    className="appearanceImg" key={"aimg"+index} 
+                                    className="formImg"
+                                    key={"aimg"+index} 
                                     src={generateMappedImage(t)} alt="unavailable"
                                 />
                             </label>
@@ -87,6 +103,61 @@ const FormDisplay = (props) => {
                 })}
             </form> 
             <br/>
+            </>)}
+
+            {hasGenderDiff && 
+            (<>
+                <div className="wordLabel">Gender Differences</div>
+                <form className="formContainer">
+                    {(["m","f"]).map((t, index) => {
+                        return (
+                            <label key={"glabel"+index}>
+                                <input 
+                                    key={"ginput"+index} type="radio" id={t} value={t} 
+                                    checked={t === currentTagObj[speciesName]["gender"]} 
+                                    onChange={(e) => {
+                                        const tagObj = currentTagObj
+                                        tagObj[speciesName]["gender"] = e.target.id
+
+                                        // Changes Forms when gender changes
+                                        if (["Meowstic", "Indeedee", "Basculegion", "Oinkologne"].includes(speciesName)) {
+                                            switch (tagObj[speciesName]["form"]) {
+                                                case "678":
+                                                    tagObj[speciesName]["form"] = "10025"
+                                                    break
+                                                case "876":
+                                                    tagObj[speciesName]["form"] = "10186"
+                                                    break
+                                                case "902":
+                                                    tagObj[speciesName]["form"] = "10248"
+                                                    break
+                                                case "916":
+                                                    tagObj[speciesName]["form"] = "10254"
+                                                    break
+                                                case "10025":
+                                                    tagObj[speciesName]["form"] = "678"
+                                                    break
+                                                case "10186":
+                                                    tagObj[speciesName]["form"] = "876"
+                                                    break
+                                                case "10248":
+                                                    tagObj[speciesName]["form"] = "902"
+                                                    break
+                                                case "10254":
+                                                    tagObj[speciesName]["form"] = "916"
+                                                    break
+                                            }
+                                        }
+
+                                        setCurrentTagObj(tagObj)
+                                        setRenderEntryForm(e.target.id)
+                                    }}
+                                />
+                                {generateGenderChoice(t)}
+                            </label>
+                            )
+                    })}
+                </form>
             </>)}
         </div>
     )

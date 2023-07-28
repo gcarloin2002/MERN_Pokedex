@@ -20,6 +20,12 @@ const PokedexEntry = (props) => {
         .then((response) => response.json())
         .then((result) => {
             setSpeciesData(result)
+            
+            if (result["has_gender_differences"] || speciesName === "Meowstic" || speciesName === "Indeedee" || speciesName === "Basculegion" || speciesName === "Oinkologne"){
+                const tagObj = currentTagObj
+                tagObj[speciesName]["gender"] = "m"
+                setCurrentTagObj(tagObj)
+            }
 
             fetch("https://pokeapi.co/api/v2/pokemon-form/?limit=100000&offset=0")
             .then((response) => response.json())
@@ -222,6 +228,12 @@ const PokedexEntry = (props) => {
 
                 // eternal floette
                 if (tag === 10061) {continue} 
+
+                // No gender differences
+                else if (tag === 10025) {continue} 
+                else if (tag === 10186) {continue} 
+                else if (tag === 10248) {continue} 
+                else if (tag === 10254) {continue} 
 
                 // No battlebond
                 else if (tag === 10116) {continue} 

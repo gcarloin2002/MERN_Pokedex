@@ -22,16 +22,19 @@
     color: #696969;
     font-size: 30px;
     font-family: "Flexo-Medium",arial,sans-serif;
-    
 }
 
-.formImg {
+.formImg{
     height: 50px;
     width: 50px;
     border-radius: 10px;
     border: solid #c0c0c0;
     margin-left: 2px;
     margin-right: 2px;
+}
+
+.formContainer {
+    display: flex
 }
 
 /* HIDE RADIO */
@@ -45,7 +48,7 @@
 /* IMAGE STYLES */
 [type=radio] + .formImg {
     cursor: pointer;
-  }
+}
   
 /* CHECKED STYLES */
 [type=radio]:checked + .formImg {
@@ -55,7 +58,19 @@
 }
 
 
-.appearanceImg {
+/* IMAGE STYLES */
+[type=radio] + .genderSelect {
+    cursor: pointer;
+}
+  
+/* CHECKED STYLES */
+[type=radio]:checked + .genderSelect {
+    background-color: #bebebe;
+    border-radius: 10px;
+    border: solid #c0c0c0;
+}
+
+.genderSelect {
     height: 50px;
     width: 50px;
     border-radius: 10px;
@@ -64,29 +79,4 @@
     margin-right: 2px;
 }
 
-/* HIDE RADIO */
-[type=radio] { 
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
 
-/* IMAGE STYLES */
-[type=radio] + .appearanceImg {
-    cursor: pointer;
-  }
-  
-/* CHECKED STYLES */
-[type=radio]:checked + .appearanceImg {
-    background-color: #bebebe;
-    border-radius: 10px;
-    border: solid #c0c0c0;
-}
-
-
-
-.labelBox {
-    height: 0;
-    width: 0;
-}

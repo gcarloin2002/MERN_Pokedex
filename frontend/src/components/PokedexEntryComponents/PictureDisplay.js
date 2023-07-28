@@ -36,10 +36,16 @@ const generatePictureDisplayStyling = (types) => {
 export const generateImgSrc = (tagObj) => {
     let shiny = ""
     let appearance = ""
+    let gender = ""
 
     // Makes shiny
     if (tagObj.shiny) {
         shiny = "shiny/"
+    }
+
+    // Makes female
+    if (tagObj.gender === "f" && ((Number(tagObj.form) <= 1010) || (Number(tagObj.form) === 10235))) {
+        gender = "female/"
     }
 
     // Choosing another form
@@ -55,7 +61,7 @@ export const generateImgSrc = (tagObj) => {
 
     // Choosing another appearance
 
-    const tag = shiny + tagObj.form + appearance
+    const tag = shiny + gender + tagObj.form + appearance
     return generateMappedImage(tag)
     
 }

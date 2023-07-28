@@ -23,6 +23,7 @@ function App() {
           pkmnData.push(result[i])
           const origName = pkmnData[i].name
           const speciesName = generateSpeciesName(origName.charAt(0).toUpperCase() + origName.slice(1), i + 1)
+          
 
           // Dexnumber, species, form, appearance, shiny
           attributesObj[speciesName] = {

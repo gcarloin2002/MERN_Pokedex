@@ -362,6 +362,7 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     else if (form === 10022){return "Black Kyurem"}
     else if (form === 10023){return "White Kyurem"}
     else if (form === 10024){return "Keldeo (Resolute Form)"}
+    else if (form === 10025){return "Meowstic"}
     else if (form === 10026){return "Aegislash (Blade Form)"}
     else if (form === 10027){return "Pumpkaboo (Small Size)"}
     else if (form === 10028){return "Pumpkaboo (Large Size)"}
@@ -469,6 +470,7 @@ export const generateNameDisplay = (speciesName, tagObj) => {
         
     else if (form === 10184){return "Toxtricity (Low Key Form)"}
     else if (form === 10185){return "Eiscue (Noice Face)"}
+    else if (form === 10186){return "Indeedee"}
 
     else if (form === 10188){return "Zacian (Crowned Sword)"}
     else if (form === 10189){return "Zamazenta (Crowned Shield)"}
@@ -497,7 +499,9 @@ export const generateNameDisplay = (speciesName, tagObj) => {
     else if (inBetween(10229, 10244, form)){return "Hisuian " + speciesName}
     else if (inBetween(10245, 10246, form)){return speciesName + " (Origin Form)"}
     else if (form === 10247) {return "Basculin (White Striped Form)"}
+    else if (form === 10248) {return "Basculegion"}
     else if (form === 10249) {return speciesName + " (Therian Form)"}
+    else if (form === 10254) {return "Oinkologne"}
     
 }
 
