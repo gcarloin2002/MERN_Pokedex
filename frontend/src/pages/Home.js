@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 const Home = (props) => {
     const [runOnce, setRunOnce] = useState(false)
+    
     useEffect(() => {
         setRunOnce(true)
         console.log("Home")
