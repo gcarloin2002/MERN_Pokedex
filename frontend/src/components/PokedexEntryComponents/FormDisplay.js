@@ -4,6 +4,10 @@ import { CurrentTagObjContext } from "../../App"
 import "./styles/FormDisplay.css"
 
 const generateMappedImage = (tag) => {
+
+    if (Number(tag) >= 906 && Number(tag) <= 1010) 
+    {return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + tag + ".png"}
+
     switch (tag) {
         case "493-normal": // Arceus
             return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/493.png"
