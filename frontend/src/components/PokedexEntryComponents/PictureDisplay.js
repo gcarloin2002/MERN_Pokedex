@@ -5,7 +5,7 @@ import "./styles/PictureDisplay.css"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
-const generatePictureDisplayStyling = (types) => {
+const generatePictureDisplayStyling = (types, tagObj) => {
     const colorScheme = {
         normal: ["#a8a878", "#d3d3bb"],
         fighting: ["#c03028", "#e7918c"],
@@ -29,10 +29,24 @@ const generatePictureDisplayStyling = (types) => {
 
     const solidColor = colorScheme[types[0]][0]
     const border = ([solidColor, solidColor]).join(", ")
-    //  Gigantamax: radial-gradient(circle, rgba(0,0,0,1) 48%, rgba(255,70,120,1) 87%, rgba(255,0,0,1) 100%)
-    //  Mega: linear-gradient(0deg, rgba(254,255,220,1) 14%, rgba(216,246,219,1) 37%, rgba(191,224,247,1) 53%, rgba(222,212,255,1) 77%, rgba(252,191,255,1) 98%)
+    const t = Number(tagObj.form)
+   
+    // Mega Background
+    if (inBetween(10033,10076,t) || inBetween(10087,10090,t) || t === 10079) 
+    {return {background: "linear-gradient(0deg, rgba(254,255,220,1) 14%, rgba(216,246,219,1) 37%, rgba(191,224,247,1) 53%, rgba(222,212,255,1) 77%, rgba(252,191,255,1) 98%) padding-box, linear-gradient(to right, " + border +  ") border-box"}}
     
-    return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}
+    // GMax background
+    else if (inBetween(10195,10227,t) || t === 10190) 
+    {return {background: "radial-gradient(circle, rgba(0,0,0,1) 48%, rgba(255,70,120,1) 87%, rgba(255,0,0,1) 100%) padding-box, linear-gradient(to right, " + border +  ") border-box"}}
+    
+    // Ultra beast 
+    else if (inBetween(789, 800, t) || inBetween(10155, 10157, t))
+    {return {background: "radial-gradient(circle, rgba(244,244,244,1) 29%, rgba(107,212,255,1) 36%, rgba(54,145,255,1) 40%, rgba(219,146,255,1) 45%, rgba(234,190,255,1) 49%, rgba(159,227,255,1) 52%, rgba(244,244,244,1) 66%) padding-box, linear-gradient(to right, " + border +  ") border-box"}}
+
+
+    // Regular Background
+    else 
+    {return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}}
 }
 
 export const generateImgSrc = (tagObj) => {
@@ -94,7 +108,7 @@ export const generateImgSrc = (tagObj) => {
         tag = "shiny/10119"
     }
 
-    
+
     return generateMappedImage(tag)
 }
 
@@ -106,8 +120,9 @@ const PictureDisplay = (props) => {
     const displayName = props.displayName
     const speciesData = props.speciesData 
     const speciesName = props.speciesName
-    const pictureDisplayStyling = generatePictureDisplayStyling(types)
+    const pictureDisplayStyling = generatePictureDisplayStyling(types, currentTagObj[speciesName])
     const [formActive, setFormActive] = useState(false)
+
 
     const handleThreeDotClick = () => {
         setFormActive(!formActive)
@@ -122,10 +137,11 @@ const PictureDisplay = (props) => {
     return ( 
         <div className="PictureDisplay" style={pictureDisplayStyling}>
             <img 
-                className="picture" 
+                className="pkmnPicture" 
                 src={generateImgSrc(currentTagObj[speciesName])} 
                 alt={"unavailable"}
             />
+
             <div className="threeDots" onClick={handleThreeDotClick}>
                 <div className="oneDot"></div>
                 <div className="oneDot"></div>

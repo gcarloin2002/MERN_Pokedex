@@ -12,9 +12,19 @@
 }
 
 
-.picture {
+.pkmnPicture {
     height: 400px;
     width: 400px;
+    position: absolute;
+    z-index: 2;
+}
+
+.pkmnBackgroundPicture {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    border-radius: 25px;
+    z-index: 1;
 }
 
 
@@ -31,6 +41,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 2;
 }
 
 
