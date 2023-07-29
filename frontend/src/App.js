@@ -49,6 +49,7 @@ function App() {
       }
       setCurrentTagObj(attributesObj)
       setPokemonData(pkmnData)
+      console.log("App")
   })
   .catch(error => console.log(error));
   }, [])

@@ -1,14 +1,15 @@
 import ButtonCollection from "../components/HomeComponents/ButtonCollection"
+import { useEffect, useState } from "react"
 
 const Home = (props) => {
-    // Array of every pokemon's data
-    const pokemonData = props.pokemonData
+    const [runOnce, setRunOnce] = useState(false)
+    useEffect(() => {
+        setRunOnce(true)
+        console.log("Home")
+    })
+
     
-    return (
-        <>
-           <ButtonCollection pokemonData={pokemonData}/>
-        </>
-    )
+    return (runOnce && <ButtonCollection pokemonData={props.pokemonData}/>)
 }
 
 export default Home

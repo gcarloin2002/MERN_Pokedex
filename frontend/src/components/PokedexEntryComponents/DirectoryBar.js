@@ -2,22 +2,16 @@ import "./styles/DirectoryBar.css"
 import { RenderEntryFormContext } from "./EntryContent"
 import leftArrow from "./assets/leftArrow.png"
 import rightArrow from "./assets/rightArrow.png"
-import { generateImgSrc } from "./PictureDisplay"
 import { CurrentTagObjContext } from "../../App"
 import { useNavigate} from "react-router-dom"
 import { useContext } from "react"
 
-const leftPic = (tagObj, leftNeighborTagObj, handleLeftContainerClick) => {
+const leftPic = (tagObj, handleLeftContainerClick) => {
     const dexNum = Number(tagObj.dexNum)
     if (dexNum !== 1){
         return (
         <div className="leftContainer" onClick={handleLeftContainerClick}>
             <img className="leftArrowPic" src={leftArrow} alt={""}/>
-            <img 
-                className="leftPokemonPic" 
-                src={generateImgSrc(leftNeighborTagObj)} 
-                alt={""}
-            />
         </div>
         )
     }
@@ -27,18 +21,12 @@ const leftPic = (tagObj, leftNeighborTagObj, handleLeftContainerClick) => {
     }
 }
 
-const rightPic = (tagObj, rightNeighborTagObj, handleleRightContainerClick) => {
+const rightPic = (tagObj, handleleRightContainerClick) => {
     const dexNum = Number(tagObj.dexNum)
     if (dexNum !== 1010){
         return (
         <div className="rightContainer" onClick={handleleRightContainerClick}>
-            <img 
-                className="rightArrowPic" src={rightArrow} alt={""}/>
-            <img 
-                className="rightPokemonPic" 
-                src={generateImgSrc(rightNeighborTagObj)} 
-                alt={""}
-            />
+            <img className="rightArrowPic" src={rightArrow} alt={""}/>
         </div>
         )
     }
