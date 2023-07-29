@@ -74,14 +74,24 @@ export const generateImgSrc = (tagObj) => {
         else if (tagObj.appearance.includes("-strawberry")){tag = "shiny/869-strawberry-sweet"}
     }
 
-    // ["10094", "10095", "10096", "10097", "10098", "10099", "10148", "10160"]
+    // Pikachu Caps
     else if (inBetween(10094, 10099, Number(tagObj.form)) || tagObj.form === "10148" || tagObj.form === "10160") {
         tag = tagObj.form
     }
 
+    // Minior Meteor
+    else if (tagObj.shiny === "t" && tagObj.form === "774") {
+        tag = tagObj.form
+    }
+
+    else if (tagObj.shiny === "t" && inBetween(10137, 10142, Number(tagObj.form))) {
+        tag = "shiny/10136"
+    }
+
+    else if (tagObj.shiny === "t" && tagObj.form === "718") {
+        tag = "shiny/10119"
+    }
     return generateMappedImage(tag)
-    
-    
 }
 
 const PictureDisplay = (props) => {
