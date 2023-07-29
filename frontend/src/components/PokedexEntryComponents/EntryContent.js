@@ -57,7 +57,11 @@ const EntryContent = (props) => {
     return (entryData && (
         <RenderEntryFormContext.Provider value={[renderEntryForm, setRenderEntryForm]}>
             <div className="EntryContent">
-                <DirectoryBar dexNum={dexNum} neighbors={neighbors}/>
+                <DirectoryBar 
+                    dexNum={dexNum} 
+                    neighbors={neighbors}
+                    speciesName={speciesName}
+                />
                 <PrimaryDisplay 
                     entryData={entryData} 
                     speciesData={speciesData}
