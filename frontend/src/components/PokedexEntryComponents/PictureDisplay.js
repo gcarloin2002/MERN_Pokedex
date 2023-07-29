@@ -40,7 +40,7 @@ const generatePictureDisplayStyling = (types, tagObj) => {
     {return {background: "radial-gradient(circle, rgba(0,0,0,1) 48%, rgba(255,70,120,1) 87%, rgba(255,0,0,1) 100%) padding-box, linear-gradient(to right, " + border +  ") border-box"}}
     
     // Ultra beast 
-    else if (inBetween(789, 800, t) || inBetween(10155, 10157, t))
+    else if (inBetween(789, 800, t) || inBetween(803, 806, t)|| inBetween(10155, 10157, t))
     {return {background: "radial-gradient(circle, rgba(244,244,244,1) 29%, rgba(107,212,255,1) 36%, rgba(54,145,255,1) 40%, rgba(219,146,255,1) 45%, rgba(234,190,255,1) 49%, rgba(159,227,255,1) 52%, rgba(244,244,244,1) 66%) padding-box, linear-gradient(to right, " + border +  ") border-box"}}
 
 
