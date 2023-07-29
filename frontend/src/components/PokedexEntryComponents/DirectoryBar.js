@@ -6,8 +6,7 @@ import { CurrentTagObjContext } from "../../App"
 import { useNavigate} from "react-router-dom"
 import { useContext } from "react"
 
-const leftPic = (tagObj, handleLeftContainerClick) => {
-    const dexNum = Number(tagObj.dexNum)
+const leftPic = (dexNum, handleLeftContainerClick) => {
     if (dexNum !== 1){
         return (
         <div className="leftContainer" onClick={handleLeftContainerClick}>
@@ -21,8 +20,7 @@ const leftPic = (tagObj, handleLeftContainerClick) => {
     }
 }
 
-const rightPic = (tagObj, handleleRightContainerClick) => {
-    const dexNum = Number(tagObj.dexNum)
+const rightPic = (dexNum, handleleRightContainerClick) => {
     if (dexNum !== 1010){
         return (
         <div className="rightContainer" onClick={handleleRightContainerClick}>
@@ -39,7 +37,7 @@ const rightPic = (tagObj, handleleRightContainerClick) => {
 // Component
 const DirectoryBar = (props) => {
     const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
+    const dexNum = props.dexNum
     const speciesName = props.speciesName
     const neighbors = props.neighbors
     const navigate = useNavigate()
@@ -60,11 +58,11 @@ const DirectoryBar = (props) => {
 
     return (
         <div className="DirectoryBar">
-            {leftPic(currentTagObj[speciesName], currentTagObj[neighbors[0]], handleLeftContainerClick)}
+            {leftPic(dexNum, handleLeftContainerClick)}
             <div className="centralContainer" onClick={handleCentralContainerClick}>
                 <p className="centralContainerText">return to Homepage</p>
             </div>
-            {rightPic(currentTagObj[speciesName], currentTagObj[neighbors[1]], handleleRightContainerClick)}
+            {rightPic(dexNum, handleleRightContainerClick)}
         </div>
     )
 }
