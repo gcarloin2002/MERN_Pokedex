@@ -1,12 +1,10 @@
-import { useEffect, useState, useContext } from "react";
-import { CurrentTagObjContext } from "../App";
+import { useEffect, useState } from "react";
 
 import EntryContent from "../components/PokedexEntryComponents/EntryContent"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
 const PokedexEntry = (props) => {
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const [speciesData, setSpeciesData] = useState(false)
     const [formTags, setFormTags] = useState(false)
     const [appearanceTags, setAppearanceTags] = useState(false)
@@ -150,6 +148,10 @@ const PokedexEntry = (props) => {
 
                         // No full belly morpeko
                         else if (appearanceTag.includes("877-full-belly")){continue}
+
+                        // No polteageist 
+                        else if (appearanceTag.includes("-phony")){continue}
+                        else if (appearanceTag.includes("-antique")){continue}
 
 
                         // No zacian or zamazenta

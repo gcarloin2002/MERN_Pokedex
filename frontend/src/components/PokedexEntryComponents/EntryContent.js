@@ -37,7 +37,7 @@ const generateNeighbors = (allPokemonData, dexNum) => {
 
 const EntryContent = (props) => {
     const [entryData, setEntryData] = useState(false)
-    const [renderEntryForm, setRenderEntryForm] = useState("")
+    const [renderEntryForm, setRenderEntryForm] = useState(false)
     const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const speciesData = props.speciesData
     const speciesName = props.speciesName

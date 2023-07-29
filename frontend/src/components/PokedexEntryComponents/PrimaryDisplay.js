@@ -144,8 +144,7 @@ const generateFontStyling = (zone, types) => {
 export const generateNameDisplay = (speciesName, tagObj) => {
     const form = Number(tagObj["form"])
     const appearance = tagObj["appearance"]
-    console.log(form)
-    //console.log(appearance)
+
 
     // Standard
     if (inBetween(1, 1010, form)) {

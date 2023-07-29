@@ -56,12 +56,12 @@ const DirectoryBar = (props) => {
     }
 
     const handleLeftContainerClick = () => {    
-        setRenderEntryForm(dexNum - 1)
+        setRenderEntryForm(!renderEntryForm)
         navigate("/" + neighbors[0])
     }
 
     const handleleRightContainerClick = () => {
-        setRenderEntryForm(dexNum + 1)
+        setRenderEntryForm(!renderEntryForm)
         navigate("/" + neighbors[1])
     }
 

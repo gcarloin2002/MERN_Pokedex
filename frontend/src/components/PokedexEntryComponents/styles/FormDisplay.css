@@ -7,7 +7,6 @@
     position: absolute;
     max-width: 400px;
     width: 400px;
-    min-height: 496px;
     left: 425px;
     top: -5px;
     display: flex;
@@ -59,18 +58,18 @@
 
 
 /* IMAGE STYLES */
-[type=radio] + .genderSelect {
+[type=radio] + .selectBox {
     cursor: pointer;
 }
   
 /* CHECKED STYLES */
-[type=radio]:checked + .genderSelect {
+[type=radio]:checked + .selectBox {
     background-color: #bebebe;
     border-radius: 10px;
     border: solid #c0c0c0;
 }
 
-.genderSelect {
+.selectBox {
     height: 50px;
     width: 50px;
     border-radius: 10px;

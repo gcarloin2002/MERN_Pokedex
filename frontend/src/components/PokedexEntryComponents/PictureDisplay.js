@@ -39,7 +39,7 @@ export const generateImgSrc = (tagObj) => {
     let gender = ""
 
     // Makes shiny
-    if (tagObj.shiny) {
+    if (tagObj.shiny === "t") {
         shiny = "shiny/"
     }
 
@@ -58,11 +58,15 @@ export const generateImgSrc = (tagObj) => {
         appearance = "-" + (tagObj.appearance.slice(tagObj.dexNumber.length + 1))
     }
 
+    let tag = shiny + gender + tagObj.form + appearance
+    
+    // Switches depending on alcremie
+    if ((tagObj.dexNumber === "869") && (tagObj.shiny === "t") &&  (tagObj.form !== tagObj.appearance)) {
+        if (tagObj.appearance.includes("-berry")){tag = "shiny/869-berry-sweet"}
+    }
 
-    // Choosing another appearance
-
-    const tag = shiny + gender + tagObj.form + appearance
-    return generateMappedImage(tag)
+    else {return generateMappedImage(tag)}
+    
     
 }
 

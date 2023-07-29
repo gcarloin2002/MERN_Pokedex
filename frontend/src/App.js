@@ -44,7 +44,7 @@ function App() {
             form: dexNumber,
             appearance: dexNumber,
             gender: gender,
-            shiny: false
+            shiny: "f"
           }
       }
       setCurrentTagObj(attributesObj)

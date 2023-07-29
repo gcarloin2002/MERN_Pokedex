@@ -1,23 +1,21 @@
 import { useContext } from "react"
 import { RenderEntryFormContext } from "./EntryContent"
 import { CurrentTagObjContext } from "../../App" 
-import { generateNameDisplay } from "./PrimaryDisplay"
 import "./styles/FormDisplay.css"
 
 const generateMappedImage = (tag) => {
-    const url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + tag + ".png"
     switch (tag) {
         case "493-normal": // Arceus
             return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/493.png"
         default:
-            return url
+            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + tag + ".png"
     }
 
 }
 
-const generateGenderChoice = (t) => {
-    if (t === "m") {return (<div className="genderSelect"><div className="genderIcon" style={{backgroundColor: "#3355ff"}}>♂</div></div>)}
-    else {return (<div className="genderSelect"><div className="genderIcon" style={{backgroundColor: "#ff77dd"}}>♀</div></div>)}
+const generateGenderChoiceDiv = (t) => {
+    if (t === "m") {return (<div className="selectBox"><div className="genderIcon" style={{backgroundColor: "#3355ff"}}>♂</div></div>)}
+    else {return (<div className="selectBox"><div className="genderIcon" style={{backgroundColor: "#ff77dd"}}>♀</div></div>)}
 }
 
 const FormDisplay = (props) => {
@@ -48,7 +46,7 @@ const FormDisplay = (props) => {
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["form"] = e.target.id
                                         setCurrentTagObj(tagObj)
-                                        setRenderEntryForm(e.target.id)
+                                        setRenderEntryForm(!renderEntryForm)
                                     }}
                                 />
                                 <img 
@@ -77,7 +75,7 @@ const FormDisplay = (props) => {
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["appearance"] = e.target.id
                                         setCurrentTagObj(tagObj)
-                                        setRenderEntryForm(e.target.id)
+                                        setRenderEntryForm(!renderEntryForm)
                                     }}
                                 />
                                 <img 
@@ -135,16 +133,40 @@ const FormDisplay = (props) => {
                                                     break
                                             }
                                         }
-
                                         setCurrentTagObj(tagObj)
-                                        setRenderEntryForm(e.target.id)
+                                        setRenderEntryForm(!renderEntryForm)
                                     }}
                                 />
-                                {generateGenderChoice(t)}
+                                {generateGenderChoiceDiv(t)}
                             </label>
                             )
                     })}
                 </form>
+                <br/>
+            </>)}
+            {(<>
+                <div className="wordLabel">Shiny</div>
+                <form className="formContainer">
+                    {(["f", "t"]).map((t, index) => {
+                        return (
+                            <label key={"slabel"+index}>
+                                <input 
+                                    key={"sinput"+index} type="radio" id={t} value={t} 
+                                    checked={t === currentTagObj[speciesName]["shiny"]} 
+                                    onChange={(e) => {
+                                        const tagObj = currentTagObj
+                                        tagObj[speciesName]["shiny"] = e.target.id
+
+                                        setCurrentTagObj(tagObj)
+                                        setRenderEntryForm(!renderEntryForm)
+                                    }}
+                                />
+                                <div className="selectBox"></div>
+                            </label>
+                            )
+                    })}
+                </form>
+                <br/>
             </>)}
         </div>
     )
