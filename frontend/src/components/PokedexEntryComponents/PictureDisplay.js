@@ -3,6 +3,8 @@ import { CurrentTagObjContext } from "../../App"
 import { generateMappedImage, FormDisplay } from "./FormDisplay"
 import "./styles/PictureDisplay.css"
 
+const inBetween = (a, b, c) => ((a <= c) && (c <= b))
+
 const generatePictureDisplayStyling = (types) => {
     const colorScheme = {
         normal: ["#a8a878", "#d3d3bb"],
@@ -70,6 +72,11 @@ export const generateImgSrc = (tagObj) => {
         else if (tagObj.appearance.includes("-ribbon")){tag = "shiny/869-ribbon-sweet"}
         else if (tagObj.appearance.includes("-star")){tag = "shiny/869-star-sweet"}
         else if (tagObj.appearance.includes("-strawberry")){tag = "shiny/869-strawberry-sweet"}
+    }
+
+    // ["10094", "10095", "10096", "10097", "10098", "10099", "10148", "10160"]
+    else if (inBetween(10094, 10099, Number(tagObj.form)) || tagObj.form === "10148" || tagObj.form === "10160") {
+        tag = tagObj.form
     }
 
     return generateMappedImage(tag)

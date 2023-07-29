@@ -7,6 +7,8 @@ const generateMappedImage = (tag) => {
     switch (tag) {
         case "493-normal": // Arceus
             return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/493.png"
+        case "shiny/493-normal": // Arceus
+            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/493.png"
         default:
             return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/" + tag + ".png"
     }
