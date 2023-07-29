@@ -31,11 +31,11 @@ const getDexNumber = async (req, res) => {
 
 // create new dexNumber
 const createDexNumber = async (req, res) => {
-    const {dexNumber, chosenSpecies, chosenForm, chosenGender} = req.body
+    const {dexNumber, speciesName, form, appearance, gender, shiny} = req.body
 
     // add doc to db
     try {
-        const dN = await DexNumber.create({dexNumber, chosenSpecies, chosenForm, chosenGender})
+        const dN = await DexNumber.create({dexNumber, speciesName, form, appearance, gender, shiny})
         res.status(200).json(dN)
     }
     catch (error) {

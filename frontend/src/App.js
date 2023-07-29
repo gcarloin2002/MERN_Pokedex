@@ -38,7 +38,7 @@ function App() {
           }
 
           // Dexnumber, species, form, appearance, shiny
-          attributesObj[speciesName] = {
+          const tagObj = {
             dexNumber: dexNumber,
             speciesName: speciesName,
             form: dexNumber,
@@ -46,10 +46,25 @@ function App() {
             gender: gender,
             shiny: "f"
           }
+          attributesObj[speciesName] = tagObj
+
+
+          /*
+          if (dexNumber === "2") {
+          fetch("api/data", {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify({tagObj})
+          })
+          .then(resp => resp.json());
+          
+        }
+        */
       }
       setCurrentTagObj(attributesObj)
       setPokemonData(pkmnData)
-      console.log("App")
+      
+      
   })
   .catch(error => console.log(error));
   }, [])

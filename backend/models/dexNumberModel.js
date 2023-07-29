@@ -4,21 +4,31 @@ const Schema = mongoose.Schema
 
 const dexNumberSchema = new Schema({
     dexNumber: {
-        type: Number,
-        required: true
-    },
-
-    chosenSpecies: {
         type: String,
         required: true
     },
 
-    chosenForm: {
+    speciesName: {
         type: String,
         required: true
     },
 
-    chosenGender: {
+    form: {
+        type: String,
+        required: true
+    },
+
+    appearance: {
+        type: String,
+        required: true
+    },
+
+    gender: {
+        type: String,
+        required: true
+    },
+
+    shiny: {
         type: String,
         required: true
     }
