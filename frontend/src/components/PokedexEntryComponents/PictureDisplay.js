@@ -84,13 +84,17 @@ export const generateImgSrc = (tagObj) => {
         tag = tagObj.form
     }
 
+    // Minior cores
     else if (tagObj.shiny === "t" && inBetween(10137, 10142, Number(tagObj.form))) {
         tag = "shiny/10136"
     }
 
+    // Zygarde
     else if (tagObj.shiny === "t" && tagObj.form === "718") {
         tag = "shiny/10119"
     }
+
+    
     return generateMappedImage(tag)
 }
 

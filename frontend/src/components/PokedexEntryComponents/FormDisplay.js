@@ -17,7 +17,12 @@ const generateMappedImage = (tag) => {
 
 const generateGenderChoiceDiv = (t) => {
     if (t === "m") {return (<div className="selectBox"><div className="genderIcon" style={{backgroundColor: "#3355ff"}}>♂</div></div>)}
-    else {return (<div className="selectBox"><div className="genderIcon" style={{backgroundColor: "#ff77dd"}}>♀</div></div>)}
+    else if (t === "f"){return (<div className="selectBox"><div className="genderIcon" style={{backgroundColor: "#ff77dd"}}>♀</div></div>)}
+}
+
+const generateShinyChoiceDiv = (t) => {
+    if (t === "f") {return (<div className="selectBox"><div className="normalIcon" ></div></div>)}
+    else if (t === "t"){return (<div className="selectBox"><div className="shinyIcon"></div></div>)}
 }
 
 const FormDisplay = (props) => {
@@ -26,7 +31,6 @@ const FormDisplay = (props) => {
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const speciesName = props.speciesName
-    const speciesData = props.speciesData
     const form = Number(currentTagObj[speciesName]["form"])
     const hasGenderDiff = (currentTagObj[speciesName]["gender"] !== "n/a") && ((form <= 1010) || ([10235, 10025, 10186, 10248, 10254]).includes(form))
 
@@ -146,6 +150,7 @@ const FormDisplay = (props) => {
                 </form>
                 <br/>
             </>)}
+            
             {(<>
                 <div className="wordLabel">Shiny</div>
                 <form className="formContainer">
@@ -163,7 +168,7 @@ const FormDisplay = (props) => {
                                         setRenderEntryForm(!renderEntryForm)
                                     }}
                                 />
-                                <div className="selectBox"></div>
+                                {generateShinyChoiceDiv(t)}
                             </label>
                             )
                     })}

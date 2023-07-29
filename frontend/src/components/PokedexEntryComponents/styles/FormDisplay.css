@@ -85,12 +85,34 @@
 .genderIcon {
     font-size: 30px;
     color: #f7f7f7;
-    background-color: aquamarine;
     width: 35px;
     height: 35px;
     text-align: center;
     border-radius: 8px;
-    
+}
+
+.normalIcon {
+    background-color: aquamarine;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #f0f0f0, #f0f0f0, #f8f8f8, #f0f0f0, #f8f8f8, #f0f0f0, #f0f0f0) padding-box;
+}
+
+.shinyIcon {
+    background-color: aquamarine;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #f5cd3d, #f5cd3d,  #fae8a7 , #f5cd3d,  #fae8a7, #f5cd3d, #f5cd3d) padding-box;
 }
 
 
+/*
+const solidColor = colorScheme[types[0]][0]
+    const border = ([solidColor, solidColor]).join(", ")
+    //  Gigantamax: radial-gradient(circle, rgba(0,0,0,1) 48%, rgba(255,70,120,1) 87%, rgba(255,0,0,1) 100%)
+    //  Mega: linear-gradient(0deg, rgba(254,255,220,1) 14%, rgba(216,246,219,1) 37%, rgba(191,224,247,1) 53%, rgba(222,212,255,1) 77%, rgba(252,191,255,1) 98%)
+    
+    return {background:"radial-gradient(#ffffff, #ffffff, #f8f8f8, #c0c0c0) padding-box, linear-gradient(to right, " + border +  ") border-box"}
+*/
