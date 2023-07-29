@@ -62,10 +62,17 @@ export const generateImgSrc = (tagObj) => {
     
     // Switches depending on alcremie
     if ((tagObj.dexNumber === "869") && (tagObj.shiny === "t") &&  (tagObj.form !== tagObj.appearance)) {
-        if (tagObj.appearance.includes("-berry")){tag = "shiny/869-berry-sweet"}
+        if (tagObj.form === "10223") {tag = "shiny/10223"}
+        else if (tagObj.appearance.includes("-berry")){tag = "shiny/869-berry-sweet"}
+        else if (tagObj.appearance.includes("-clove")){tag = "shiny/869-clove-sweet"}
+        else if (tagObj.appearance.includes("-flower")){tag = "shiny/869-flower-sweet"}
+        else if (tagObj.appearance.includes("-love")){tag = "shiny/869-love-sweet"}
+        else if (tagObj.appearance.includes("-ribbon")){tag = "shiny/869-ribbon-sweet"}
+        else if (tagObj.appearance.includes("-star")){tag = "shiny/869-star-sweet"}
+        else if (tagObj.appearance.includes("-strawberry")){tag = "shiny/869-strawberry-sweet"}
     }
 
-    else {return generateMappedImage(tag)}
+    return generateMappedImage(tag)
     
     
 }
