@@ -1,6 +1,7 @@
 import { DexButton, generateSpeciesName }from "./DexButton"
 import SearchBar from "./SearchBar"
-import React, { useEffect, useState } from 'react'
+import { CurrentTagObjContext } from "../../App"
+import React, { useEffect, useState, useContext } from 'react'
 import "./styles/ButtonCollection.css"
 
 
@@ -24,11 +25,14 @@ const generatePokemonDataArray = (pokemonData) => {
 
     return result
 }
+
+
   
 const ButtonCollection = (props) => {
     const [opacity, setOpacity] = useState(0);
     const [runOnce, setRunOnce] = useState(false);
     const [searchInput, setSearchInput] = useState("")
+    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
 
     const pokemonDataArray = generatePokemonDataArray(props.pokemonData)
     
