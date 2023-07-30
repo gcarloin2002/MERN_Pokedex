@@ -8,33 +8,14 @@ import "./styles/ButtonCollection.css"
 export const OpaqueContext = React.createContext()
 export const SearchContext = React.createContext()
 
-const generatePokemonDataArray = (pokemonData) => {
-    const result = []
-    for (let i = 0; i < pokemonData.length; i++) {
-        const dexNumber = i + 1
-        const dataName = pokemonData[i].name
-        const speciesName = generateSpeciesName(dataName.charAt(0).toUpperCase() + dataName.slice(1), i + 1)
-        
-        const pokemonObj = {
-            dexNumber: dexNumber, 
-            speciesName: speciesName,
-        }
-
-        result.push(pokemonObj)
-    }
-
-    return result
-}
-
 
   
 const ButtonCollection = (props) => {
     const [opacity, setOpacity] = useState(0);
     const [runOnce, setRunOnce] = useState(false);
     const [searchInput, setSearchInput] = useState("")
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
 
-    const pokemonDataArray = generatePokemonDataArray(props.pokemonData)
+    const pokemonDataArray = props.pokemonDataArray
     
     // Lets component render once
     useEffect(() => {

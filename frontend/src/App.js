@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { generateSpeciesName, generateUrlName } from './components/HomeComponents/DexButton';
-import Home from './pages/Home'
+import HomePage from './pages/HomePage';
 import PokedexEntry from './pages/PokedexEntry';
 
 export const CurrentTagObjContext = React.createContext() 
@@ -76,7 +76,7 @@ function App() {
       <div className="App">
           <div className="pages">
             <Routes>
-              <Route path="/" element={<Home pokemonData={pokemonData}/>}/>
+              <Route path="/" element={<HomePage/>}/>
               {everyRoute}
               <Route path="*" element={<p></p>} />
             </Routes>
