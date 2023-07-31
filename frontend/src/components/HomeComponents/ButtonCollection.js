@@ -1,7 +1,6 @@
-import { DexButton, generateSpeciesName }from "./DexButton"
+import { DexButton}from "./DexButton"
 import SearchBar from "./SearchBar"
-import { CurrentTagObjContext } from "../../App"
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./styles/ButtonCollection.css"
 
 
@@ -33,6 +32,7 @@ const ButtonCollection = (props) => {
                         }).map((obj, index) => {
                             return <DexButton 
                                         key={index} 
+                                        tagObj={obj}
                                         speciesName={obj.speciesName} 
                                         dexNumber={obj.dexNumber} 
                                         opacity={opacity}

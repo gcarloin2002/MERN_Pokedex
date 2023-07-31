@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
-import { CurrentTagObjContext } from "../../App" 
+import React, { useState, useEffect } from "react"
 import { generateMappedImage, FormDisplay } from "./FormDisplay"
 import "./styles/PictureDisplay.css"
 
@@ -113,14 +112,14 @@ export const generateImgSrc = (tagObj) => {
 }
 
 const PictureDisplay = (props) => {
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
+    const tagObj = props.tagObj
     const types = props.types
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const displayName = props.displayName
     const speciesData = props.speciesData 
     const speciesName = props.speciesName
-    const pictureDisplayStyling = generatePictureDisplayStyling(types, currentTagObj[speciesName])
+    const pictureDisplayStyling = generatePictureDisplayStyling(types, tagObj)
     const [formActive, setFormActive] = useState(false)
 
 
@@ -138,7 +137,7 @@ const PictureDisplay = (props) => {
         <div className="PictureDisplay" style={pictureDisplayStyling}>
             <img 
                 className="pkmnPicture" 
-                src={generateImgSrc(currentTagObj[speciesName])} 
+                src={generateImgSrc(tagObj)} 
                 alt={"unavailable"}
             />
 
@@ -148,6 +147,7 @@ const PictureDisplay = (props) => {
                 <div className="oneDot"></div>
             </div>
             {formActive && <FormDisplay 
+                                tagObj={tagObj}
                                 formTags={formTags} 
                                 appearanceTags={appearanceTags}
                                 displayName={displayName}

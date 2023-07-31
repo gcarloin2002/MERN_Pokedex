@@ -1,9 +1,8 @@
 import DirectoryBar from "./DirectoryBar"
 import ExtraInfo from "./ExtraInfo"
-import React, { useState, useEffect, useContext } from "react"
-import { CurrentTagObjContext } from "../../App" 
+import React, { useState, useEffect } from "react"
 import PrimaryDisplay from "./PrimaryDisplay"
-import { generateUrlName, generateSpeciesName } from "../HomeComponents/DexButton" 
+import { generateSpeciesName } from "../HomeComponents/DexButton" 
 import "./styles/EntryContent.css"
 
 export const RenderEntryFormContext = React.createContext()
@@ -15,46 +14,60 @@ const generateNeighbors = (allPokemonData, dexNum) => {
     }
 
     else if (dexNum === allPokemonData.length) {
-        const lorigName = allPokemonData[dexNum - 2].name
+        const lorigName = allPokemonData[dexNum - 2].speciesName
         const ldisplayName = generateSpeciesName(lorigName.charAt(0).toUpperCase() + lorigName.slice(1), dexNum - 1)
-        const lurlName = generateUrlName(ldisplayName)
+        const lurlName = (ldisplayName).replace(" ", "_")
 
         return [lurlName, ""]
     }
 
     else {
-        const lorigName = allPokemonData[dexNum - 2].name
+        const lorigName = allPokemonData[dexNum - 2].speciesName
         const ldisplayName = generateSpeciesName(lorigName.charAt(0).toUpperCase() + lorigName.slice(1), dexNum - 1)
-        const lurlName = generateUrlName(ldisplayName)
+        const lurlName = (ldisplayName).replace(" ", "_")
 
-        const rorigName = allPokemonData[dexNum].name
+        const rorigName = allPokemonData[dexNum].speciesName
         const rdisplayName = generateSpeciesName(rorigName.charAt(0).toUpperCase() + rorigName.slice(1), dexNum + 1)
-        const rurlName = generateUrlName(rdisplayName)
+        const rurlName = (rdisplayName).replace(" ", "_")
 
         return [lurlName, rurlName]
     }
 }
 
 const EntryContent = (props) => {
-    const [entryData, setEntryData] = useState(false)
     const [renderEntryForm, setRenderEntryForm] = useState(false)
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
+    const [entryData, setEntryData] = useState(false)
+    const [run, setRun] = useState(false)
+    const [tagObj, setTagObj] = useState(false)
     const speciesData = props.speciesData
     const speciesName = props.speciesName
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const dexNum = props.dexNum
     const pokemonData = props.pokemonData
-    const neighbors = generateNeighbors(pokemonData, dexNum)
+    const neighbors = generateNeighbors(pokemonData, Number(dexNum))
+    
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/" + currentTagObj[speciesName]["form"])
+        fetch("/api/data/" + props.id)
         .then((response) => response.json())
-        .then((result) => {setEntryData(result)})
-        .catch(error => console.log(error));
+        .then((result) => {
+            setTagObj(result)
+            fetch("https://pokeapi.co/api/v2/pokemon/" + result["form"])
+            .then((response) => response.json())
+            .then((result) => {
+                setEntryData(result)
+                setRun(true)
+            })
+            .catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
+
     }, [renderEntryForm])
 
-    return (entryData && (
+   
+    
+    return (run && (
         <RenderEntryFormContext.Provider value={[renderEntryForm, setRenderEntryForm]}>
             <div className="EntryContent">
                 <DirectoryBar 
@@ -62,7 +75,10 @@ const EntryContent = (props) => {
                     neighbors={neighbors}
                     speciesName={speciesName}
                 />
+                
                 <PrimaryDisplay 
+                    id={props.id}
+                    tagObj={tagObj}
                     entryData={entryData} 
                     speciesData={speciesData}
                     formTags={formTags}
@@ -71,6 +87,7 @@ const EntryContent = (props) => {
             </div>
         </RenderEntryFormContext.Provider>
     ))
+    
 }
 
 

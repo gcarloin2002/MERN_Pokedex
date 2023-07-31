@@ -2,10 +2,10 @@ import TypingDisplay from "./TypingDisplay"
 import AbilityDisplay from "./AbilityDisplay"
 import GenderDisplay from "./GenderDisplay"
 import StatsDisplay from "./StatsDisplay"
-import PictureDisplay from "./PictureDisplay"
-import { CurrentTagObjContext } from "../../App"  
-import { useContext } from "react"
+import PictureDisplay from "./PictureDisplay" 
+import { RenderEntryFormContext } from "./EntryContent"
 import "./styles/PrimaryDisplay.css"
+import { useEffect, useState, useContext } from "react"
 
 const inBetween = (a, b, c) => ((a <= c) && (c <= b))
 
@@ -104,7 +104,7 @@ const generatePrimaryDivStyling = (types) => {
     }
 }
 
-const generateFontStyling = (zone, types) => {
+const generateFontStyle = (zone, types) => {
     const colorScheme = {
         normal: "#585838",
         fighting: "#601814",
@@ -506,27 +506,47 @@ export const generateNameDisplay = (speciesName, tagObj) => {
 
 
 const PrimaryDisplay = (props) => {
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
+    const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
+
+    /*
+    const [primaryDivStyle, setPrimaryDivStyle] = useState(false)
+    const [leftFontStyle, setLeftFontStyle] = useState(false)
+    const [rightFontStyle, setRightFontStyle] = useState(false)
+    const [displayName, setDisplayName] = useState(false)
+    const [run, setRun] = useState(false)
+
+    useEffect(() => {
+        fetch("/api/data/" + props.id)
+        .then((response) => response.json())
+        .then((result) => {
+
+            setDisplayName(generateNameDisplay(props.speciesName, tagObj))
+            setRun(true)
+        })
+        .catch(error => console.log(error));
+    }, [renderEntryForm])
+    */
+
+    const tagObj = props.tagObj
     const entryData = props.entryData
     const speciesData = props.speciesData
     const speciesName = (window.location.href).slice(22).replaceAll("_", " ").replaceAll("%E2%99%82", "♂").replaceAll("%E2%99%80", "♀")
-    const officialArt = props.officialArt
-    const displayName = generateNameDisplay(speciesName, currentTagObj[speciesName])
+    const types = generateTyping(entryData, tagObj)
+    const primaryDivStyle = generatePrimaryDivStyling(types)
+    const leftFontStyle = generateFontStyle("left", types)
+    const rightFontStyle = generateFontStyle("right", types)
+    const displayName = generateNameDisplay(speciesName, tagObj)
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
-
-    const types = generateTyping(entryData, currentTagObj[speciesName])
-    const primaryDivStyling = generatePrimaryDivStyling(types)
-    const leftFontStyling = generateFontStyling("left", types)
-    const rightFontStyling = generateFontStyling("right", types)
     const abilities = generateAbilities(entryData)
     const baseStats = generateBaseStats(entryData)
-
-    return (
-        <div className="PrimaryDisplay" style={primaryDivStyling}>
+    
+    return ((
+        <div className="PrimaryDisplay" style={primaryDivStyle}>
             <div className="secondHandDiv">
                 <PictureDisplay 
-                    officialArt={officialArt} 
+                    id={props.id}
+                    tagObj={tagObj}
                     formTags={formTags} 
                     appearanceTags={appearanceTags}
                     types={types}
@@ -534,16 +554,21 @@ const PrimaryDisplay = (props) => {
                     speciesData={speciesData}
                     speciesName={speciesName}
                 />
-                <div className="nameDisplay" style={leftFontStyling}>{displayName}</div> 
+                <div className="nameDisplay" style={leftFontStyle}>{displayName}</div> 
             </div>
             <div className="secondHandDiv">
-                <TypingDisplay style={rightFontStyling} types={types}/>
-                <AbilityDisplay style={rightFontStyling} abilities={abilities} speciesName={speciesName}/>
+                <TypingDisplay style={rightFontStyle} types={types}/>
+                <AbilityDisplay 
+                    style={rightFontStyle}
+                    tagObj={tagObj} 
+                    abilities={abilities} 
+                    speciesName={speciesName}
+                />
                 <GenderDisplay speciesData={speciesData}/>
                 <StatsDisplay types={types} baseStats={baseStats}/>
             </div>
         </div>
-    )
+    ))
 }
 
 export default PrimaryDisplay

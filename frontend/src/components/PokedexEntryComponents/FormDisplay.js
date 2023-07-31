@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { RenderEntryFormContext } from "./EntryContent"
-import { CurrentTagObjContext } from "../../App" 
 import "./styles/FormDisplay.css"
 
 const generateMappedImage = (tag) => {
@@ -30,13 +29,14 @@ const generateShinyChoiceDiv = (t) => {
 }
 
 const FormDisplay = (props) => {
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
+    const tagObj = props.tagObj
+    const id = tagObj._id
     const formTags = props.formTags
     const appearanceTags = props.appearanceTags
     const speciesName = props.speciesName
-    const form = Number(currentTagObj[speciesName]["form"])
-    const hasGenderDiff = (currentTagObj[speciesName]["gender"] !== "n/a") && ((form <= 1010) || ([10235, 10025, 10186, 10248, 10254]).includes(form))
+    const form = Number(tagObj["form"])
+    const hasGenderDiff = (tagObj["gender"] !== "n/a") && ((form <= 1010) || ([10235, 10025, 10186, 10248, 10254]).includes(form))
 
 
 
@@ -51,12 +51,14 @@ const FormDisplay = (props) => {
                             <label key={"flabel"+index}>
                                 <input 
                                     key={"finput"+index} type="radio" id={t} value={t} 
-                                    checked={t === (currentTagObj[speciesName]["form"]).toString()} 
+                                    checked={t === (tagObj["form"]).toString()} 
                                     onChange={(e) => {
+                                        /*
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["form"] = e.target.id
                                         setCurrentTagObj(tagObj)
                                         setRenderEntryForm(!renderEntryForm)
+                                        */
                                     }}
                                 />
                                 <img 
@@ -80,12 +82,14 @@ const FormDisplay = (props) => {
                             <label key={"alabel"+index}>
                                 <input 
                                     key={"ainput"+index} type="radio" id={t} value={t} 
-                                    checked={t === (currentTagObj[speciesName]["appearance"]).toString()} 
+                                    checked={t === (tagObj["appearance"]).toString()} 
                                     onChange={(e) => {
+                                        /*
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["appearance"] = e.target.id
                                         setCurrentTagObj(tagObj)
                                         setRenderEntryForm(!renderEntryForm)
+                                        */
                                     }}
                                 />
                                 <img 
@@ -109,8 +113,9 @@ const FormDisplay = (props) => {
                             <label key={"glabel"+index}>
                                 <input 
                                     key={"ginput"+index} type="radio" id={t} value={t} 
-                                    checked={t === currentTagObj[speciesName]["gender"]} 
+                                    checked={t === tagObj["gender"]} 
                                     onChange={(e) => {
+                                        /*
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["gender"] = e.target.id
 
@@ -145,6 +150,7 @@ const FormDisplay = (props) => {
                                         }
                                         setCurrentTagObj(tagObj)
                                         setRenderEntryForm(!renderEntryForm)
+                                        */
                                     }}
                                 />
                                 {generateGenderChoiceDiv(t)}
@@ -163,13 +169,15 @@ const FormDisplay = (props) => {
                             <label key={"slabel"+index}>
                                 <input 
                                     key={"sinput"+index} type="radio" id={t} value={t} 
-                                    checked={t === currentTagObj[speciesName]["shiny"]} 
+                                    checked={t === tagObj["shiny"]} 
                                     onChange={(e) => {
+                                        /*
                                         const tagObj = currentTagObj
                                         tagObj[speciesName]["shiny"] = e.target.id
 
                                         setCurrentTagObj(tagObj)
                                         setRenderEntryForm(!renderEntryForm)
+                                        */
                                     }}
                                 />
                                 {generateShinyChoiceDiv(t)}

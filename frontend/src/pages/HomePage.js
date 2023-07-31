@@ -16,7 +16,6 @@ const HomePage = () => {
         .then((response) => response.json())
         .then((result) => {
           setPokemonDataArray(result.sort(compare))
-          console.log(result.sort(compare))
         })
     }, [])
    

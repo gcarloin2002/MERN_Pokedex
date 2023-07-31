@@ -291,6 +291,7 @@ const PokedexEntry = (props) => {
     return ((formTags && appearanceTags) && (
         <div>
             <EntryContent 
+                id={props.id}
                 dexNum={dexNum} 
                 pokemonData={pokemonData} 
                 formTags={formTags}

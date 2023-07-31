@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import { OpaqueContext } from './ButtonCollection';
-import { CurrentTagObjContext } from '../../App'; 
 import { generateImgSrc } from '../PokedexEntryComponents/PictureDisplay';
 import pokeballIcon from "./assets/pokeball-icon.png"
 import "./styles/DexButton.css"
@@ -79,23 +78,15 @@ export const generateSpeciesName = (name, dexNumber) => {
     }
 }
 
-export const generateUrlName = (speciesName) => {
-    if (speciesName.includes(' ')){
-        return speciesName.replace(" ", "_")
-    }
-    else {
-        return speciesName
-    }
-}
 
 export const DexButton = (props) => {
     const [opacity, setOpacity] = useContext(OpaqueContext);
-    const [currentTagObj, setCurrentTagObj] = useContext(CurrentTagObjContext)
     
+    const tagObj = props.tagObj
     const dexNumber = props.dexNumber
     const speciesName = props.speciesName
-    const imgSrc = generateImgSrc(currentTagObj[speciesName])
-    const urlName = generateUrlName(speciesName) 
+    const imgSrc = generateImgSrc(tagObj)
+    const urlName = speciesName.replace(" ", "_")
     const navigate = useNavigate()
 
     const handleClick = () => {
