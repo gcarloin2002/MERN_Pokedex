@@ -28,6 +28,19 @@ const generateShinyChoiceDiv = (t) => {
     else if (t === "t"){return (<div className="selectBox"><div className="shinyIcon"></div></div>)}
 }
 
+const patchRequest = async (id, newObj) => {
+    const response = await fetch("/api/data/" + id, {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json'
+        },                                                              
+        body: JSON.stringify(newObj)                                        
+    })
+    .then(resp => resp.json())
+    .catch(error => console.log(error))
+}
+
+
 const FormDisplay = (props) => {
     const [renderEntryForm, setRenderEntryForm] = useContext(RenderEntryFormContext)
     const tagObj = props.tagObj
@@ -53,12 +66,9 @@ const FormDisplay = (props) => {
                                     key={"finput"+index} type="radio" id={t} value={t} 
                                     checked={t === (tagObj["form"]).toString()} 
                                     onChange={(e) => {
-                                        /*
-                                        const tagObj = currentTagObj
-                                        tagObj[speciesName]["form"] = e.target.id
-                                        setCurrentTagObj(tagObj)
+                                        const newObj = {form: e.target.id}
+                                        patchRequest(id, newObj)
                                         setRenderEntryForm(!renderEntryForm)
-                                        */
                                     }}
                                 />
                                 <img 
@@ -84,12 +94,9 @@ const FormDisplay = (props) => {
                                     key={"ainput"+index} type="radio" id={t} value={t} 
                                     checked={t === (tagObj["appearance"]).toString()} 
                                     onChange={(e) => {
-                                        /*
-                                        const tagObj = currentTagObj
-                                        tagObj[speciesName]["appearance"] = e.target.id
-                                        setCurrentTagObj(tagObj)
+                                        const newObj = {appearance: e.target.id}
+                                        patchRequest(id, newObj)
                                         setRenderEntryForm(!renderEntryForm)
-                                        */
                                     }}
                                 />
                                 <img 
@@ -115,42 +122,38 @@ const FormDisplay = (props) => {
                                     key={"ginput"+index} type="radio" id={t} value={t} 
                                     checked={t === tagObj["gender"]} 
                                     onChange={(e) => {
-                                        /*
-                                        const tagObj = currentTagObj
-                                        tagObj[speciesName]["gender"] = e.target.id
-
+                                        const newObj = {gender: e.target.id}
                                         // Changes Forms when gender changes
                                         if (["Meowstic", "Indeedee", "Basculegion", "Oinkologne"].includes(speciesName)) {
-                                            switch (tagObj[speciesName]["form"]) {
+                                            switch (tagObj["form"]) {
                                                 case "678":
-                                                    tagObj[speciesName]["form"] = "10025"
+                                                    newObj["form"] = "10025"
                                                     break
                                                 case "876":
-                                                    tagObj[speciesName]["form"] = "10186"
+                                                    newObj["form"] = "10186"
                                                     break
                                                 case "902":
-                                                    tagObj[speciesName]["form"] = "10248"
+                                                    newObj["form"] = "10248"
                                                     break
                                                 case "916":
-                                                    tagObj[speciesName]["form"] = "10254"
+                                                    newObj["form"] = "10254"
                                                     break
                                                 case "10025":
-                                                    tagObj[speciesName]["form"] = "678"
+                                                    newObj["form"] = "678"
                                                     break
                                                 case "10186":
-                                                    tagObj[speciesName]["form"] = "876"
+                                                    newObj["form"] = "876"
                                                     break
                                                 case "10248":
-                                                    tagObj[speciesName]["form"] = "902"
+                                                    newObj["form"] = "902"
                                                     break
                                                 case "10254":
-                                                    tagObj[speciesName]["form"] = "916"
+                                                    newObj["form"] = "916"
                                                     break
                                             }
                                         }
-                                        setCurrentTagObj(tagObj)
+                                        patchRequest(id, newObj)
                                         setRenderEntryForm(!renderEntryForm)
-                                        */
                                     }}
                                 />
                                 {generateGenderChoiceDiv(t)}
@@ -171,13 +174,9 @@ const FormDisplay = (props) => {
                                     key={"sinput"+index} type="radio" id={t} value={t} 
                                     checked={t === tagObj["shiny"]} 
                                     onChange={(e) => {
-                                        /*
-                                        const tagObj = currentTagObj
-                                        tagObj[speciesName]["shiny"] = e.target.id
-
-                                        setCurrentTagObj(tagObj)
+                                        const newObj = {shiny: e.target.id}
+                                        patchRequest(id, newObj)
                                         setRenderEntryForm(!renderEntryForm)
-                                        */
                                     }}
                                 />
                                 {generateShinyChoiceDiv(t)}
